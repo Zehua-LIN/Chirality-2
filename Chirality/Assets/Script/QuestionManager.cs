@@ -96,7 +96,7 @@ public class QuestionManager : MonoBehaviour {
 	}
 
 	void checkAnswer() {
-		// check for empty slots
+		// check for empty slots, return if there is empty one
 		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
 			if(currentQuestion.transform.GetChild(i).childCount == 0) {
 				return;
