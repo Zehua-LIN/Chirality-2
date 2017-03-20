@@ -5,6 +5,7 @@ using LitJson;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// to keep track of the game status
 public enum gameStatus
 { InGame, InHelp, InCheck, InAnswer }
 
