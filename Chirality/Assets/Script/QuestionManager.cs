@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.IO;
 using LitJson;
@@ -20,6 +21,7 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] Text questionName;
 	[SerializeField] Text scoreNumberLabel;
 	[SerializeField] Button displayAnswerButton;
+	[SerializeField] GameObject helpPanel;
 
 	private int score = 0;
 	private GameObject currentQuestion;
@@ -48,15 +50,28 @@ public class QuestionManager : MonoBehaviour {
 		}else if (Instance != this) {
 			Destroy(gameObject);
 		}
-
-		displayAnswerButton.gameObject.SetActive(false);
 	}
 
 
 	void Start () {
-		// Debug.Log(Application.persistentDataPath);
-		// Debug.Log(Application.dataPath);
-		questionData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/JsonDatabase/Questions.json"));
+		helpPanel.SetActive(false);
+		displayAnswerButton.gameObject.SetActive(false);
+		
+		string path = "";
+		if(Application.platform == RuntimePlatform.Android) {
+			string oriPath = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
+			WWW reader = new WWW(oriPath);
+			while(!reader.isDone) {}
+
+			string realPath = Application.persistentDataPath + "/Questions";
+  			System.IO.File.WriteAllBytes(realPath, reader.bytes);
+
+			path = realPath;
+		}else {
+			path = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
+		}
+		
+		questionData = JsonMapper.ToObject(File.ReadAllText(path));
 		loadQuestions();
 		
 		randomQuestionToDisplay();		
@@ -95,6 +110,9 @@ public class QuestionManager : MonoBehaviour {
 
 		}
 	}
+
+
+
 
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
@@ -136,6 +154,10 @@ public class QuestionManager : MonoBehaviour {
 	// switch to the main scene
 	public void homeButtonPressed() {
 		SceneManager.LoadScene("MainScene");
+	}
+
+	public void toggleHelpPanel() {
+		helpPanel.SetActive(!helpPanel.activeInHierarchy);
 	}
 	
 }
