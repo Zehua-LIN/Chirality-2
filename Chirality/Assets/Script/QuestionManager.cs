@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.IO;
 using LitJson;
@@ -55,10 +56,22 @@ public class QuestionManager : MonoBehaviour {
 	void Start () {
 		helpPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
+		
+		string path = "";
+		if(Application.platform == RuntimePlatform.Android) {
+			string oriPath = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
+			WWW reader = new WWW(oriPath);
+			while(!reader.isDone) {}
 
-		// Debug.Log(Application.persistentDataPath);
-		// Debug.Log(Application.dataPath);
-		questionData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/JsonDatabase/Questions.json"));
+			string realPath = Application.persistentDataPath + "/Questions";
+  			System.IO.File.WriteAllBytes(realPath, reader.bytes);
+
+			path = realPath;
+		}else {
+			path = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
+		}
+		
+		questionData = JsonMapper.ToObject(File.ReadAllText(path));
 		loadQuestions();
 		
 		randomQuestionToDisplay();		
