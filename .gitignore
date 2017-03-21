@@ -3,8 +3,7 @@
 /*/
 
 # Inverse ignore some stuff
-!/Assets/
-!/StreamingAssets/
+!/Assets/StreamingAssets/
 !/ProjectSettings/
 !.gitignore
 
