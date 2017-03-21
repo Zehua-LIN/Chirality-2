@@ -20,6 +20,7 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] Text questionName;
 	[SerializeField] Text scoreNumberLabel;
 	[SerializeField] Button displayAnswerButton;
+	[SerializeField] GameObject helpPanel;
 
 	private int score = 0;
 	private GameObject currentQuestion;
@@ -48,12 +49,13 @@ public class QuestionManager : MonoBehaviour {
 		}else if (Instance != this) {
 			Destroy(gameObject);
 		}
-
-		displayAnswerButton.gameObject.SetActive(false);
 	}
 
 
 	void Start () {
+		helpPanel.SetActive(false);
+		displayAnswerButton.gameObject.SetActive(false);
+
 		// Debug.Log(Application.persistentDataPath);
 		// Debug.Log(Application.dataPath);
 		questionData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/JsonDatabase/Questions.json"));
@@ -96,6 +98,9 @@ public class QuestionManager : MonoBehaviour {
 		}
 	}
 
+
+
+
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
 		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
@@ -136,6 +141,10 @@ public class QuestionManager : MonoBehaviour {
 	// switch to the main scene
 	public void homeButtonPressed() {
 		SceneManager.LoadScene("MainScene");
+	}
+
+	public void toggleHelpPanel() {
+		helpPanel.SetActive(!helpPanel.activeInHierarchy);
 	}
 	
 }
