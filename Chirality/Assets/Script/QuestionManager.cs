@@ -177,6 +177,7 @@ public class QuestionManager : MonoBehaviour {
 		}else {
 			// go to game over scene 
 			Debug.Log("No more questions");
+			SceneManager.LoadScene("Game_Over_Scene");
 		}
 	}
 
