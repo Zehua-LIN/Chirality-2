@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 // to keep track of the game status
 public enum gameStatus
-{ InGame, InHelp, InCheck, InAnswer }
+{ InGame, InHelp, InCheck, InFunFact }
 
 public class QuestionManager : MonoBehaviour {
 
@@ -17,14 +17,18 @@ public class QuestionManager : MonoBehaviour {
 	private List<Question> questions = new List<Question>();
 	private JsonData questionData;
 	[SerializeField] GameObject[] questionObjects;
+	[SerializeField] GameObject[] questionAnswerObjects;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text questionName;
 	[SerializeField] Text scoreNumberLabel;
 	[SerializeField] Button displayAnswerButton;
 	[SerializeField] GameObject helpPanel;
+	[SerializeField] GameObject funFactPanel;
+	[SerializeField] Text funFactPanelText;
 
 	private int score = 0;
 	private GameObject currentQuestion;
+	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
 	private gameStatus currentStatus = gameStatus.InGame;
 	public gameStatus CurrentStatus {
@@ -55,6 +59,7 @@ public class QuestionManager : MonoBehaviour {
 
 	void Start () {
 		helpPanel.SetActive(false);
+		funFactPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
 		
 		string path = "";
@@ -65,7 +70,6 @@ public class QuestionManager : MonoBehaviour {
 
 			string realPath = Application.persistentDataPath + "/Questions";
   			System.IO.File.WriteAllBytes(realPath, reader.bytes);
-
 			path = realPath;
 		}else {
 			path = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
@@ -73,23 +77,25 @@ public class QuestionManager : MonoBehaviour {
 		
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
 		loadQuestions();
-		
-		randomQuestionToDisplay();		
+		instantiateRandomQuestionToDisplay();		
+
 	}
 
 	// create the Question objects from the Questions.json and append them to the List<Question>
 	void loadQuestions() {
 		for (int i = 0; i < questionData.Count; i++){
-			questions.Add(new Question((int)questionData[i]["id"],(int)questionData[i]["level"],(string)questionData[i]["code"],(string)questionData[i]["name"],(int)questionData[i]["numberOfCells"],questionObjects[i],convertArray(questionData,i)));
+			questions.Add(new Question((int)questionData[i]["id"],(int)questionData[i]["level"],(string)questionData[i]["code"],(string)questionData[i]["name"],(int)questionData[i]["numberOfCells"],(string)questionData[i]["facts"][Random.Range(0,10)],questionObjects[i],questionAnswerObjects[i],convertArray(questionData,i)));
 		}
 	}
 
 	// pick a random question from the List<Question> and display it
-	void randomQuestionToDisplay() {
+	void instantiateRandomQuestionToDisplay() {
 		int randomNum = Random.Range(0,questions.Count);
-		currentQuestion = Instantiate(questions[randomNum].gameObj,canvas.transform,false);
 		currentQuestionObject = questions[randomNum]; 
-		questionName.text = questions[randomNum].name;
+		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);
+		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
+		questionName.text = currentQuestionObject.name;
+		currentQuestionAnswer.SetActive(false);
 		
 		// change the game status and deactivate the answer button
 		currentStatus = gameStatus.InGame;
@@ -101,12 +107,8 @@ public class QuestionManager : MonoBehaviour {
 		if(currentStatus == gameStatus.InGame) {
 			checkAnswer();
 		}else if(currentStatus == gameStatus.InCheck) {
-			Destroy(currentQuestion);
-			questions.Remove(currentQuestionObject);
-			randomQuestionToDisplay();
-		}else if(currentStatus == gameStatus.InHelp) {
-
-		}else if (currentStatus == gameStatus.InAnswer) {
+			displayFunFact();
+		}else if (currentStatus == gameStatus.InFunFact) {
 
 		}
 	}
@@ -142,7 +144,7 @@ public class QuestionManager : MonoBehaviour {
 		Score++;
 	}
 
-	// helper methos to convert json array to normal array
+	// helper methos to convert json array to normal List
 	List<string> convertArray(JsonData ary, int index) {
 		List<string> temp = new List<string>();
 		for(int i = 0; i < (int)ary[index]["numberOfCells"]; i++) {
@@ -159,6 +161,32 @@ public class QuestionManager : MonoBehaviour {
 	public void toggleHelpPanel() {
 		helpPanel.SetActive(!helpPanel.activeInHierarchy);
 	}
+
+	public void toggleAnswer() {
+		currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
+		currentQuestionAnswer.SetActive(!currentQuestionAnswer.activeInHierarchy);		
+	}
+
+	public void funFactPanelTouched() {
+		if(questions.Count > 1) {
+			Destroy(currentQuestion);
+			Destroy(currentQuestionAnswer);
+			questions.Remove(currentQuestionObject);
+			funFactPanel.SetActive(false);
+			instantiateRandomQuestionToDisplay();
+		}else {
+			// go to game over scene 
+			Debug.Log("No more questions");
+		}
+	}
+
+	void displayFunFact() {
+		funFactPanelText.text = currentQuestionObject.funFact;
+		funFactPanel.SetActive(true);
+		currentStatus = gameStatus.InFunFact;
+	}
+
+	
 	
 }
 
