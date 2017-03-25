@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 // to keep track of the game status
 public enum gameStatus
-{ InGame, InHelp, InCheck, InFunFact }
+{ InGame, InCheck, InFunFact }
 
 public class QuestionManager : MonoBehaviour {
 
@@ -19,6 +19,7 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] GameObject[] questionObjects;
 	[SerializeField] GameObject[] questionAnswerObjects;
 	[SerializeField] Canvas canvas;
+	[SerializeField] Text gameTitle;
 	[SerializeField] Text questionName;
 	[SerializeField] Text scoreNumberLabel;
 	[SerializeField] Button displayAnswerButton;
@@ -58,6 +59,9 @@ public class QuestionManager : MonoBehaviour {
 
 
 	void Start () {
+		// for testing
+		// PlayerPrefs.DeleteAll();
+
 		helpPanel.SetActive(false);
 		funFactPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
@@ -176,7 +180,17 @@ public class QuestionManager : MonoBehaviour {
 			instantiateRandomQuestionToDisplay();
 		}else {
 			// go to game over scene 
-			Debug.Log("No more questions");
+			PlayerPrefs.SetString("Game_Title",gameTitle.text);
+
+			if(!PlayerPrefs.HasKey("Level_One_High_Percentage")) {
+				PlayerPrefs.SetFloat("Level_One_High_Percentage",0f);
+			}
+
+			float percetange = score/40f;
+			PlayerPrefs.SetInt("Score",score);
+			PlayerPrefs.SetFloat("Percentage",percetange);
+			
+			
 			SceneManager.LoadScene("Game_Over_Scene");
 		}
 	}
