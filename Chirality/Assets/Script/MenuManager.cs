@@ -28,9 +28,6 @@ public class MenuManager : MonoBehaviour {
 		loadUserSetting();
 		
 		
-		
-
-		
 	}
 
 	void loadUserSetting() {
