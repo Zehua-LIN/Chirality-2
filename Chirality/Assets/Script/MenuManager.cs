@@ -9,26 +9,25 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] GameObject settingPanel;
 	[SerializeField] GameObject infoPanel;
 	[SerializeField] GameObject backgroundMusic;	// this is the prefab
+	[SerializeField] GameObject soundEffect;
 	[SerializeField] Toggle backgroundMusicToggle;
 	[SerializeField] Toggle soundEffectToggle;
 	[SerializeField] Toggle leftHandModeToggle;
-
 	[SerializeField] Button levelTwoButton;
 	[SerializeField] GameObject levelTwoPanel;
-
 	[SerializeField] Animator scrollAnimation;
 
 	private GameObject backgroundMusicObject = null;	// this is the actual audio object in game
-
+	private GameObject soundEffectObject = null;
 
 	void Start() {
 		settingPanel.SetActive(false);
 		hideLevelTwoPanel();
 		
 		loadUserSetting();
-		
-		
+			
 	}
+
 
 	void loadUserSetting() {
 		// read user setting
@@ -36,18 +35,18 @@ public class MenuManager : MonoBehaviour {
 		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",true);
 		leftHandModeToggle.isOn = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 
-
-		configureMusic();
+		configureBackgroundMusic();
+		configureSoundEffect();
 	}
 
 	public void loadGame(string level) {
 		SceneManager.LoadScene(level);
-		// configureMusic();
 	}
 
 	public void saveUserSetting(Toggle toggle) {
 		PlayerPrefsX.SetBool(toggle.gameObject.name,toggle.isOn);
-		configureMusic();
+		configureBackgroundMusic();
+		configureSoundEffect();
 	}
 
 	public void toggleSetting() {
@@ -72,8 +71,7 @@ public class MenuManager : MonoBehaviour {
 		scrollAnimation.Stop();
 	}
 
-	void configureMusic() {
-
+	void configureBackgroundMusic() {
 		// assign the audio object to local
 		if(backgroundMusicObject == null && GameObject.Find("BackgroundMusic(Clone)")) {
 				backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
@@ -89,13 +87,20 @@ public class MenuManager : MonoBehaviour {
 				Destroy(backgroundMusicObject);
 			}
 		}
+	}
 
-		if(soundEffectToggle.isOn) {
-			
+	void configureSoundEffect() {
+		if(soundEffectObject == null && GameObject.Find("SoundEffect(Clone)")) {
+			soundEffectObject = GameObject.Find("SoundEffect(Clone)");
+		}
 
-		}else {
-			// mute sound effect 
-
+		if(soundEffectToggle.isOn && !GameObject.Find("SoundEffect(Clone)")) {
+			soundEffectObject = Instantiate(soundEffect,Vector3.zero,Quaternion.identity);
+			DontDestroyOnLoad(soundEffectObject);
+		}else if(!soundEffectToggle.isOn) {
+			if(soundEffectObject != null) {
+				Destroy(soundEffectObject);
+			}
 		}
 	}
 }

@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 40
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2668,10 +2668,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 30
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2716,6 +2716,8 @@ MonoBehaviour:
   settingPanel: {fileID: 584684036}
   infoPanel: {fileID: 1544404474}
   backgroundMusic: {fileID: 1000739782297756, guid: 80ca6252013a44d1d964c0087184dbe6,
+    type: 2}
+  soundEffect: {fileID: 1932127829775394, guid: 17c5122e5f9ad41faadc83cba6925a2f,
     type: 2}
   backgroundMusicToggle: {fileID: 477175943}
   soundEffectToggle: {fileID: 906777099}
@@ -3835,7 +3837,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112380260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1289703134}
+        m_MethodName: loadGame
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level_Three_Scene
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2112380260

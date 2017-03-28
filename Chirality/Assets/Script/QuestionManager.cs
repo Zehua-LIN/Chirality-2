@@ -31,6 +31,7 @@ public class QuestionManager : MonoBehaviour {
 	private int score = 0;
 	private int numberOfQuestionsAnswred = 0;
 	private float totalNumberOfCells = 0f;
+	private bool soundEffectToggle;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
@@ -76,6 +77,8 @@ public class QuestionManager : MonoBehaviour {
 		instantiateRandomQuestionToDisplay();		
 
 	}
+
+	
 
 	// create the Question objects from the Questions.json and append them to the List<Question>
 	void loadQuestions() {

@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] Image[] medals;
 	[SerializeField] GameObject infoPanel;
 	[SerializeField] Canvas canvas;
-
+	
 	private string title = "";
 	private int score = 0;
 	private float percentage = 0f;
@@ -23,6 +23,7 @@ public class GameOverManager : MonoBehaviour {
 	void Start () {
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
+		
 		
 		loadRecords();
 		displayRecord();
