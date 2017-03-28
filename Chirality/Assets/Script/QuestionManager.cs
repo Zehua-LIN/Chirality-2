@@ -25,11 +25,12 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] GameObject funFactPanel;
 	[SerializeField] Text funFactPanelText;
 	[SerializeField] int gameLevel;
-	[SerializeField] float totalNumberOfCells;
 
 	private List<Question> questions = new List<Question>();
 	private JsonData questionData;
 	private int score = 0;
+	private int numberOfQuestionsAnswred = 0;
+	private float totalNumberOfCells = 0f;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
@@ -85,12 +86,13 @@ public class QuestionManager : MonoBehaviour {
 
 	// pick a random question from the List<Question> and display it
 	void instantiateRandomQuestionToDisplay() {
-		int randomNum = Random.Range(0,questions.Count);
+		int randomNum = Random.Range(0,questions.Count); // random a question
 		currentQuestionObject = questions[randomNum]; 
-		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);
+		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
 		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
-		questionName.text = currentQuestionObject.name;
 		currentQuestionAnswer.SetActive(false);
+		questionName.text = currentQuestionObject.name;
+		totalNumberOfCells += currentQuestionObject.numberOfCells; // record the number of cells for calculating result
 		
 		// change the game status and deactivate the answer button
 		currentStatus = gameStatus.InGame;
@@ -103,13 +105,8 @@ public class QuestionManager : MonoBehaviour {
 			checkAnswer();
 		}else if(currentStatus == gameStatus.InCheck) {
 			displayFunFact();
-		}else if (currentStatus == gameStatus.InFunFact) {
-
 		}
 	}
-
-
-
 
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
@@ -121,7 +118,8 @@ public class QuestionManager : MonoBehaviour {
 
 		// change the game status
 		currentStatus = gameStatus.InCheck;
-		displayAnswerButton.gameObject.SetActive(true);
+		displayAnswerButton.gameObject.SetActive(true); 
+		numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
 		// loop through the slots and check answer
 		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
@@ -163,7 +161,7 @@ public class QuestionManager : MonoBehaviour {
 	}
 
 	public void funFactPanelTouched() {
-		if(questions.Count > 1) {
+		if(numberOfQuestionsAnswred < 5) {
 			Destroy(currentQuestion);
 			Destroy(currentQuestionAnswer);
 			questions.Remove(currentQuestionObject);

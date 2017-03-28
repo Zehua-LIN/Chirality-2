@@ -10,7 +10,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	
 	// this method is called when you start dragging
 	public void OnBeginDrag (PointerEventData eventData){
-		Debug.Log(QuestionManager.Instance.CurrentStatus);
+		
 		if(QuestionManager.Instance.CurrentStatus != gameStatus.InGame) {
 			return;
 		}
