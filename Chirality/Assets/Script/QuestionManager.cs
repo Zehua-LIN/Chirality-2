@@ -75,7 +75,6 @@ public class QuestionManager : MonoBehaviour {
 
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();		
-
 	}
 
 	

@@ -1195,6 +1195,25 @@ Prefab:
       objectReference: {fileID: 2127162323}
     - target: {fileID: 1148242464541148, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114861389532680452, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114861389532680452, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114861389532680452, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256072141016550, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1761,7 +1780,6 @@ MonoBehaviour:
   funFactPanel: {fileID: 1447788450}
   funFactPanelText: {fileID: 1447788452}
   gameLevel: 3
-  soundEffect: {fileID: 8300000, guid: 2d057d2b060e24ac2b0f9362aac7d021, type: 3}
 --- !u!4 &2127162324
 Transform:
   m_ObjectHideFlags: 0
