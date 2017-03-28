@@ -795,6 +795,8 @@ MonoBehaviour:
   helpPanel: {fileID: 31979350}
   funFactPanel: {fileID: 1296002564}
   funFactPanelText: {fileID: 1299130029}
+  gameLevel: 1
+  totalNumberOfCells: 40
 --- !u!4 &702310149
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ TagManager:
   - ether
   - phenol
   - thioether
+  - ionic
+  - H-bonding
+  - dipole-dipole
+  - van der Waal's
   layers:
   - Default
   - TransparentFX

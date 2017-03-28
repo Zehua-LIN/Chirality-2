@@ -14,8 +14,6 @@ public class QuestionManager : MonoBehaviour {
 
 	public static QuestionManager Instance = null;
 
-	private List<Question> questions = new List<Question>();
-	private JsonData questionData;
 	[SerializeField] GameObject[] questionObjects;
 	[SerializeField] GameObject[] questionAnswerObjects;
 	[SerializeField] Canvas canvas;
@@ -26,8 +24,13 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] GameObject helpPanel;
 	[SerializeField] GameObject funFactPanel;
 	[SerializeField] Text funFactPanelText;
+	[SerializeField] int gameLevel;
 
+	private List<Question> questions = new List<Question>();
+	private JsonData questionData;
 	private int score = 0;
+	private int numberOfQuestionsAnswred = 0;
+	private float totalNumberOfCells = 0f;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
@@ -66,20 +69,9 @@ public class QuestionManager : MonoBehaviour {
 		funFactPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
 		
-		string path = "";
-		if(Application.platform == RuntimePlatform.Android) {
-			string oriPath = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
-			WWW reader = new WWW(oriPath);
-			while(!reader.isDone) {}
-
-			string realPath = Application.persistentDataPath + "/Questions";
-  			System.IO.File.WriteAllBytes(realPath, reader.bytes);
-			path = realPath;
-		}else {
-			path = System.IO.Path.Combine(Application.streamingAssetsPath, "Questions.json");
-		}
-		
+		string path = readJsonData(gameLevel);	
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
+
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();		
 
@@ -94,12 +86,13 @@ public class QuestionManager : MonoBehaviour {
 
 	// pick a random question from the List<Question> and display it
 	void instantiateRandomQuestionToDisplay() {
-		int randomNum = Random.Range(0,questions.Count);
+		int randomNum = Random.Range(0,questions.Count); // random a question
 		currentQuestionObject = questions[randomNum]; 
-		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);
+		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
 		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
-		questionName.text = currentQuestionObject.name;
 		currentQuestionAnswer.SetActive(false);
+		questionName.text = currentQuestionObject.name;
+		totalNumberOfCells += currentQuestionObject.numberOfCells; // record the number of cells for calculating result
 		
 		// change the game status and deactivate the answer button
 		currentStatus = gameStatus.InGame;
@@ -112,13 +105,8 @@ public class QuestionManager : MonoBehaviour {
 			checkAnswer();
 		}else if(currentStatus == gameStatus.InCheck) {
 			displayFunFact();
-		}else if (currentStatus == gameStatus.InFunFact) {
-
 		}
 	}
-
-
-
 
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
@@ -130,7 +118,8 @@ public class QuestionManager : MonoBehaviour {
 
 		// change the game status
 		currentStatus = gameStatus.InCheck;
-		displayAnswerButton.gameObject.SetActive(true);
+		displayAnswerButton.gameObject.SetActive(true); 
+		numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
 		// loop through the slots and check answer
 		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
@@ -172,7 +161,7 @@ public class QuestionManager : MonoBehaviour {
 	}
 
 	public void funFactPanelTouched() {
-		if(questions.Count > 1) {
+		if(numberOfQuestionsAnswred < 5) {
 			Destroy(currentQuestion);
 			Destroy(currentQuestionAnswer);
 			questions.Remove(currentQuestionObject);
@@ -181,16 +170,25 @@ public class QuestionManager : MonoBehaviour {
 		}else {
 			// go to game over scene 
 			PlayerPrefs.SetString("Game_Title",gameTitle.text);
-
-			if(!PlayerPrefs.HasKey("Level_One_High_Percentage")) {
-				PlayerPrefs.SetFloat("Level_One_High_Percentage",0f);
-			}
-
-			float percetange = score/40f;
+			float percetange = Mathf.Round((score/totalNumberOfCells)*100) / 100f;
 			PlayerPrefs.SetInt("Score",score);
 			PlayerPrefs.SetFloat("Percentage",percetange);
-			
-			
+
+			switch (gameLevel)
+			{
+				case 1:
+					if(!PlayerPrefs.HasKey("Level_One_High_Percentage")) {
+						PlayerPrefs.SetFloat("Level_One_High_Percentage",0f);
+					}
+					break;
+				case 3:
+					if(!PlayerPrefs.HasKey("Level_Three_High_Percentage")) {
+						PlayerPrefs.SetFloat("Level_Three_High_Percentage",0f);
+					}
+					break;
+				default:
+					break;
+			}
 			SceneManager.LoadScene("Game_Over_Scene");
 		}
 	}
@@ -199,6 +197,39 @@ public class QuestionManager : MonoBehaviour {
 		funFactPanelText.text = currentQuestionObject.funFact;
 		funFactPanel.SetActive(true);
 		currentStatus = gameStatus.InFunFact;
+	}
+
+	string readJsonData(int level) {
+		string path = "";
+		string fileName;
+
+		switch (level)
+		{
+			case 1:
+				fileName = "Level_One_Questions.json";
+				break;
+			case 3:
+				fileName = "Level_Three_Questions.json";
+				break;
+			default:
+				fileName = "";
+				break;
+		}
+
+		var temp = fileName.Split("."[0]);
+
+		if(Application.platform == RuntimePlatform.Android) {
+			string oriPath = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
+			WWW reader = new WWW(oriPath);
+			while(!reader.isDone) {}
+
+			string realPath = Application.persistentDataPath + "/" + temp[0];
+  			System.IO.File.WriteAllBytes(realPath, reader.bytes);
+			path = realPath;
+		}else {
+			path = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
+		}
+		return path;
 	}
 
 	

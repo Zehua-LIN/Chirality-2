@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
@@ -11,7 +10,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	
 	// this method is called when you start dragging
 	public void OnBeginDrag (PointerEventData eventData){
-
+		
 		if(QuestionManager.Instance.CurrentStatus != gameStatus.InGame) {
 			return;
 		}
