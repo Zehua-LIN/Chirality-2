@@ -16,6 +16,7 @@ public class QuestionManager : MonoBehaviour {
 
 	[SerializeField] GameObject[] questionObjects;
 	[SerializeField] GameObject[] questionAnswerObjects;
+	[SerializeField] GameObject deck;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text gameTitle;
 	[SerializeField] Text questionName;
@@ -32,6 +33,7 @@ public class QuestionManager : MonoBehaviour {
 	private int numberOfQuestionsAnswred = 0;
 	private float totalNumberOfCells = 0f;
 	private bool soundEffectToggle;
+	private bool leftHandMode;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
@@ -65,10 +67,13 @@ public class QuestionManager : MonoBehaviour {
 	void Start () {
 		// for testing
 		// PlayerPrefs.DeleteAll();
-
 		helpPanel.SetActive(false);
 		funFactPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
+		leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
+		if(leftHandMode) {
+			deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x,0);
+		}
 		
 		string path = readJsonData(gameLevel);	
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -92,6 +97,10 @@ public class QuestionManager : MonoBehaviour {
 		currentQuestionObject = questions[randomNum]; 
 		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
 		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
+		if(leftHandMode) {
+			currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x,0);
+			currentQuestionAnswer.transform.localPosition = new Vector2(-currentQuestionAnswer.transform.localPosition.x,0);
+		}
 		currentQuestionAnswer.SetActive(false);
 		questionName.text = currentQuestionObject.name;
 		totalNumberOfCells += currentQuestionObject.numberOfCells; // record the number of cells for calculating result

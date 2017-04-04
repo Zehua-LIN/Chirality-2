@@ -599,6 +599,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c99251e7c45fe4f788676e8612837409, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &667224758 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1257963756330072, guid: c99251e7c45fe4f788676e8612837409,
+    type: 2}
+  m_PrefabInternal: {fileID: 667224757}
 --- !u!1 &900482756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1776,7 @@ MonoBehaviour:
   - {fileID: 1935063374208676, guid: 8c958276de4e149a2bbdeb6f9f488378, type: 2}
   - {fileID: 1144883518100814, guid: 5f611b9208383446c9490ba807d0d8ab, type: 2}
   - {fileID: 1304762770338976, guid: 2ff1f4bdaec69421daf1893f6178f13a, type: 2}
+  deck: {fileID: 667224758}
   canvas: {fileID: 1879244913}
   gameTitle: {fileID: 98216297}
   questionName: {fileID: 992269392}

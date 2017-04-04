@@ -151,7 +151,7 @@ Prefab:
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
@@ -171,7 +171,7 @@ Prefab:
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
@@ -181,7 +181,7 @@ Prefab:
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224155133529071366, guid: 2029638093556421892dece5617cfefa,
         type: 2}
@@ -501,6 +501,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2029638093556421892dece5617cfefa, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &112020920 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1735058367842090, guid: 2029638093556421892dece5617cfefa,
+    type: 2}
+  m_PrefabInternal: {fileID: 112020919}
 --- !u!1 &158409557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1077,7 @@ MonoBehaviour:
   - {fileID: 1515919728300578, guid: 516e9a8bf588b467aad993080688d35c, type: 2}
   - {fileID: 1358394785550620, guid: 4f8b453f79c8f482e8777923d9a7a52f, type: 2}
   - {fileID: 1763702620356866, guid: 55a9932c4f64a4023861cfa675734c56, type: 2}
+  deck: {fileID: 112020920}
   canvas: {fileID: 199823974}
   gameTitle: {fileID: 1259120752}
   questionName: {fileID: 1159425134}
