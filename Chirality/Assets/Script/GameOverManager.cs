@@ -14,6 +14,7 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] Image[] medals;
 	[SerializeField] GameObject infoPanel;
 	[SerializeField] Canvas canvas;
+	[SerializeField] Text goodEffortLabel;
 	
 	private string title = "";
 	private int score = 0;
@@ -61,18 +62,23 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndComment() {
 		if(percentage < 0.5f) {
 			instantiateMedal(0);
+			goodEffortLabel.text = "Good Effort!";
 			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.5f && percentage <= 0.69f) {
 			instantiateMedal(1);
+			goodEffortLabel.text = "Nice try!";
 			percentageLabel.text = "You joined tin and copper with " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.7f && percentage <= 0.89f) {
 			instantiateMedal(2);
+			goodEffortLabel.text = "Great work!";
 			percentageLabel.text = "With that sterling effort you got " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.9f && percentage <= 0.99f) {
 			instantiateMedal(3);
+			goodEffortLabel.text = "Well done!";
 			percentageLabel.text = "Your chemistry prowess is gold standard. You got " + (percentage * 100).ToString() + "%.";
 		}else {
 			instantiateMedal(4);
+			goodEffortLabel.text = "Congratulations!";
 			percentageLabel.text = "Your knowledge is obviously crystal clear. You got " + (percentage * 100).ToString() + "%.";
 		}
 	}

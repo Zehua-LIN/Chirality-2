@@ -1640,7 +1640,7 @@ MonoBehaviour:
   - {fileID: 114259979759441288, guid: 491619a972c1e46eb8ccbff9ce0573cc, type: 2}
   infoPanel: {fileID: 564643456}
   canvas: {fileID: 1657995122}
-  soundEffect: {fileID: 8300000, guid: 2d057d2b060e24ac2b0f9362aac7d021, type: 3}
+  goodEffortLabel: {fileID: 869566437}
 --- !u!1001 &1226369707
 Prefab:
   m_ObjectHideFlags: 0
