@@ -1087,6 +1087,7 @@ MonoBehaviour:
   funFactPanel: {fileID: 1296002564}
   funFactPanelText: {fileID: 1299130029}
   gameLevel: 1
+  nextButton: {fileID: 1042360486}
 --- !u!4 &702310149
 Transform:
   m_ObjectHideFlags: 0
@@ -1441,9 +1442,20 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114124451657758604, guid: 201c3efd231c94a9895be8daecfcf066,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 201c3efd231c94a9895be8daecfcf066, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1042360486 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114671256863549016, guid: 201c3efd231c94a9895be8daecfcf066,
+    type: 2}
+  m_PrefabInternal: {fileID: 1042360485}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1159425132
 GameObject:
   m_ObjectHideFlags: 0

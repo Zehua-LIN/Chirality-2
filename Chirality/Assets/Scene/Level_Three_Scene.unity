@@ -1525,6 +1525,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224226865256987692, guid: 201c3efd231c94a9895be8daecfcf066,
     type: 2}
   m_PrefabInternal: {fileID: 1969485270}
+--- !u!114 &1969485272 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114671256863549016, guid: 201c3efd231c94a9895be8daecfcf066,
+    type: 2}
+  m_PrefabInternal: {fileID: 1969485270}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &2019046053
 Prefab:
   m_ObjectHideFlags: 0
@@ -1786,6 +1792,7 @@ MonoBehaviour:
   funFactPanel: {fileID: 1447788450}
   funFactPanelText: {fileID: 1447788452}
   gameLevel: 3
+  nextButton: {fileID: 1969485272}
 --- !u!4 &2127162324
 Transform:
   m_ObjectHideFlags: 0

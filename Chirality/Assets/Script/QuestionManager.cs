@@ -26,6 +26,7 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] GameObject funFactPanel;
 	[SerializeField] Text funFactPanelText;
 	[SerializeField] int gameLevel;
+	[SerializeField] Button nextButton;
 
 	private List<Question> questions = new List<Question>();
 	private JsonData questionData;
@@ -80,9 +81,8 @@ public class QuestionManager : MonoBehaviour {
 
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();		
+		StartCoroutine(configureNextButtonColor());
 	}
-
-	
 
 	// create the Question objects from the Questions.json and append them to the List<Question>
 	void loadQuestions() {
@@ -93,6 +93,7 @@ public class QuestionManager : MonoBehaviour {
 
 	// pick a random question from the List<Question> and display it
 	void instantiateRandomQuestionToDisplay() {
+		nextButton.image.color = Color.white;
 		int randomNum = Random.Range(0,questions.Count); // random a question
 		currentQuestionObject = questions[randomNum]; 
 		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
@@ -121,11 +122,15 @@ public class QuestionManager : MonoBehaviour {
 
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
-		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
-			if(currentQuestion.transform.GetChild(i).childCount == 0) {
-				return;
-			}
+		// for(int i = 0; i < currentQuestion.transform.childCount; i++) {
+		// 	if(currentQuestion.transform.GetChild(i).childCount == 0) {
+		// 		return;
+		// 	}
+		// }
+		if(!checkForEmptyCells()) {
+			return;
 		}
+
 
 		// change the game status
 		currentStatus = gameStatus.InCheck;
@@ -142,6 +147,16 @@ public class QuestionManager : MonoBehaviour {
 				elementInCell.transform.GetComponent<Image>().color = Color.red;
 			}		
 		}
+	}
+
+	public bool checkForEmptyCells() {
+		int count = 0;
+		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
+			if(currentQuestion.transform.GetChild(i).childCount != 0) {
+				count ++;
+			}
+		}
+		return (count == currentQuestion.transform.childCount);
 	}
 
 	void plusScore() {
@@ -243,6 +258,12 @@ public class QuestionManager : MonoBehaviour {
 		return path;
 	}
 
+	IEnumerator configureNextButtonColor() {
+		while(true) {
+			nextButton.image.color = checkForEmptyCells() ? Color.cyan : Color.white;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
 	
 	
 }
