@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour {
 	void loadUserSetting() {
 		// read user setting
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
-		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",true);
+		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",false);
 		leftHandModeToggle.isOn = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 
 		configureBackgroundMusic();
