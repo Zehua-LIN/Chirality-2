@@ -3126,7 +3126,6 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Background Music
 --- !u!222 &1084399585
-
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -3545,8 +3544,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1204347502}
-  - component: {fileID: 1204347504}
   - component: {fileID: 1204347503}
+  - component: {fileID: 1204347504}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3748,10 +3747,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1288034782}
-  - component: {fileID: 1288034786}
   - component: {fileID: 1288034785}
   - component: {fileID: 1288034784}
   - component: {fileID: 1288034783}
+  - component: {fileID: 1288034786}
   m_Layer: 5
   m_Name: Level_Six_Button
   m_TagString: Untagged
@@ -3866,21 +3865,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Reset Score
---- !u!222 &1204347504
+  m_Sprite: {fileID: 21300000, guid: 2f828bd1b170040849b769f14dd2ac7b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1288034786
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
