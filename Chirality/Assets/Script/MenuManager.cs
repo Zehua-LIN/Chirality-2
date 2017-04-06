@@ -13,16 +13,16 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] Toggle backgroundMusicToggle;
 	[SerializeField] Toggle soundEffectToggle;
 	[SerializeField] Toggle leftHandModeToggle;
-	[SerializeField] Button levelTwoButton;
 	[SerializeField] GameObject levelTwoPanel;
 	[SerializeField] Animator scrollAnimation;
+	[SerializeField] Animator levelTwoSubMenu;
+	[SerializeField] Animator levelFourSubMenu;
 
 	private GameObject backgroundMusicObject = null;	// this is the actual audio object in game
 	private GameObject soundEffectObject = null;
 
 	void Start() {
 		settingPanel.SetActive(false);
-		hideLevelTwoPanel();
 		
 		loadUserSetting();
 			
@@ -58,13 +58,27 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void displayLevelTwoPanel() {
-		levelTwoButton.gameObject.SetActive(false);
-		levelTwoPanel.SetActive(true);
+		// if(!levelFourSubMenu.GetBool("isHidden")) {
+		// 	hideLevelFourPanel();
+		// }
+		hideLevelFourPanel();
+		levelTwoSubMenu.SetBool("isHidden",false);
 	}
 
 	public void hideLevelTwoPanel() {
-		levelTwoButton.gameObject.SetActive(true);
-		levelTwoPanel.SetActive(false);
+		levelTwoSubMenu.SetBool("isHidden",true);
+	}
+
+	public void displayLevelFourPanel() {
+		// if(!levelTwoSubMenu.GetBool("isHidden")) {
+		// 	hideLevelTwoPanel();
+		// }
+		hideLevelTwoPanel();
+		levelFourSubMenu.SetBool("isHidden",false);
+	}
+
+	public void hideLevelFourPanel() {
+		levelFourSubMenu.SetBool("isHidden",true);
 	}
 
 	public void stopScrolling() {
