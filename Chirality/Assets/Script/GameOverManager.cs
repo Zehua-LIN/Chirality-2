@@ -79,7 +79,7 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
-			percentageLabel.text = "Your knowledge is obviously crystal clear. You got " + (percentage * 100).ToString() + "%.";
+			percentageLabel.text = "A perfect score! Your knowledge is obviously crystal clear.";
 		}
 	}
 
