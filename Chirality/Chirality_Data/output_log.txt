@@ -1,0 +1,35 @@
+Mono path[0] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Managed'
+Mono path[1] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono'
+Mono config path = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono/etc'
+PlayerConnection initialized from D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55205
+Multi-casting "[IP] 192.168.0.10 [Port] 55205 [Flags] 2 [Guid] 214784229 [EditorId] 1894648528 [Version] 1048832 [Id] WindowsPlayer(Omnis-Arcanum) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55205]
+PlayerConnection already initialized - listening to [0.0.0.0:55205]
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+    Driver:   21.21.13.7633
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll into Unity Child Domain
+- Completed reload, in  0.023 seconds
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
