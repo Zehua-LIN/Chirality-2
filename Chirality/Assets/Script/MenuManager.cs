@@ -40,6 +40,7 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void loadGame(string level) {
+        Debug.Log("Level num is: " + level);
 		SceneManager.LoadScene(level);
 	}
 

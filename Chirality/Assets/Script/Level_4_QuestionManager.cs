@@ -109,10 +109,14 @@ public class Level_4_QuestionManager : MonoBehaviour
     // configure the functions attached to this button based on different game status
     public void nextButtonPressed()
     {
+        checkAnswer();
+
+        /**
         if (currentStatus == gameStatus.InGame)
         {
             checkAnswer();
         }
+         **/
     }
 
     public void identifySelf(GameObject caller)
@@ -151,7 +155,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         currentStatus = gameStatus.InCheck;
         numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
-        if (selected_answer.name.Equals("positional"))
+        if (selected_answer.name.Equals(currentQuestionObject.name))
         {
             selected_answer.transform.GetComponent<Image>().color = Color.green;
         }
