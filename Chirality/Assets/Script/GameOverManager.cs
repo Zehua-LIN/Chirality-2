@@ -37,7 +37,7 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			FB.ActivateApp();
 		}
-
+		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 	}
 
 	
@@ -139,11 +139,25 @@ public class GameOverManager : MonoBehaviour {
 		FB.ShareLink(contentTitle:"Chirality",
 		contentURL:new System.Uri("https://www.google.com"),
 		contentDescription: descrpition,
-		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"));
+		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
+		callback: fbCallBack);
 	}
 
 	public void twitterShare() {
-		string link = "https://twitter.com/home?status=I%20got%20222%20points";
-		Application.OpenURL(link);
+		string address = "https://twitter.com/intent/tweet";
+		string name = "Chirality";
+		string description = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
+		string link = "https://www.google.com";
+		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
+	}
+
+	private void fbCallBack(IShareResult result) {
+		if(result.Cancelled || !string.IsNullOrEmpty(result.Error)) {
+			Debug.Log(result.Error);
+		}else if(!string.IsNullOrEmpty(result.PostId)) {
+			Debug.Log(result.PostId);
+		}else {
+			Debug.Log("Share succeed");
+		}
 	}
 }
