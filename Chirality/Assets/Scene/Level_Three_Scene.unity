@@ -1095,11 +1095,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224331395404525140, guid: 77ba33975bf5f47c98dbbb07ce5a012d,
     type: 2}
   m_PrefabInternal: {fileID: 1419013220}
---- !u!1 &1419013222 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1408134146496116, guid: 77ba33975bf5f47c98dbbb07ce5a012d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1419013220}
 --- !u!1001 &1447788448
 Prefab:
   m_ObjectHideFlags: 0
@@ -1243,17 +1238,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224488981652675524, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
     type: 2}
   m_PrefabInternal: {fileID: 1447788448}
---- !u!1 &1447788450 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1256072141016550, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
-    type: 2}
-  m_PrefabInternal: {fileID: 1447788448}
 --- !u!114 &1447788452 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114861389532680452, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
     type: 2}
   m_PrefabInternal: {fileID: 1447788448}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1585777756 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1408134146496116, guid: 77ba33975bf5f47c98dbbb07ce5a012d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1419013220}
 --- !u!1 &1832043743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,8 +1797,9 @@ MonoBehaviour:
   questionName: {fileID: 992269392}
   scoreNumberLabel: {fileID: 449176032}
   displayAnswerButton: {fileID: 1236050204}
-  helpPanel: {fileID: 1419013222}
-  funFactPanel: {fileID: 1447788450}
+  helpPanel: {fileID: 1585777756}
+  funFactPanel: {fileID: 1256072141016550, guid: 561ea58f04ffb4d8a96dd7556f9d2666,
+    type: 2}
   funFactPanelText: {fileID: 1447788452}
   gameLevel: 3
   nextButton: {fileID: 1969485272}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222720502432925320}
   - component: {fileID: 114433146633357656}
   - component: {fileID: 114867545722660278}
-  - component: {fileID: 114954504541785186}
+  - component: {fileID: 114367517486841828}
   m_Layer: 0
   m_Name: Button01
   m_TagString: Untagged
@@ -124,6 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueButton: {fileID: 114424561043653354}
+--- !u!114 &114367517486841828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219902474535376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651d61acb3c194623915ca649bbe9446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueButton: {fileID: 114867545722660278}
 --- !u!114 &114424561043653354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,18 +352,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114954504541785186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1219902474535376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651d61acb3c194623915ca649bbe9446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueButton: {fileID: 114867545722660278}
 --- !u!222 &222140892565208962
 CanvasRenderer:
   m_ObjectHideFlags: 1

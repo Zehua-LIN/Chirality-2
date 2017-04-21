@@ -6,6 +6,7 @@ using LitJson;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Level5QuestionManager : MonoBehaviour
 {
 
@@ -17,6 +18,7 @@ public class Level5QuestionManager : MonoBehaviour
 	[SerializeField] Text gameTitle;
 	[SerializeField] Text scoreNumberLabel;
 	[SerializeField] Button nextButton;
+	[SerializeField] GameObject helpPanel;
 	[SerializeField] int gameLevel;
 
 	private List<QuestionLevel5> questions = new List<QuestionLevel5>();
@@ -50,6 +52,7 @@ public class Level5QuestionManager : MonoBehaviour
 
 	void Start()
 	{
+		helpPanel.SetActive(false);
 
 		string path = readJsonData(gameLevel);	
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -72,16 +75,14 @@ public class Level5QuestionManager : MonoBehaviour
 
 	// pick a random question from the List<Question> and display it
 	void instantiateRandomQuestionToDisplay() {
-		int randomNum = Random.Range(0,questions.Count); // random a question
-		currentQuestionObject = questions[randomNum]; 
-		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
-		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
+		int randomNum = Random.Range (0, questions.Count); // random a question
+		currentQuestionObject = questions [randomNum]; 
+		currentQuestion = Instantiate (currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
+		currentQuestionAnswer = Instantiate (currentQuestionObject.answerObject, canvas.transform, false);
 
 		// change the game status and deactivate the answer button
 		currentStatus = gameStatus.InGame;
 	}
-		
-
 
 
 	// helper methos to convert json array to normal List
@@ -98,22 +99,24 @@ public class Level5QuestionManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainScene");
 	}
+
+	public void toggleHelpPanel() {
+		
+		helpPanel.SetActive(!helpPanel.activeInHierarchy);
+
+	}
 		
 
 	string readJsonData(int level) {
 		string path = "";
 		string fileName;
 
-		switch (level)
-		{
-		case 5:
+		if (level == 5) {
 			fileName = "Level_Five_Questions.json";
-			break;
-		default:
+		} else {
 			fileName = "";
-			break;
 		}
-
+	
 		var temp = fileName.Split("."[0]);
 
 		if(Application.platform == RuntimePlatform.Android) {
