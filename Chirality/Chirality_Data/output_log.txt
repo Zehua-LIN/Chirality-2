@@ -2,10 +2,10 @@ Mono path[0] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/M
 Mono path[1] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono'
 Mono config path = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono/etc'
 PlayerConnection initialized from D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55205
-Multi-casting "[IP] 192.168.0.10 [Port] 55205 [Flags] 2 [Guid] 214784229 [EditorId] 1894648528 [Version] 1048832 [Id] WindowsPlayer(Omnis-Arcanum) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55205]
-PlayerConnection already initialized - listening to [0.0.0.0:55205]
+PlayerConnection initialized network socket : 0.0.0.0 55210
+Multi-casting "[IP] 192.168.0.10 [Port] 55210 [Flags] 2 [Guid] 13490406 [EditorId] 727800619 [Version] 1048832 [Id] WindowsPlayer(Omnis-Arcanum) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55210]
+PlayerConnection already initialized - listening to [0.0.0.0:55210]
 Initialize engine version: 5.5.0f3 (38b4efef76f0)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -27,9 +27,130 @@ Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Dat
 Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll (this message is harmless)
 Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll into Unity Child Domain
-- Completed reload, in  0.023 seconds
+- Completed reload, in  0.024 seconds
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.425990 ms
+Level num is: Level_Four_Scene
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MenuManager:loadGame(String) (at D:\Documents\GitHub\Chirality-Project\Chirality\Assets\Script\MenuManager.cs:43)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:188)
+UnityEngine.Events.CachedInvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:306)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: D:/Documents/GitHub/Chirality-Project/Chirality/Assets/Script/MenuManager.cs Line: 43)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.009485 ms
+System memory in use before: 27.6 MB.
+System memory in use after: 27.5 MB.
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 448.
+Total: 0.638157 ms (FindLiveObjects: 0.031969 ms CreateObjectMapping: 0.030728 ms MarkObjects: 0.288660 ms  DeleteObjects: 0.286177 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.495068 ms
+System memory in use before: 27.6 MB.
+System memory in use after: 27.6 MB.
+
+Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 533.
+Total: 0.467133 ms (FindLiveObjects: 0.023899 ms CreateObjectMapping: 0.019554 ms MarkObjects: 0.324355 ms  DeleteObjects: 0.098703 ms)
+
+Level num is: Level_Four_Scene
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MenuManager:loadGame(String) (at D:\Documents\GitHub\Chirality-Project\Chirality\Assets\Script\MenuManager.cs:43)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:188)
+UnityEngine.Events.CachedInvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:306)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: D:/Documents/GitHub/Chirality-Project/Chirality/Assets/Script/MenuManager.cs Line: 43)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.981756 ms
+System memory in use before: 27.5 MB.
+System memory in use after: 27.4 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 448.
+Total: 0.428645 ms (FindLiveObjects: 0.026382 ms CreateObjectMapping: 0.015829 ms MarkObjects: 0.263208 ms  DeleteObjects: 0.122603 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.478928 ms
+System memory in use before: 27.6 MB.
+System memory in use after: 27.6 MB.
+
+Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 533.
+Total: 0.543799 ms (FindLiveObjects: 0.031659 ms CreateObjectMapping: 0.020175 ms MarkObjects: 0.369361 ms  DeleteObjects: 0.121671 ms)
+
+Level num is: Level_Four_Scene
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MenuManager:loadGame(String) (at D:\Documents\GitHub\Chirality-Project\Chirality\Assets\Script\MenuManager.cs:43)
+UnityEngine.Events.InvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:188)
+UnityEngine.Events.CachedInvokableCall`1:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:306)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: D:/Documents/GitHub/Chirality-Project/Chirality/Assets/Script/MenuManager.cs Line: 43)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.887088 ms
+System memory in use before: 27.5 MB.
+System memory in use after: 27.4 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 448.
+Total: 0.571734 ms (FindLiveObjects: 0.036936 ms CreateObjectMapping: 0.020175 ms MarkObjects: 0.346082 ms  DeleteObjects: 0.167609 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.611153 ms
+System memory in use before: 27.6 MB.
+System memory in use after: 27.6 MB.
+
+Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 533.
+Total: 0.665471 ms (FindLiveObjects: 0.034453 ms CreateObjectMapping: 0.024831 ms MarkObjects: 0.486067 ms  DeleteObjects: 0.118568 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 4928 -> priority: 1 
