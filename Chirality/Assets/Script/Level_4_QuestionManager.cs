@@ -121,22 +121,7 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     public void identifySelf(GameObject caller)
     {
-        if (selected_answer != null)
-        {
-            selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
-        }
         selected_answer = caller;
-
-        Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
-        if (buttonColor != Color.red)
-        {
-            caller.transform.parent.GetComponent<Image>().color = Color.red;
-        }
-        else
-        {
-            selected_answer = null;
-            caller.transform.parent.GetComponent<Image>().color = Color.white;
-        }
 
         /**
         if (caller.name.Equals("positional"))
@@ -155,9 +140,16 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     void checkAnswer()
     {
-
-        if (selected_answer == null)
-            return;
+        /**
+        // check for empty slots, return if there is empty one
+        for (int i = 0; i < currentQuestion.transform.childCount; i++)
+        {
+            if (currentQuestion.transform.GetChild(i).childCount == 0)
+            {
+                return;
+            }
+        }
+         **/
 
         // change the game status
         currentStatus = gameStatus.InCheck;
