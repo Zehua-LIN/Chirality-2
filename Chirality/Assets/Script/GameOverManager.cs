@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Facebook.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -31,6 +32,12 @@ public class GameOverManager : MonoBehaviour {
 		displayMedalAndComment();
 		updateHighScore();
 
+		if(!FB.IsInitialized) {
+			FB.Init();
+		}else {
+			FB.ActivateApp();
+		}
+		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 	}
 
 	
@@ -124,6 +131,33 @@ public class GameOverManager : MonoBehaviour {
 				break;
 			default:
 				break;
+		}
+	}
+
+	public void fbShare() {
+		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
+		FB.ShareLink(contentTitle:"Chirality",
+		contentURL:new System.Uri("https://www.google.com"),
+		contentDescription: descrpition,
+		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
+		callback: fbCallBack);
+	}
+
+	public void twitterShare() {
+		string address = "https://twitter.com/intent/tweet";
+		string name = "Chirality";
+		string description = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
+		string link = "https://www.google.com";
+		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
+	}
+
+	private void fbCallBack(IShareResult result) {
+		if(result.Cancelled || !string.IsNullOrEmpty(result.Error)) {
+			Debug.Log(result.Error);
+		}else if(!string.IsNullOrEmpty(result.PostId)) {
+			Debug.Log(result.PostId);
+		}else {
+			Debug.Log("Share succeed");
 		}
 	}
 }
