@@ -88,7 +88,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     {
         for (int i = 0; i < questionData.Count; i++)
         {
-            // Debug.Log("Question ID: " + (int)questionData[i]["id"]);
+            Debug.Log("Question ID: " + (int)questionData[i]["id"]);
             questions.Add(new Level_4_Question((int)questionData[i]["id"], (int)questionData[i]["level"], (string)questionData[i]["code"], (string)questionData[i]["name"], questionObjects[i], questionAnswerObjects[i], convertArray(questionData, i)));
         }
     }
@@ -109,14 +109,23 @@ public class Level_4_QuestionManager : MonoBehaviour
     // configure the functions attached to this button based on different game status
     public void nextButtonPressed()
     {
-        checkAnswer();
+        
 
-        /**
-        if (currentStatus == gameStatus.InGame)
+        
+        if (currentStatus == gameStatus.InCheck)
+        {
+            Destroy(currentQuestion);
+            Destroy(currentQuestionAnswer);
+            questions.Remove(currentQuestionObject);
+            selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+            selected_answer.transform.GetComponent<Image>().color = Color.white;
+            instantiateRandomQuestionToDisplay();
+        }
+        else
         {
             checkAnswer();
         }
-         **/
+         
     }
 
     public void identifySelf(GameObject caller)
@@ -137,20 +146,6 @@ public class Level_4_QuestionManager : MonoBehaviour
             selected_answer = null;
             caller.transform.parent.GetComponent<Image>().color = Color.white;
         }
-
-        /**
-        if (caller.name.Equals("positional"))
-        {
-            caller.transform.GetComponent<Image>().color = Color.green;
-        }
-        else
-        {
-            caller.transform.GetComponent<Image>().color = Color.red;
-        }
-
-        Debug.Log("Hello World");
-        Debug.Log("I am a: " + caller.name);
-        **/
     }
 
     void checkAnswer()

@@ -5,6 +5,13 @@
         "code" : "Q1",
         "name" : "positional",
         "answer" : ["Geometric","Optical","Same","Positional", "Functional","Skeletal"]
+    },
+    {   
+        "id" : 1,
+        "level" : 4,
+        "code" : "Q2",
+        "name" : "geometric",
+        "answer" : ["Geometric","Optical","Same","Positional", "Functional","Skeletal"]
     }
 ]
 
