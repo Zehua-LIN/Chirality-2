@@ -4,7 +4,7 @@
         "level" : 5,
         "code" : "Q1",
         "name" : "AAA",
-        "numberOfButtons" : 3,
+        "numberOfToggles" : 3,
         "answer" : ["1","2","3"]
         },
     {
@@ -12,7 +12,7 @@
         "level" : 5,
         "code" : "Q2",
         "name" : "BBB",
-        "numberOfButtons" : 5,
+        "numberOfToggles" : 5,
         "answer" : ["1","2","3","4","5"]
         }
 ]

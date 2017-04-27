@@ -20,10 +20,13 @@ public class Level5QuestionManager : MonoBehaviour
 	[SerializeField] Button nextButton;
 	[SerializeField] GameObject helpPanel;
 	[SerializeField] int gameLevel;
+	[SerializeField] GameObject AnsPanel;
+
+
+
 
 	private List<QuestionLevel5> questions = new List<QuestionLevel5>();
 	private JsonData questionData;
-
 	private int score = 0;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
@@ -53,6 +56,7 @@ public class Level5QuestionManager : MonoBehaviour
 	void Start()
 	{
 		helpPanel.SetActive(false);
+		AnsPanel.SetActive (false);
 
 		string path = readJsonData(gameLevel);	
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -69,7 +73,7 @@ public class Level5QuestionManager : MonoBehaviour
 		for (int i = 0; i < questionData.Count; i++)
 		{
 			//Debug.Log("Question ID: " + (int)questionData[i]["id"]);
-			questions.Add(new QuestionLevel5((int)questionData[i]["id"],(int)questionData[i]["level"],(string)questionData[i]["code"],(string)questionData[i]["name"],(int)questionData[i]["numberOfButtons"],questionObjects[i],questionAnswerObjects[i],convertArray(questionData,i)));
+			questions.Add(new QuestionLevel5((int)questionData[i]["id"],(int)questionData[i]["level"],(string)questionData[i]["code"],(string)questionData[i]["name"],(int)questionData[i]["numberOfToggles"],questionObjects[i],questionAnswerObjects[i],convertArray(questionData,i)));
 		}
 	}
 
@@ -88,10 +92,15 @@ public class Level5QuestionManager : MonoBehaviour
 	// helper methos to convert json array to normal List
 	List<string> convertArray(JsonData ary, int index) {
 		List<string> temp = new List<string>();
-		for(int i = 0; i < (int)ary[index]["numberOfButtons"]; i++) {
+		for(int i = 0; i < (int)ary[index]["numberOfToggles"]; i++) {
 			temp.Add((string)ary[index]["answer"][i]);
 		}
 		return temp;
+	}
+
+
+	public void nextButtonPressed() {
+		AnsPanel.SetActive(!AnsPanel.activeInHierarchy);
 	}
 
 	// switch to the main scene

@@ -7,17 +7,17 @@ public class QuestionLevel5 {
 	public int Level {get; set;}
 	public string code {get; set;}
 	public string name {get; set;}
-	public int numberOfButtons {get; set;}
+	public int numberOfToggles {get; set;}
 	public GameObject gameObject {get; set;}
 	public GameObject answerObject {get; set;}
 	public List<string> answer {get; set;}
 
-	public QuestionLevel5(int id, int level, string code, string name, int numOfButtons, GameObject gameObj, GameObject answerObj, List<string> answer) {
+	public QuestionLevel5(int id, int level, string code, string name, int numOfToggles, GameObject gameObj, GameObject answerObj, List<string> answer) {
 		this.ID = id;
 		this.Level = level;
 		this.code = code;
 		this.name = name;
-		this.numberOfButtons = numOfButtons;
+		this.numberOfToggles = numOfToggles;
 		this.gameObject = gameObj;
 		this.answerObject = answerObj;
 		this.answer = answer;
