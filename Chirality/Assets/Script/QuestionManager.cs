@@ -24,6 +24,9 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] Button displayAnswerButton;
 	[SerializeField] GameObject helpPanel;
 	[SerializeField] GameObject funFactPanel;
+	[SerializeField] GameObject exitPanel;
+	[SerializeField] Button yesButton;
+	[SerializeField] Button noButton;
 	[SerializeField] Text funFactPanelText;
 	[SerializeField] int gameLevel;
 	[SerializeField] Button nextButton;
@@ -174,7 +177,15 @@ public class QuestionManager : MonoBehaviour {
 
 	// switch to the main scene
 	public void homeButtonPressed() {
+		exitPanel.SetActive(true);
+	}
+
+	public void yesButtonPressed() {
 		SceneManager.LoadScene("MainScene");
+	}
+
+	public void noButtonPressed() {
+		exitPanel.SetActive(false);
 	}
 
 	public void toggleHelpPanel() {

@@ -23,21 +23,20 @@ public class GameOverManager : MonoBehaviour {
 	private float highPercentage = 0f;
 
 	void Start () {
-		infoPanel.SetActive(false);
-		newRecord.gameObject.SetActive(false);
-		
-		
-		loadRecords();
-		displayRecord();
-		displayMedalAndComment();
-		updateHighScore();
-
 		if(!FB.IsInitialized) {
 			FB.Init();
 		}else {
 			FB.ActivateApp();
 		}
-		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
+		
+		
+		infoPanel.SetActive(false);
+		newRecord.gameObject.SetActive(false);
+				
+		loadRecords();
+		displayRecord();
+		displayMedalAndComment();
+		updateHighScore();				
 	}
 
 	
@@ -135,6 +134,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void fbShare() {
+		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality",
 		contentURL:new System.Uri("https://www.google.com"),
