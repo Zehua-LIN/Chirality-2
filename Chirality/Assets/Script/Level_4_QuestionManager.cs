@@ -12,12 +12,12 @@ public class Level_4_QuestionManager : MonoBehaviour
     public static Level_4_QuestionManager Instance = null;
 
     [SerializeField] GameObject[] questionObjects;
-    [SerializeField] GameObject[] questionAnswerObjects;
     [SerializeField] Canvas canvas;
     [SerializeField] Text gameTitle;
     [SerializeField] Text scoreNumberLabel;
     [SerializeField] GameObject helpPanel;
     [SerializeField] int gameLevel;
+    [SerializeField] Text timer;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -29,7 +29,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     private GameObject currentQuestionAnswer;
     private Level_4_Question currentQuestionObject;
     private gameStatus currentStatus = gameStatus.InGame;
-
+    private float targetTime = 30.0f;
     private GameObject selected_answer = null;
 
     public gameStatus CurrentStatus
@@ -51,6 +51,15 @@ public class Level_4_QuestionManager : MonoBehaviour
             score = value;
             scoreNumberLabel.text = score.ToString();
         }
+    }
+
+    void Update()
+    {
+        targetTime -= Time.deltaTime;
+
+        int targetTimeInt = (int)targetTime;
+
+        timer.text = targetTimeInt.ToString();
     }
 
     void Awake()
@@ -89,7 +98,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         for (int i = 0; i < questionData.Count; i++)
         {
             Debug.Log("Question ID: " + (int)questionData[i]["id"]);
-            questions.Add(new Level_4_Question((int)questionData[i]["id"], (int)questionData[i]["level"], (string)questionData[i]["code"], (string)questionData[i]["name"], questionObjects[i], questionAnswerObjects[i], convertArray(questionData, i)));
+            questions.Add(new Level_4_Question((int)questionData[i]["id"], (int)questionData[i]["level"], (string)questionData[i]["code"], (string)questionData[i]["name"], questionObjects[i]));
         }
     }
 
@@ -99,8 +108,6 @@ public class Level_4_QuestionManager : MonoBehaviour
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
-        currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject, canvas.transform, false);
-        currentQuestionAnswer.SetActive(false);
 
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;
@@ -114,12 +121,33 @@ public class Level_4_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-            Destroy(currentQuestion);
-            Destroy(currentQuestionAnswer);
-            questions.Remove(currentQuestionObject);
-            selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
-            selected_answer.transform.GetComponent<Image>().color = Color.white;
-            instantiateRandomQuestionToDisplay();
+            if (numberOfQuestionsAnswred < 5)
+            {
+                Destroy(currentQuestion);
+                Destroy(currentQuestionAnswer);
+                questions.Remove(currentQuestionObject);
+                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+                selected_answer.transform.GetComponent<Image>().color = Color.white;
+
+                targetTime = targetTime + 5.0f;
+
+                instantiateRandomQuestionToDisplay();
+            }
+            else
+            {
+                // go to game over scene 
+                PlayerPrefs.SetString("Game_Title", gameTitle.text);
+                float percetange = Mathf.Round((score / totalNumberOfCells) * 100) / 100f;
+                PlayerPrefs.SetInt("Score", score);
+                PlayerPrefs.SetFloat("Percentage", percetange);
+
+      
+                if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+                {
+                    PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                }
+                SceneManager.LoadScene("Game_Over_Scene");
+            }
         }
         else
         {
@@ -130,22 +158,27 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     public void identifySelf(GameObject caller)
     {
-        if (selected_answer != null)
+        if (currentStatus != gameStatus.InCheck)
         {
-            selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
-        }
-        selected_answer = caller;
+            if (selected_answer != null)
+            {
+                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+            }
+            selected_answer = caller;
 
-        Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
-        if (buttonColor != Color.red)
-        {
-            caller.transform.parent.GetComponent<Image>().color = Color.red;
+            Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
+            if (buttonColor != Color.red)
+            {
+                caller.transform.parent.GetComponent<Image>().color = Color.red;
+            }
+            else
+            {
+                selected_answer = null;
+                caller.transform.parent.GetComponent<Image>().color = Color.white;
+            }
         }
-        else
-        {
-            selected_answer = null;
-            caller.transform.parent.GetComponent<Image>().color = Color.white;
-        }
+
+        
     }
 
     void checkAnswer()
@@ -161,6 +194,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         if (selected_answer.name.Equals(currentQuestionObject.name))
         {
             selected_answer.transform.GetComponent<Image>().color = Color.green;
+            plusScore();
         }
         else
         {

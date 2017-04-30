@@ -8,17 +8,13 @@ public int ID {get; set;}
 	public string code {get; set;}
 	public string name {get; set;}
 	public GameObject gameObject {get; set;}
-	public GameObject answerObject {get; set;}
-	public List<string> answer {get; set;}
 
-    public Level_4_Question(int id, int level, string code, string name, GameObject gameObj, GameObject answerObj, List<string> answer)
+    public Level_4_Question(int id, int level, string code, string name, GameObject gameObj)
     {
 		this.ID = id;
 		this.Level = level;
 		this.code = code;
 		this.name = name;
 		this.gameObject = gameObj;
-		this.answerObject = answerObj;
-		this.answer = answer;
 	}
 }

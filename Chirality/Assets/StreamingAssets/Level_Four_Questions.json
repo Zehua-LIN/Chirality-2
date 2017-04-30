@@ -3,16 +3,75 @@
         "id" : 0,
         "level" : 4,
         "code" : "Q1",
-        "name" : "positional",
-        "answer" : ["Geometric","Optical","Same","Positional", "Functional","Skeletal"]
+        "name" : "positional"
     },
     {   
         "id" : 1,
         "level" : 4,
         "code" : "Q2",
-        "name" : "geometric",
-        "answer" : ["Geometric","Optical","Same","Positional", "Functional","Skeletal"]
+        "name" : "positional"
+    },
+    {   
+        "id" : 2,
+        "level" : 4,
+        "code" : "Q3",
+        "name" : "geometric"
+    },
+    {   
+        "id" : 3,
+        "level" : 4,
+        "code" : "Q4",
+        "name" : "geometric"
+    },
+    {   
+        "id" : 4,
+        "level" : 4,
+        "code" : "Q5",
+        "name" : "optical"
+    },
+    {   
+        "id" : 5,
+        "level" : 4,
+        "code" : "Q6",
+        "name" : "optical"
+    },
+    {   
+        "id" : 6,
+        "level" : 4,
+        "code" : "Q7",
+        "name" : "same"
+    },
+        {   
+        "id" : 7,
+        "level" : 4,
+        "code" : "Q8",
+        "name" : "same"
+    },
+            {   
+        "id" : 8,
+        "level" : 4,
+        "code" : "Q9",
+        "name" : "functional"
+    },
+    {   
+        "id" : 9,
+        "level" : 4,
+        "code" : "Q10",
+        "name" : "functional"
+    },
+    {   
+        "id" : 10,
+        "level" : 4,
+        "code" : "Q11",
+        "name" : "skeletal"
+    },
+    {   
+        "id" : 11,
+        "level" : 4,
+        "code" : "Q12",
+        "name" : "skeletal"
     }
+        
 ]
 
 
