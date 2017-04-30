@@ -48,10 +48,10 @@ public class GameOverManager : MonoBehaviour {
 		switch (title)
 		{
 			case "Functional Groups":
-				highPercentage = PlayerPrefs.GetFloat("Level_One_High_Percentage");
+				highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
 				break;
 			case "Intermolecular Forces":
-				highPercentage = PlayerPrefs.GetFloat("Level_Three_High_Percentage");
+				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 				break;
 			default:
 				highPercentage = 0f;		
@@ -96,10 +96,10 @@ public class GameOverManager : MonoBehaviour {
 			switch (title)
 			{
 				case "Functional Groups":
-					PlayerPrefs.SetFloat("Level_One_High_Percentage",percentage);
+					PlayerPrefs.SetFloat("Level_1_High_Percentage",percentage);
 					break;
 				case "Intermolecular Forces":
-					PlayerPrefs.SetFloat("Level_Three_High_Percentage",percentage);
+					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
 				default:
 					break;
