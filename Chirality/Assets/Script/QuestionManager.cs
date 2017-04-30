@@ -69,11 +69,10 @@ public class QuestionManager : MonoBehaviour {
 
 
 	void Start () {
+		setUpHelpPanel();
 		// for testing
 		// PlayerPrefs.DeleteAll();
-		helpPanel.SetActive(false);
-		funFactPanel.SetActive(false);
-		displayAnswerButton.gameObject.SetActive(false);
+
 		leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 		if(leftHandMode) {
 			deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x,0);
@@ -273,6 +272,25 @@ public class QuestionManager : MonoBehaviour {
 		while(true) {
 			nextButton.image.color = checkForEmptyCells() ? Color.cyan : Color.white;
 			yield return new WaitForSeconds(0.1f);
+		}
+	}
+
+	void setUpHelpPanel() {
+		switch (gameTitle.text) {
+			case "Functional Groups":
+				if(PlayerPrefsX.GetBool("First_Time_Level_One",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_One",false);
+				}
+				break;
+			case "Intermolecular Forces":
+				if(PlayerPrefsX.GetBool("First_Time_Level_Three",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_Three",false);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 	
