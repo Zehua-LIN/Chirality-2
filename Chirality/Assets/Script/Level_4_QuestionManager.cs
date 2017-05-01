@@ -97,7 +97,6 @@ public class Level_4_QuestionManager : MonoBehaviour
     {
         for (int i = 0; i < questionData.Count; i++)
         {
-            Debug.Log("Question ID: " + (int)questionData[i]["id"]);
             questions.Add(new Level_4_Question((int)questionData[i]["id"], (int)questionData[i]["level"], (string)questionData[i]["code"], (string)questionData[i]["name"], questionObjects[i]));
         }
     }
@@ -130,6 +129,8 @@ public class Level_4_QuestionManager : MonoBehaviour
                 selected_answer.transform.GetComponent<Image>().color = Color.white;
 
                 targetTime = targetTime + 5.0f;
+
+                selected_answer = null;
 
                 instantiateRandomQuestionToDisplay();
             }
@@ -200,7 +201,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         {
             selected_answer.transform.GetComponent<Image>().color = Color.red;
         }
-
+        
         /**
         // loop through the slots and check answer
         for (int i = 0; i < currentQuestion.transform.childCount; i++)
@@ -259,6 +260,7 @@ public class Level_4_QuestionManager : MonoBehaviour
             Destroy(currentQuestion);
             Destroy(currentQuestionAnswer);
             questions.Remove(currentQuestionObject);
+            
             instantiateRandomQuestionToDisplay();
         }
         else
