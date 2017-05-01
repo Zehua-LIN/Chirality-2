@@ -32,6 +32,5 @@ public class DropHandler : MonoBehaviour, IDropHandler {
 				Destroy (element);
 			}
 		}
-	}
-	
+	}	
 }

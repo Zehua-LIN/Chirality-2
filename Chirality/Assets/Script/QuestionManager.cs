@@ -16,6 +16,7 @@ public class QuestionManager : MonoBehaviour {
 
 	[SerializeField] GameObject[] questionObjects;
 	[SerializeField] GameObject[] questionAnswerObjects;
+	[SerializeField] GameObject deck;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text gameTitle;
 	[SerializeField] Text questionName;
@@ -25,12 +26,15 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] GameObject funFactPanel;
 	[SerializeField] Text funFactPanelText;
 	[SerializeField] int gameLevel;
+	[SerializeField] Button nextButton;
 
 	private List<Question> questions = new List<Question>();
 	private JsonData questionData;
 	private int score = 0;
 	private int numberOfQuestionsAnswred = 0;
 	private float totalNumberOfCells = 0f;
+	private bool soundEffectToggle;
+	private bool leftHandMode;
 	private GameObject currentQuestion;
 	private GameObject currentQuestionAnswer;
 	private Question currentQuestionObject;
@@ -64,17 +68,20 @@ public class QuestionManager : MonoBehaviour {
 	void Start () {
 		// for testing
 		// PlayerPrefs.DeleteAll();
-
 		helpPanel.SetActive(false);
 		funFactPanel.SetActive(false);
 		displayAnswerButton.gameObject.SetActive(false);
+		leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
+		if(leftHandMode) {
+			deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x,0);
+		}
 		
 		string path = readJsonData(gameLevel);	
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
 
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();		
-
+		StartCoroutine(configureNextButtonColor());
 	}
 
 	// create the Question objects from the Questions.json and append them to the List<Question>
@@ -86,10 +93,15 @@ public class QuestionManager : MonoBehaviour {
 
 	// pick a random question from the List<Question> and display it
 	void instantiateRandomQuestionToDisplay() {
+		nextButton.image.color = Color.white;
 		int randomNum = Random.Range(0,questions.Count); // random a question
 		currentQuestionObject = questions[randomNum]; 
 		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
 		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
+		if(leftHandMode) {
+			currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x,0);
+			currentQuestionAnswer.transform.localPosition = new Vector2(-currentQuestionAnswer.transform.localPosition.x,0);
+		}
 		currentQuestionAnswer.SetActive(false);
 		questionName.text = currentQuestionObject.name;
 		totalNumberOfCells += currentQuestionObject.numberOfCells; // record the number of cells for calculating result
@@ -110,11 +122,15 @@ public class QuestionManager : MonoBehaviour {
 
 	void checkAnswer() {
 		// check for empty slots, return if there is empty one
-		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
-			if(currentQuestion.transform.GetChild(i).childCount == 0) {
-				return;
-			}
+		// for(int i = 0; i < currentQuestion.transform.childCount; i++) {
+		// 	if(currentQuestion.transform.GetChild(i).childCount == 0) {
+		// 		return;
+		// 	}
+		// }
+		if(!checkForEmptyCells()) {
+			return;
 		}
+
 
 		// change the game status
 		currentStatus = gameStatus.InCheck;
@@ -131,6 +147,16 @@ public class QuestionManager : MonoBehaviour {
 				elementInCell.transform.GetComponent<Image>().color = Color.red;
 			}		
 		}
+	}
+
+	public bool checkForEmptyCells() {
+		int count = 0;
+		for(int i = 0; i < currentQuestion.transform.childCount; i++) {
+			if(currentQuestion.transform.GetChild(i).childCount != 0) {
+				count ++;
+			}
+		}
+		return (count == currentQuestion.transform.childCount);
 	}
 
 	void plusScore() {
@@ -232,6 +258,12 @@ public class QuestionManager : MonoBehaviour {
 		return path;
 	}
 
+	IEnumerator configureNextButtonColor() {
+		while(true) {
+			nextButton.image.color = checkForEmptyCells() ? Color.cyan : Color.white;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
 	
 	
 }
