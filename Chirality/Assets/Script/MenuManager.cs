@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +15,8 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] Animator scrollAnimation;
 	[SerializeField] Animator levelTwoSubMenu;
 	[SerializeField] Animator levelFourSubMenu;
+	[SerializeField] Button[] levelButtons;
+	[SerializeField] Image[] medals;
 
 	private GameObject backgroundMusicObject = null;	// this is the actual audio object in game
 	private GameObject soundEffectObject = null;
@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour {
 		settingPanel.SetActive(false);
 		
 		loadUserSetting();
-			
+		loadMedals();
 	}
 
 
@@ -59,9 +59,6 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void displayLevelTwoPanel() {
-		// if(!levelFourSubMenu.GetBool("isHidden")) {
-		// 	hideLevelFourPanel();
-		// }
 		hideLevelFourPanel();
 		levelTwoSubMenu.SetBool("isHidden",false);
 	}
@@ -71,9 +68,6 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void displayLevelFourPanel() {
-		// if(!levelTwoSubMenu.GetBool("isHidden")) {
-		// 	hideLevelTwoPanel();
-		// }
 		hideLevelTwoPanel();
 		levelFourSubMenu.SetBool("isHidden",false);
 	}
@@ -116,6 +110,32 @@ public class MenuManager : MonoBehaviour {
 			if(soundEffectObject != null) {
 				Destroy(soundEffectObject);
 			}
+		}
+	}
+
+	void loadMedals() {
+		for(int i = 1; i <= 6; i++) {
+			float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage",-1);
+			if(highest >= 0) {
+				int medalNumber = getMedal(highest);
+				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
+				medal.rectTransform.sizeDelta = new Vector2(70,70);
+				medal.transform.localPosition = new Vector2(200,0);
+			}			
+		}		
+	}
+
+	int getMedal(float score) {
+		if(score < 0.5f) {
+			return 0;
+		}else if(score >= 0.5f && score <= 0.69f) {
+			return 1;
+		}else if(score >= 0.7f && score <= 0.89f) {
+			return 2;
+		}else if(score >= 0.9f && score <= 0.99f) {
+			return 3;
+		}else {
+			return 4;
 		}
 	}
 }

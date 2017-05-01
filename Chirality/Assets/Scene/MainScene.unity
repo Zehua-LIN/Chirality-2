@@ -1644,7 +1644,6 @@ GameObject:
   - component: {fileID: 594940103}
   - component: {fileID: 594940102}
   - component: {fileID: 594940101}
-  - component: {fileID: 594940105}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1740,17 +1739,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &594940105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 594940100}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7111adc9a6e142f6a8b73c86d7990a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &599605278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,6 +3919,19 @@ MonoBehaviour:
   scrollAnimation: {fileID: 1693188790}
   levelTwoSubMenu: {fileID: 292972254}
   levelFourSubMenu: {fileID: 778971622}
+  levelButtons:
+  - {fileID: 859667989}
+  - {fileID: 2046386949}
+  - {fileID: 2112380259}
+  - {fileID: 49577157}
+  - {fileID: 464634804}
+  - {fileID: 1288034784}
+  medals:
+  - {fileID: 114367610381455792, guid: 2f53d9210d0884d3da8c5d8ed1c0e171, type: 2}
+  - {fileID: 114555353953826938, guid: c0784c509db48438ab5f5b2315b92cb4, type: 2}
+  - {fileID: 114935369060471038, guid: 9814bf1a33f4e45b9bb257d13793f671, type: 2}
+  - {fileID: 114750172292847496, guid: bcc32e67d94124c318208d2571a0d31f, type: 2}
+  - {fileID: 114262885466701672, guid: c84c5c7e3f81c4486897868316576f21, type: 2}
 --- !u!4 &1289703135
 Transform:
   m_ObjectHideFlags: 0

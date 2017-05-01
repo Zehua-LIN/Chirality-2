@@ -23,21 +23,20 @@ public class GameOverManager : MonoBehaviour {
 	private float highPercentage = 0f;
 
 	void Start () {
-		infoPanel.SetActive(false);
-		newRecord.gameObject.SetActive(false);
-		
-		
-		loadRecords();
-		displayRecord();
-		displayMedalAndComment();
-		updateHighScore();
-
 		if(!FB.IsInitialized) {
 			FB.Init();
 		}else {
 			FB.ActivateApp();
 		}
-		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
+		
+		
+		infoPanel.SetActive(false);
+		newRecord.gameObject.SetActive(false);
+				
+		loadRecords();
+		displayRecord();
+		displayMedalAndComment();
+		updateHighScore();				
 	}
 
 	
@@ -49,10 +48,10 @@ public class GameOverManager : MonoBehaviour {
 		switch (title)
 		{
 			case "Functional Groups":
-				highPercentage = PlayerPrefs.GetFloat("Level_One_High_Percentage");
+				highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
 				break;
 			case "Intermolecular Forces":
-				highPercentage = PlayerPrefs.GetFloat("Level_Three_High_Percentage");
+				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 				break;
 			default:
 				highPercentage = 0f;		
@@ -97,10 +96,10 @@ public class GameOverManager : MonoBehaviour {
 			switch (title)
 			{
 				case "Functional Groups":
-					PlayerPrefs.SetFloat("Level_One_High_Percentage",percentage);
+					PlayerPrefs.SetFloat("Level_1_High_Percentage",percentage);
 					break;
 				case "Intermolecular Forces":
-					PlayerPrefs.SetFloat("Level_Three_High_Percentage",percentage);
+					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
 				default:
 					break;
@@ -135,6 +134,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void fbShare() {
+		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality",
 		contentURL:new System.Uri("https://www.google.com"),

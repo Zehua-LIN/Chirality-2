@@ -24,6 +24,9 @@ public class QuestionManager : MonoBehaviour {
 	[SerializeField] Button displayAnswerButton;
 	[SerializeField] GameObject helpPanel;
 	[SerializeField] GameObject funFactPanel;
+	[SerializeField] GameObject exitPanel;
+	[SerializeField] Button yesButton;
+	[SerializeField] Button noButton;
 	[SerializeField] Text funFactPanelText;
 	[SerializeField] int gameLevel;
 	[SerializeField] Button nextButton;
@@ -66,11 +69,10 @@ public class QuestionManager : MonoBehaviour {
 
 
 	void Start () {
+		setUpHelpPanel();
 		// for testing
 		// PlayerPrefs.DeleteAll();
-		helpPanel.SetActive(false);
-		funFactPanel.SetActive(false);
-		displayAnswerButton.gameObject.SetActive(false);
+
 		leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 		if(leftHandMode) {
 			deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x,0);
@@ -174,7 +176,15 @@ public class QuestionManager : MonoBehaviour {
 
 	// switch to the main scene
 	public void homeButtonPressed() {
+		exitPanel.SetActive(true);
+	}
+
+	public void yesButtonPressed() {
 		SceneManager.LoadScene("MainScene");
+	}
+
+	public void noButtonPressed() {
+		exitPanel.SetActive(false);
 	}
 
 	public void toggleHelpPanel() {
@@ -203,13 +213,13 @@ public class QuestionManager : MonoBehaviour {
 			switch (gameLevel)
 			{
 				case 1:
-					if(!PlayerPrefs.HasKey("Level_One_High_Percentage")) {
-						PlayerPrefs.SetFloat("Level_One_High_Percentage",0f);
+					if(!PlayerPrefs.HasKey("Level_1_High_Percentage") || PlayerPrefs.GetFloat("Level_1_High_Percentage") < 0) {
+						PlayerPrefs.SetFloat("Level_1_High_Percentage",0f);
 					}
 					break;
 				case 3:
-					if(!PlayerPrefs.HasKey("Level_Three_High_Percentage")) {
-						PlayerPrefs.SetFloat("Level_Three_High_Percentage",0f);
+					if(!PlayerPrefs.HasKey("Level_3_High_Percentage") || PlayerPrefs.GetFloat("Level_3_High_Percentage") < 0) {
+						PlayerPrefs.SetFloat("Level_3_High_Percentage",0f);
 					}
 					break;
 				default:
@@ -262,6 +272,25 @@ public class QuestionManager : MonoBehaviour {
 		while(true) {
 			nextButton.image.color = checkForEmptyCells() ? Color.cyan : Color.white;
 			yield return new WaitForSeconds(0.1f);
+		}
+	}
+
+	void setUpHelpPanel() {
+		switch (gameTitle.text) {
+			case "Functional Groups":
+				if(PlayerPrefsX.GetBool("First_Time_Level_One",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_One",false);
+				}
+				break;
+			case "Intermolecular Forces":
+				if(PlayerPrefsX.GetBool("First_Time_Level_Three",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_Three",false);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 	
