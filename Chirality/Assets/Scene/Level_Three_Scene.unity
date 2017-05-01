@@ -1109,6 +1109,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: noButtonPressed
       objectReference: {fileID: 0}
+    - target: {fileID: 1877571572288588, guid: 43422f8d6311b409ab0aa9aede7a6255, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43422f8d6311b409ab0aa9aede7a6255, type: 2}
   m_IsPrefabParent: 0

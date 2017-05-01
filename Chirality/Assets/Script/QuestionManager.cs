@@ -213,12 +213,12 @@ public class QuestionManager : MonoBehaviour {
 			switch (gameLevel)
 			{
 				case 1:
-					if(!PlayerPrefs.HasKey("Level_1_High_Percentage")) {
+					if(!PlayerPrefs.HasKey("Level_1_High_Percentage") || PlayerPrefs.GetFloat("Level_1_High_Percentage") < 0) {
 						PlayerPrefs.SetFloat("Level_1_High_Percentage",0f);
 					}
 					break;
 				case 3:
-					if(!PlayerPrefs.HasKey("Level_3_High_Percentage")) {
+					if(!PlayerPrefs.HasKey("Level_3_High_Percentage") || PlayerPrefs.GetFloat("Level_3_High_Percentage") < 0) {
 						PlayerPrefs.SetFloat("Level_3_High_Percentage",0f);
 					}
 					break;
