@@ -9,44 +9,45 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] GameObject settingPanel;
 	[SerializeField] GameObject infoPanel;
 	[SerializeField] GameObject backgroundMusic;	// this is the prefab
-	[SerializeField] GameObject soundEffect;
 	[SerializeField] Toggle backgroundMusicToggle;
 	[SerializeField] Toggle soundEffectToggle;
 	[SerializeField] Toggle leftHandModeToggle;
+
+	[SerializeField] Button levelTwoButton;
 	[SerializeField] GameObject levelTwoPanel;
+
 	[SerializeField] Animator scrollAnimation;
-	[SerializeField] Animator levelTwoSubMenu;
-	[SerializeField] Animator levelFourSubMenu;
 
 	private GameObject backgroundMusicObject = null;	// this is the actual audio object in game
-	private GameObject soundEffectObject = null;
+
 
 	void Start() {
 		settingPanel.SetActive(false);
+		hideLevelTwoPanel();
 		
 		loadUserSetting();
-			
+		
+		
 	}
-
 
 	void loadUserSetting() {
 		// read user setting
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
-		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",false);
+		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",true);
 		leftHandModeToggle.isOn = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 
-		configureBackgroundMusic();
-		configureSoundEffect();
+
+		configureMusic();
 	}
 
 	public void loadGame(string level) {
 		SceneManager.LoadScene(level);
+		// configureMusic();
 	}
 
 	public void saveUserSetting(Toggle toggle) {
 		PlayerPrefsX.SetBool(toggle.gameObject.name,toggle.isOn);
-		configureBackgroundMusic();
-		configureSoundEffect();
+		configureMusic();
 	}
 
 	public void toggleSetting() {
@@ -58,34 +59,21 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void displayLevelTwoPanel() {
-		// if(!levelFourSubMenu.GetBool("isHidden")) {
-		// 	hideLevelFourPanel();
-		// }
-		hideLevelFourPanel();
-		levelTwoSubMenu.SetBool("isHidden",false);
+		levelTwoButton.gameObject.SetActive(false);
+		levelTwoPanel.SetActive(true);
 	}
 
 	public void hideLevelTwoPanel() {
-		levelTwoSubMenu.SetBool("isHidden",true);
-	}
-
-	public void displayLevelFourPanel() {
-		// if(!levelTwoSubMenu.GetBool("isHidden")) {
-		// 	hideLevelTwoPanel();
-		// }
-		hideLevelTwoPanel();
-		levelFourSubMenu.SetBool("isHidden",false);
-	}
-
-	public void hideLevelFourPanel() {
-		levelFourSubMenu.SetBool("isHidden",true);
+		levelTwoButton.gameObject.SetActive(true);
+		levelTwoPanel.SetActive(false);
 	}
 
 	public void stopScrolling() {
 		scrollAnimation.Stop();
 	}
 
-	void configureBackgroundMusic() {
+	void configureMusic() {
+
 		// assign the audio object to local
 		if(backgroundMusicObject == null && GameObject.Find("BackgroundMusic(Clone)")) {
 				backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
@@ -101,20 +89,13 @@ public class MenuManager : MonoBehaviour {
 				Destroy(backgroundMusicObject);
 			}
 		}
-	}
 
-	void configureSoundEffect() {
-		if(soundEffectObject == null && GameObject.Find("SoundEffect(Clone)")) {
-			soundEffectObject = GameObject.Find("SoundEffect(Clone)");
-		}
+		if(soundEffectToggle.isOn) {
+			
 
-		if(soundEffectToggle.isOn && !GameObject.Find("SoundEffect(Clone)")) {
-			soundEffectObject = Instantiate(soundEffect,Vector3.zero,Quaternion.identity);
-			DontDestroyOnLoad(soundEffectObject);
-		}else if(!soundEffectToggle.isOn) {
-			if(soundEffectObject != null) {
-				Destroy(soundEffectObject);
-			}
+		}else {
+			// mute sound effect 
+
 		}
 	}
 }
