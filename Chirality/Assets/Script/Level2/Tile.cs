@@ -9,14 +9,16 @@ public class Tile : MonoBehaviour {
 
 	public static bool DO_NOT = false;
 
-	[SerializeField]
+	//[SerializeField]
 	private int _state;
-	[SerializeField]
+	//[SerializeField]
 	private int _cardValue;
-	[SerializeField]
+	//[SerializeField]
 	private bool _intitialized = false;
-	[SerializeField]
+	//[SerializeField]
 	private bool _name = false;
+
+
 
 
 	private Sprite _cardBack;
@@ -98,10 +100,10 @@ public class Tile : MonoBehaviour {
 
 	IEnumerator pause() {
 		yield return new WaitForSeconds (0);
-		if (_state == 0)
-			GetComponent<Image> ().sprite = _cardBack;
-		else if (_state == 1) {
-			GetComponent<Image> ().sprite = _cardFace;
+		//if (_state == 0)
+		//	GetComponent<Image> ().sprite = _cardBack;
+		 if (_state == 1) {
+			//GetComponent<Image> ().sprite = _cardFace;
 			Image image = GetComponent<Image> ();
 
 			Color c = image.color;
@@ -112,7 +114,7 @@ public class Tile : MonoBehaviour {
 			Image image = GetComponent<Image>();
 
 			Color c = image.color;
-			c.a = 0;
+			c.a = 0.1f;
 			image.color = c;
 		}
 		DO_NOT = false;

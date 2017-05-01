@@ -58,6 +58,14 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	void displayMedalAndComment() {
+
+		if (title == "Standard") {
+			instantiateMedal(0);
+			percentageLabel.text = "You took 2 minutes 14 seconds.";
+
+		}
+
+		else 
 		if(percentage < 0.5f) {
 			instantiateMedal(0);
 			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + "%.";

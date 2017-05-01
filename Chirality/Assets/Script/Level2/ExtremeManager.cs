@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 
-public class LevelManager : MonoBehaviour {
+public class ExtremeManager : MonoBehaviour {
 
 
-	//[SerializeField]
+	[SerializeField]
 	private int _state;
 
 
@@ -21,18 +21,13 @@ public class LevelManager : MonoBehaviour {
 	public Sprite tileBack;
 	public GameObject[] tiles;
 	public Text matchText;
-	public GameObject helpPanel;
 
 	private bool _init = false;
 	private int _matches = 27;
 
 	public Text timerText;
-	public Text mode;
 	private float startTime;
 
-	// time for extreme mode
-	private float timeLeft = 300.0f;
-	private float trialTimeLeft = 10.0f;
 
 
 
@@ -42,18 +37,10 @@ public class LevelManager : MonoBehaviour {
 		SceneManager.LoadScene("MainScene");
 	}
 
-	public void toggleHelpPanel() {
-		helpPanel.SetActive(!helpPanel.activeInHierarchy);
-	}
 
 
 	void Start() {
-
-		helpPanel.SetActive(false);
-
 		startTime = Time.time;
-
-		Debug.Log(mode.text);
 
 	}
 
@@ -61,31 +48,10 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-		// for extreme mode 
-		if (mode.text == "Extreme") {
-
-			timeLeft -= Time.deltaTime;
-			timerText.text = "Time: " + Mathf.Round (timeLeft);
-			if (timeLeft < 0) {
-				SceneManager.LoadScene ("MainScene");
-			}
-
-		} else if (mode.text == "Standard") {
-			float t = Time.time - startTime;
-			string minutes = ((int)t / 60).ToString ();
-			string seconds = (t % 60).ToString ("f0");
-			timerText.text = "Time: " + minutes + ":" + seconds;
-
-
-		} else if (mode.text == "Time Trial") {
-			trialTimeLeft -= Time.deltaTime;
-			timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
-			if (trialTimeLeft < 0) {
-				SceneManager.LoadScene ("MainScene");
-			}
-		}
-
+		float t = Time.time - startTime;
+		string minutes = ((int)t / 60).ToString ();
+		string seconds = (t % 60).ToString ("f0");
+		timerText.text = "Time: " +  minutes + ":" + seconds;
 
 		if (!_init)
 			initializeCards ();
@@ -245,19 +211,9 @@ public class LevelManager : MonoBehaviour {
 		if (tiles [c [0]].GetComponent<Tile> ().cardValue == tiles [c [1]].GetComponent<Tile> ().cardValue  && tiles [c [0]].GetComponent<Tile> ().nameBool != tiles [c [1]].GetComponent<Tile> ().nameBool) {
 			x = 2;
 			_matches--;
-			if (mode.text == "Time Trial") {
-				trialTimeLeft += 3;
-			}
 //			matchText.text = "Number of Matches: " + _matches;
-//			if (_matches == 0) {
-//
-//				_matches = 27;
-//				SceneManager.LoadScene ("MainScene");
-//
-//			}
-
-				
-
+			if (_matches == 0)
+				SceneManager.LoadScene ("MainScene");
 		}
 
 		for (int i = 0; i < c.Count; i++) {
@@ -266,22 +222,7 @@ public class LevelManager : MonoBehaviour {
 
 
 		}
-
-		if (_matches == 0) {
-			Tile.DO_NOT = false; 
-			endGame();
-
-		}
 	}
-
-	void endGame() {
-
-		PlayerPrefs.SetString("Game_Title","Standard");
-		SceneManager.LoadScene("Game_Over_Scene");
-
-
-	}
-
 	
 
 }
