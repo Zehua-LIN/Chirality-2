@@ -53,6 +53,9 @@ public class GameOverManager : MonoBehaviour {
 			case "Intermolecular Forces":
 				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 				break;
+            case "Level 4: Isomers":
+                highPercentage = PlayerPrefs.GetFloat("Level_Four_High_Percentage");
+                break;
 			default:
 				highPercentage = 0f;		
 				break;
@@ -101,6 +104,9 @@ public class GameOverManager : MonoBehaviour {
 				case "Intermolecular Forces":
 					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
+                case "Level 4: Isomers":
+                    PlayerPrefs.SetFloat("Level_4_High_Percentage",percentage);
+                    break;
 				default:
 					break;
 			}

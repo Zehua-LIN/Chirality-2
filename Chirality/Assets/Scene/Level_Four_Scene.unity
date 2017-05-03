@@ -1262,7 +1262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello World
+  m_Text: 0
 --- !u!222 &1196935783
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1984,6 +1984,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391913193006172, guid: 6a1f83a45e6454b4b939498fa3012f66, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a1f83a45e6454b4b939498fa3012f66, type: 2}

@@ -138,7 +138,7 @@ public class Level_4_QuestionManager : MonoBehaviour
             {
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = Mathf.Round((score / totalNumberOfCells) * 100) / 100f;
+                float percetange = score / 5f;
                 PlayerPrefs.SetInt("Score", score);
                 PlayerPrefs.SetFloat("Percentage", percetange);
 
