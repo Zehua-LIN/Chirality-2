@@ -78,10 +78,12 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     void Start()
     {
+        setUpHelpPanel();
+
         // for testing
         // PlayerPrefs.DeleteAll();
 
-        helpPanel.SetActive(false);
+        // helpPanel.SetActive(false);
 
         string path = readJsonData(gameLevel);
         questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -330,6 +332,22 @@ public class Level_4_QuestionManager : MonoBehaviour
             path = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
         }
         return path;
+    }
+
+    void setUpHelpPanel()
+    {
+        switch (gameTitle.text)
+        {
+            case "Level 4: Isomers":
+                if (PlayerPrefsX.GetBool("First_Time_Level_Four", true))
+                {
+                    helpPanel.SetActive(true);
+                    PlayerPrefsX.SetBool("First_Time_Level_Four", false);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
 

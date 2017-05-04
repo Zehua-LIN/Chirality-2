@@ -134,6 +134,9 @@ public class GameOverManager : MonoBehaviour {
 			case "Intermolecular Forces":
 				SceneManager.LoadScene("Level_Three_Scene");	
 				break;
+            case "Level 4: Isomers":
+                SceneManager.LoadScene("Level_Four_Scene");
+                break;
 			default:
 				break;
 		}
