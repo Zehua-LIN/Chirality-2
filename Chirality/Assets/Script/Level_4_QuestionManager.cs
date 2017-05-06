@@ -31,6 +31,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     private gameStatus currentStatus = gameStatus.InGame;
     private float targetTime = 30.0f;
     private GameObject selected_answer = null;
+    private bool timeHasStopped = false;
 
     public gameStatus CurrentStatus
     {
@@ -55,11 +56,15 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     void Update()
     {
-        targetTime -= Time.deltaTime;
+        if (timeHasStopped == false)
+        {
+            targetTime -= Time.deltaTime;
 
-        int targetTimeInt = (int)targetTime;
+            int targetTimeInt = (int)targetTime;
 
-        timer.text = targetTimeInt.ToString();
+            timer.text = targetTimeInt.ToString();
+        }
+        
     }
 
     void Awake()
@@ -246,7 +251,13 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     public void toggleHelpPanel()
     {
+        if (timeHasStopped == false)
+            timeHasStopped = true;
+        else
+            timeHasStopped = false;
+        currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
         helpPanel.SetActive(!helpPanel.activeInHierarchy);
+
     }
 
     public void toggleAnswer()
