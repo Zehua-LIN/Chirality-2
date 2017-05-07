@@ -114,7 +114,7 @@ public class Tile : MonoBehaviour {
 			Image image = GetComponent<Image>();
 
 			Color c = image.color;
-			c.a = 0.1f;
+			c.a = 0;
 			image.color = c;
 		}
 		DO_NOT = false;

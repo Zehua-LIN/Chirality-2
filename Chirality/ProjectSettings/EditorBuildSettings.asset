@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scene/Level_Two_Extreme_Scene.unity
   - enabled: 1
     path: Assets/Scene/Level_Two_TimeTrial_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Three_Scene.unity

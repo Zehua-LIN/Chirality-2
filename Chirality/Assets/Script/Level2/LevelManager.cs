@@ -275,8 +275,11 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void endGame() {
-
-		PlayerPrefs.SetString("Game_Title","Standard");
+		
+		float t = Time.time - startTime;
+		int score = (int)t;
+		PlayerPrefs.SetString("Game_Title","Structure Classification Standard");
+		PlayerPrefs.SetInt("Score",score);
 		SceneManager.LoadScene("Game_Over_Scene");
 
 
