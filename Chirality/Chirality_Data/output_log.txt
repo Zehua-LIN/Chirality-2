@@ -27,26 +27,65 @@ Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Dat
 Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Settings.dll into Unity Child Domain
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll (this message is harmless)
 Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll into Unity Child Domain
-- Completed reload, in  0.025 seconds
+- Completed reload, in  0.026 seconds
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.817492 ms
+UnloadTime: 3.596805 ms
 Level num is: Level_Four_Scene
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 8.023284 ms
+UnloadTime: 5.386827 ms
 
 Unloading 72 unused Assets to reduce memory usage. Loaded Objects now: 543.
-Total: 0.665477 ms (FindLiveObjects: 0.051214 ms CreateObjectMapping: 0.039419 ms MarkObjects: 0.348878 ms  DeleteObjects: 0.225343 ms)
+Total: 0.482346 ms (FindLiveObjects: 0.029487 ms CreateObjectMapping: 0.026693 ms MarkObjects: 0.264763 ms  DeleteObjects: 0.161092 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.806394 ms
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 653.
+Total: 0.892993 ms (FindLiveObjects: 0.042213 ms CreateObjectMapping: 0.044075 ms MarkObjects: 0.658338 ms  DeleteObjects: 0.148056 ms)
+
+Level num is: Level_Four_Scene
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.086056 ms
+
+Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 543.
+Total: 0.752076 ms (FindLiveObjects: 0.045937 ms CreateObjectMapping: 0.038798 ms MarkObjects: 0.437029 ms  DeleteObjects: 0.229378 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.241562 ms
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 653.
+Total: 1.636999 ms (FindLiveObjects: 0.074493 ms CreateObjectMapping: 0.075424 ms MarkObjects: 1.226663 ms  DeleteObjects: 0.259486 ms)
+
+Level num is: Level_Four_Scene
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.160317 ms
+
+Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 543.
+Total: 1.617755 ms (FindLiveObjects: 0.086909 ms CreateObjectMapping: 0.090323 ms MarkObjects: 0.928998 ms  DeleteObjects: 0.509971 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.059983 ms
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 653.
+Total: 1.181656 ms (FindLiveObjects: 0.052455 ms CreateObjectMapping: 0.057111 ms MarkObjects: 0.874370 ms  DeleteObjects: 0.197097 ms)
+
+Level num is: Level_Four_Scene
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.785598 ms
+
+Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 543.
+Total: 0.627299 ms (FindLiveObjects: 0.035074 ms CreateObjectMapping: 0.033522 ms MarkObjects: 0.364708 ms  DeleteObjects: 0.193373 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.591061 ms
+UnloadTime: 0.887716 ms
 
 Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 534.
-Total: 1.482425 ms (FindLiveObjects: 0.080701 ms CreateObjectMapping: 0.088461 ms MarkObjects: 1.004423 ms  DeleteObjects: 0.307596 ms)
+Total: 0.957865 ms (FindLiveObjects: 0.049352 ms CreateObjectMapping: 0.055870 ms MarkObjects: 0.654923 ms  DeleteObjects: 0.197097 ms)
 
 InvalidOperationException: Pipe name not passed to application on start.
  Make sure you are running inside the facebook games client.
@@ -67,10 +106,10 @@ Rethrow as TargetInvocationException: Exception has been thrown by the target of
 (Filename:  Line: -1)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.773803 ms
+UnloadTime: 1.501669 ms
 
 Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 658.
-Total: 0.894855 ms (FindLiveObjects: 0.043765 ms CreateObjectMapping: 0.043454 ms MarkObjects: 0.666098 ms  DeleteObjects: 0.141227 ms)
+Total: 1.937767 ms (FindLiveObjects: 0.127570 ms CreateObjectMapping: 0.097152 ms MarkObjects: 1.411656 ms  DeleteObjects: 0.299837 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 4134 -> priority: 1 
+  Thread -> id: 4ce4 -> priority: 1 
