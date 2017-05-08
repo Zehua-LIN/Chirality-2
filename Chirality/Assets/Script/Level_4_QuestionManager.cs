@@ -255,7 +255,7 @@ public class Level_4_QuestionManager : MonoBehaviour
             timeHasStopped = true;
         else
             timeHasStopped = false;
-        currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
+        // currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
         helpPanel.SetActive(!helpPanel.activeInHierarchy);
 
     }
