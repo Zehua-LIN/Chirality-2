@@ -18,6 +18,9 @@ public class Level_4_QuestionManager : MonoBehaviour
     [SerializeField] GameObject helpPanel;
     [SerializeField] int gameLevel;
     [SerializeField] Text timer;
+    [SerializeField] GameObject exitPanel;
+    [SerializeField] Button yesButton;
+    [SerializeField] Button noButton;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -31,7 +34,6 @@ public class Level_4_QuestionManager : MonoBehaviour
     private gameStatus currentStatus = gameStatus.InGame;
     private float targetTime = 30.0f;
     private GameObject selected_answer = null;
-    private bool timeHasStopped = false;
 
     public gameStatus CurrentStatus
     {
@@ -56,15 +58,20 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     void Update()
     {
-        if (timeHasStopped == false)
+        if (!helpPanel.activeInHierarchy)
         {
             targetTime -= Time.deltaTime;
 
             int targetTimeInt = (int)targetTime;
 
             timer.text = targetTimeInt.ToString();
+
+            currentQuestion.SetActive(true);
         }
-        
+        else
+        {
+            currentQuestion.SetActive(false);
+        }
     }
 
     void Awake()
@@ -246,18 +253,24 @@ public class Level_4_QuestionManager : MonoBehaviour
     // switch to the main scene
     public void homeButtonPressed()
     {
+        exitPanel.SetActive(true);
+    }
+
+    public void yesButtonPressed()
+    {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void noButtonPressed()
+    {
+        exitPanel.SetActive(false);
     }
 
     public void toggleHelpPanel()
     {
-        if (timeHasStopped == false)
-            timeHasStopped = true;
-        else
-            timeHasStopped = false;
-        // currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
         helpPanel.SetActive(!helpPanel.activeInHierarchy);
 
+        
     }
 
     public void toggleAnswer()
