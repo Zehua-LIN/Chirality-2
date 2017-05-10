@@ -64,6 +64,21 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
             if (targetTimeInt >= 0)
                 timer.text = targetTimeInt.ToString();
+            else
+            {
+                // go to game over scene 
+                PlayerPrefs.SetString("Game_Title", gameTitle.text);
+                float percetange = 0f;
+                PlayerPrefs.SetInt("Score", score);
+                PlayerPrefs.SetFloat("Percentage", percetange);
+
+
+                if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+                {
+                    PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                }
+                SceneManager.LoadScene("Game_Over_Scene");
+            }
             
 
             currentQuestion.SetActive(true);
@@ -214,24 +229,20 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         else
         {
             selected_answer.transform.GetComponent<Image>().color = Color.red;
-        }
-        
-        /**
-        // loop through the slots and check answer
-        for (int i = 0; i < currentQuestion.transform.childCount; i++)
-        {
-            GameObject elementInCell = currentQuestion.transform.GetChild(i).GetChild(0).gameObject;
-            if (elementInCell.tag == currentQuestionObject.answer[i])
+
+            // go to game over scene 
+            PlayerPrefs.SetString("Game_Title", gameTitle.text);
+            float percetange = 0f;
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetFloat("Percentage", percetange);
+
+
+            if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
             {
-                plusScore();
-                elementInCell.transform.GetComponent<Image>().color = Color.green;
+                PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
             }
-            else
-            {
-                elementInCell.transform.GetComponent<Image>().color = Color.red;
-            }
+            SceneManager.LoadScene("Game_Over_Scene");
         }
-         **/
     }
 
     void plusScore()

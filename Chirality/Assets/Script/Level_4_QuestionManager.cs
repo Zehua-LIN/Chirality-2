@@ -32,7 +32,6 @@ public class Level_4_QuestionManager : MonoBehaviour
     private GameObject currentQuestionAnswer;
     private Level_4_Question currentQuestionObject;
     private gameStatus currentStatus = gameStatus.InGame;
-    private float targetTime = 30.0f;
     private GameObject selected_answer = null;
 
     public gameStatus CurrentStatus
@@ -53,24 +52,6 @@ public class Level_4_QuestionManager : MonoBehaviour
         {
             score = value;
             scoreNumberLabel.text = score.ToString();
-        }
-    }
-
-    void Update()
-    {
-        if (!helpPanel.activeInHierarchy)
-        {
-            targetTime -= Time.deltaTime;
-
-            int targetTimeInt = (int)targetTime;
-
-            timer.text = targetTimeInt.ToString();
-
-            currentQuestion.SetActive(true);
-        }
-        else
-        {
-            currentQuestion.SetActive(false);
         }
     }
 
@@ -141,8 +122,6 @@ public class Level_4_QuestionManager : MonoBehaviour
                 questions.Remove(currentQuestionObject);
                 selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
                 selected_answer.transform.GetComponent<Image>().color = Color.white;
-
-                targetTime = targetTime + 5.0f;
 
                 selected_answer = null;
 
