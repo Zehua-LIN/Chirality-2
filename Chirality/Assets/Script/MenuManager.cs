@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -17,15 +15,22 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] Animator scrollAnimation;
 	[SerializeField] Animator levelTwoSubMenu;
 	[SerializeField] Animator levelFourSubMenu;
+	[SerializeField] Button[] levelButtons;
+	[SerializeField] Image[] medals;
+	[SerializeField] Sprite menuButtonSelected;
+	[SerializeField] Sprite menuButtonUnselected;
 
 	private GameObject backgroundMusicObject = null;	// this is the actual audio object in game
 	private GameObject soundEffectObject = null;
+	private Color textColorSelected;
+	private Color textColorUnselected;
 
 	void Start() {
 		settingPanel.SetActive(false);
 		
 		loadUserSetting();
-			
+		loadMedals();
+		convertTextColor();
 	}
 
 
@@ -58,27 +63,29 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void displayLevelTwoPanel() {
-		// if(!levelFourSubMenu.GetBool("isHidden")) {
-		// 	hideLevelFourPanel();
-		// }
 		hideLevelFourPanel();
 		levelTwoSubMenu.SetBool("isHidden",false);
+		levelButtons[1].GetComponent<Image>().sprite = menuButtonSelected;		
+		levelButtons[1].GetComponentInChildren<Text>().color = textColorSelected;
 	}
 
 	public void hideLevelTwoPanel() {
 		levelTwoSubMenu.SetBool("isHidden",true);
+		levelButtons[1].GetComponent<Image>().sprite = menuButtonUnselected;
+		levelButtons[1].GetComponentInChildren<Text>().color = textColorUnselected;
 	}
 
 	public void displayLevelFourPanel() {
-		// if(!levelTwoSubMenu.GetBool("isHidden")) {
-		// 	hideLevelTwoPanel();
-		// }
 		hideLevelTwoPanel();
 		levelFourSubMenu.SetBool("isHidden",false);
+		levelButtons[3].GetComponent<Image>().sprite = menuButtonSelected;		
+		levelButtons[3].GetComponentInChildren<Text>().color = textColorSelected;
 	}
 
 	public void hideLevelFourPanel() {
 		levelFourSubMenu.SetBool("isHidden",true);
+		levelButtons[3].GetComponent<Image>().sprite = menuButtonUnselected;
+		levelButtons[3].GetComponentInChildren<Text>().color = textColorUnselected;
 	}
 
 	public void stopScrolling() {
@@ -116,6 +123,38 @@ public class MenuManager : MonoBehaviour {
 				Destroy(soundEffectObject);
 			}
 		}
+	}
+
+	void loadMedals() {
+		for(int i = 1; i <= 6; i++) {
+			float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage",-1);
+			if(highest >= 0) {
+				int medalNumber = getMedal(highest);
+				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
+				medal.rectTransform.sizeDelta = new Vector2(70,70);
+				medal.transform.localPosition = new Vector2(200,0);
+			}			
+		}		
+	}
+
+	int getMedal(float score) {
+		if(score < 0.5f) {
+			return 0;
+		}else if(score >= 0.5f && score <= 0.69f) {
+			return 1;
+		}else if(score >= 0.7f && score <= 0.89f) {
+			return 2;
+		}else if(score >= 0.9f && score <= 0.99f) {
+			return 3;
+		}else {
+			return 4;
+		}
+	}
+
+	void convertTextColor() {
+		textColorUnselected = Color.white;
+		textColorSelected = new Color();
+		ColorUtility.TryParseHtmlString("#072B3BFF",out textColorSelected);
 	}
 }
 
