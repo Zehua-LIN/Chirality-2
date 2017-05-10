@@ -147,7 +147,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-            if (numberOfQuestionsAnswred < 5)
+            if (numberOfQuestionsAnswred < 10)
             {
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
@@ -165,7 +165,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             {
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = score / 5f;
+                float percetange = score / 10f;
                 PlayerPrefs.SetInt("Score", score);
                 PlayerPrefs.SetFloat("Percentage", percetange);
 
