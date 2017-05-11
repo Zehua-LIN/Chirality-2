@@ -12,6 +12,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     public static Level_4_Extreme_QuestionManager Instance = null;
 
     [SerializeField] GameObject[] questionObjects;
+    [SerializeField] GameObject deck;
     [SerializeField] Canvas canvas;
     [SerializeField] Text gameTitle;
     [SerializeField] GameObject helpPanel;
@@ -33,6 +34,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     private gameStatus currentStatus = gameStatus.InGame;
     private float targetTime = 11.0f;
     private GameObject selected_answer = null;
+    private bool leftHandMode;
 
     public gameStatus CurrentStatus
     {
@@ -109,8 +111,11 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
         // for testing
         // PlayerPrefs.DeleteAll();
-
-        // helpPanel.SetActive(false);
+        leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle", false);
+        if (leftHandMode)
+        {
+            deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x, 0);
+        }
 
         string path = readJsonData(gameLevel);
         questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -136,6 +141,10 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
+        if (leftHandMode)
+        {
+            currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x, 0);
+        }
 
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;
@@ -207,8 +216,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         }
 
         checkAnswer();
-
-        
+    
     }
 
     void checkAnswer()
@@ -233,7 +241,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             // go to game over scene 
             PlayerPrefs.SetString("Game_Title", gameTitle.text);
             float percetange = 0f;
-            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetInt("Score", 0);
             PlayerPrefs.SetFloat("Percentage", percetange);
 
 

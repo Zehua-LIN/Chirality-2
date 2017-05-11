@@ -12,6 +12,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     public static Level_4_QuestionManager Instance = null;
 
     [SerializeField] GameObject[] questionObjects;
+    [SerializeField] GameObject deck;
     [SerializeField] Canvas canvas;
     [SerializeField] Text gameTitle;
     [SerializeField] Text scoreNumberLabel;
@@ -34,6 +35,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     private Level_4_Question currentQuestionObject;
     private gameStatus currentStatus = gameStatus.InGame;
     private GameObject selected_answer = null;
+    private bool leftHandMode;
 
     public gameStatus CurrentStatus
     {
@@ -74,10 +76,11 @@ public class Level_4_QuestionManager : MonoBehaviour
     {
         setUpHelpPanel();
 
-        // for testing
-        // PlayerPrefs.DeleteAll();
-
-        // helpPanel.SetActive(false);
+        leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle", false);
+        if (leftHandMode)
+        {
+            deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x, 0);
+        }
 
         string path = readJsonData(gameLevel);
         questionData = JsonMapper.ToObject(File.ReadAllText(path));
@@ -103,6 +106,10 @@ public class Level_4_QuestionManager : MonoBehaviour
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
+        if (leftHandMode)
+        {
+            currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x, 0);
+        }
 
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;

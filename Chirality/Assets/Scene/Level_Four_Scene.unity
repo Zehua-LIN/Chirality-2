@@ -1079,6 +1079,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1061350777}
+--- !u!114 &1070864655 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114671256863549016, guid: 201c3efd231c94a9895be8daecfcf066,
+    type: 2}
+  m_PrefabInternal: {fileID: 1382213736}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1154528702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1138,7 @@ MonoBehaviour:
   - {fileID: 1084059856084402, guid: c41ffde4f4e851740afcb4ce5cc4f573, type: 2}
   - {fileID: 1941740529198000, guid: 350de8716221f2645ac52ace19f50b12, type: 2}
   - {fileID: 1867708667972528, guid: f8931a0e3029b6649b5a91d3e73bcb09, type: 2}
+  deck: {fileID: 161265851}
   canvas: {fileID: 37014759}
   gameTitle: {fileID: 1156389451}
   scoreNumberLabel: {fileID: 2122974637}
@@ -1141,6 +1148,7 @@ MonoBehaviour:
   exitPanel: {fileID: 1331071744}
   yesButton: {fileID: 1331071743}
   noButton: {fileID: 1331071742}
+  NextButton: {fileID: 1070864655}
 --- !u!1 &1156389449
 GameObject:
   m_ObjectHideFlags: 0

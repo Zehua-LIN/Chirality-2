@@ -1132,6 +1132,7 @@ MonoBehaviour:
   - {fileID: 1084059856084402, guid: c41ffde4f4e851740afcb4ce5cc4f573, type: 2}
   - {fileID: 1941740529198000, guid: 350de8716221f2645ac52ace19f50b12, type: 2}
   - {fileID: 1867708667972528, guid: f8931a0e3029b6649b5a91d3e73bcb09, type: 2}
+  deck: {fileID: 161265851}
   canvas: {fileID: 37014759}
   gameTitle: {fileID: 1156389451}
   helpPanel: {fileID: 285866142}
