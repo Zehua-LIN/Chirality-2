@@ -21,6 +21,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     [SerializeField] GameObject exitPanel;
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
+    [SerializeField] Button NextButton;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -111,10 +112,9 @@ public class Level_4_QuestionManager : MonoBehaviour
     public void nextButtonPressed()
     {
         
-
-        
         if (currentStatus == gameStatus.InCheck)
         {
+
             if (numberOfQuestionsAnswred < 10)
             {
                 Destroy(currentQuestion);
@@ -122,6 +122,7 @@ public class Level_4_QuestionManager : MonoBehaviour
                 questions.Remove(currentQuestionObject);
                 selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
                 selected_answer.transform.GetComponent<Image>().color = Color.white;
+                NextButton.transform.GetComponent<Image>().color = Color.white;
 
                 selected_answer = null;
 
@@ -164,6 +165,7 @@ public class Level_4_QuestionManager : MonoBehaviour
             if (buttonColor != Color.red)
             {
                 caller.transform.parent.GetComponent<Image>().color = Color.red;
+                NextButton.transform.GetComponent<Image>().color = Color.cyan;
             }
             else
             {
@@ -171,6 +173,7 @@ public class Level_4_QuestionManager : MonoBehaviour
                 caller.transform.parent.GetComponent<Image>().color = Color.white;
             }
         }
+
 
         
     }
@@ -195,22 +198,6 @@ public class Level_4_QuestionManager : MonoBehaviour
             selected_answer.transform.GetComponent<Image>().color = Color.red;
         }
         
-        /**
-        // loop through the slots and check answer
-        for (int i = 0; i < currentQuestion.transform.childCount; i++)
-        {
-            GameObject elementInCell = currentQuestion.transform.GetChild(i).GetChild(0).gameObject;
-            if (elementInCell.tag == currentQuestionObject.answer[i])
-            {
-                plusScore();
-                elementInCell.transform.GetComponent<Image>().color = Color.green;
-            }
-            else
-            {
-                elementInCell.transform.GetComponent<Image>().color = Color.red;
-            }
-        }
-         **/
     }
 
     void plusScore()
