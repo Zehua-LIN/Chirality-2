@@ -28,6 +28,8 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			FB.ActivateApp();
 		}
+
+		
 		
 		
 		infoPanel.SetActive(false);
@@ -134,9 +136,9 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void fbShare() {
-		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
-		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
-		FB.ShareLink(contentTitle:"Chirality",
+		FB.Mobile.ShareDialogMode = ShareDialogMode.NATIVE;
+		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		FB.ShareLink(contentTitle:"Chirality 2",
 		contentURL:new System.Uri("https://www.google.com"),
 		contentDescription: descrpition,
 		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
@@ -145,8 +147,8 @@ public class GameOverManager : MonoBehaviour {
 
 	public void twitterShare() {
 		string address = "https://twitter.com/intent/tweet";
-		string name = "Chirality";
-		string description = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
+		string name = "Chirality 2";
+		string description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		string link = "https://www.google.com";
 		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
 	}
