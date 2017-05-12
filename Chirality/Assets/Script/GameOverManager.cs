@@ -28,9 +28,6 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			FB.ActivateApp();
 		}
-
-		
-		
 		
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);

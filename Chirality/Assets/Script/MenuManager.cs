@@ -33,8 +33,6 @@ public class MenuManager : MonoBehaviour {
 
 	void Start() {
 		settingPanel.SetActive(false);
-		float temp = 0 / 5f;
-		Debug.Log(temp);
 		
 		loadUserSetting();
 		loadMedals();
