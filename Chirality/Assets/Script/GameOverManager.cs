@@ -61,8 +61,8 @@ public class GameOverManager : MonoBehaviour {
 
 	void displayRecord() {
 		gameTitle.text = title;
-		scoreLabel.text = score.ToString();
-		highPercentageLabel.text = "Your best was " + (highPercentage * 100).ToString() + "%!";
+		scoreLabel.text = (percentage * 100).ToString() + "%";
+		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 	}
 
 	void displayMedalAndComment() {
