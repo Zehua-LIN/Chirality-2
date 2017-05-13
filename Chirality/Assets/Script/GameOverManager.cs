@@ -24,7 +24,7 @@ public class GameOverManager : MonoBehaviour {
 
 	void Start () {
 		if(!FB.IsInitialized) {
-			FB.Init();
+			FB.Init(FBInitCompletion);
 		}else {
 			FB.ActivateApp();
 		}
@@ -37,8 +37,6 @@ public class GameOverManager : MonoBehaviour {
 		displayMedalAndComment();
 		updateHighScore();				
 	}
-
-	
 
 	void loadRecords() {
 		title = PlayerPrefs.GetString("Game_Title");
@@ -133,7 +131,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void fbShare() {
-		FB.Mobile.ShareDialogMode = ShareDialogMode.NATIVE;
+		// AudioListener.pause = true;		
 		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality 2",
 		contentURL:new System.Uri("https://www.google.com"),
@@ -151,6 +149,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	private void fbCallBack(IShareResult result) {
+		// AudioListener.pause = false;	
 		if(result.Cancelled || !string.IsNullOrEmpty(result.Error)) {
 			Debug.Log(result.Error);
 		}else if(!string.IsNullOrEmpty(result.PostId)) {
@@ -158,5 +157,9 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			Debug.Log("Share succeed");
 		}
+	}
+
+	private void FBInitCompletion() {		
+		FB.Mobile.ShareDialogMode = ShareDialogMode.NATIVE;
 	}
 }
