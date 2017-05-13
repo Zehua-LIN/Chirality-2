@@ -20,6 +20,9 @@ TagManager:
   - H-bonding
   - dipole-dipole
   - van der Waal's
+  - cm
+  - bckg
+  - correctToggleEQ5
   layers:
   - Default
   - TransparentFX

@@ -128,6 +128,9 @@ public class GameOverManager : MonoBehaviour {
 			case "Intermolecular Forces":
 				SceneManager.LoadScene("Level_Three_Scene");	
 				break;
+		    case "Chiral Carbons":
+			    SceneManager.LoadScene("Level_Five_Scene");	
+			    break;
 			default:
 				break;
 		}

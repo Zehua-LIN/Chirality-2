@@ -5,18 +5,64 @@ using UnityEngine.UI;
 
 public class ToggleHandler : MonoBehaviour {
 
-	Toggle toggle;
+	public Toggle toggle;
+	public ToggleGroup toggleGroup;
+	public Toggle[] extraQuestionToggles;
+	public Canvas extraQuestionCanvas;
+	public Toggle correctToggle = null;
+	public static List<Toggle> selectedToggles;
 
-	void Start () {
-		toggle = GetComponent<Toggle>();
+	// Use this for initialization
+
+
+	public void ToggleAction(){
+		if (toggle.isOn) {
+			toggle.image.color = new Color (0, 0, 0, 0);
+		} else {
+			toggle.image.color = new Color(255,255,255,255);
+		}
 	}
 
-	void Update () {
-		//		Debug.Log(toggle.isOn);
+
+	public void addOrRemoveSelectedToggle() {
+		// getting the selected toggles list from Level 5 Question Manager
+		selectedToggles = Level5QuestionManager.GetSelectedTogglesList();
+
+		// if the list does not contain the toggle, add it to the list
+		if (!selectedToggles.Contains(toggle))
+		{
+			selectedToggles.Add(toggle);
+		} else {
+			selectedToggles.Remove(toggle);
+		}
+		// update qm select toggles
+		Level5QuestionManager.UpdateSelectedTogglesList(selectedToggles);
 	}
 
-	public void ChangeToggle ()
-	{
-		Debug.Log("Toggle is clicked");
+	public void ChangeColour() {
+
+		extraQuestionCanvas = toggle.GetComponentInParent<Canvas>();
+		extraQuestionToggles = extraQuestionCanvas.GetComponentsInChildren<Toggle>();
+
+		// first, make the toggles not interactable anymore
+
+		for (int j = 0; j < extraQuestionToggles.Length; j++) {
+			extraQuestionToggles[j].interactable = false;
+		}
+
+		// change the colour
+		for (int i = 0; i < extraQuestionToggles.Length; i++) {
+
+			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
+			{
+				correctToggle = extraQuestionToggles[i];
+			}
+		}
+		if (toggle.tag != "correctToggleEQ5") {
+			toggle.targetGraphic.color = Color.red;
+		}
+		correctToggle.targetGraphic.color = Color.green;
+		Level5QuestionManager.changeToEToggleSelected();
 	}
+
 }
