@@ -24,12 +24,19 @@ public class GameOverManager : MonoBehaviour {
 
 	void Start () {
 		if(!FB.IsInitialized) {
+<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
 			FB.Init();
+=======
+			FB.Init(FBInitCompletion);
+>>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
 		}else {
 			FB.ActivateApp();
 		}
 		
+<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
 		
+=======
+>>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
 				
@@ -38,8 +45,6 @@ public class GameOverManager : MonoBehaviour {
 		displayMedalAndComment();
 		updateHighScore();				
 	}
-
-	
 
 	void loadRecords() {
 		title = PlayerPrefs.GetString("Game_Title");
@@ -61,8 +66,8 @@ public class GameOverManager : MonoBehaviour {
 
 	void displayRecord() {
 		gameTitle.text = title;
-		scoreLabel.text = score.ToString();
-		highPercentageLabel.text = "Your best was " + (highPercentage * 100).ToString() + "%!";
+		scoreLabel.text = (percentage * 100).ToString() + "%";
+		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 	}
 
 	void displayMedalAndComment() {
@@ -176,9 +181,15 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void fbShare() {
+<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
 		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality",
+=======
+		// AudioListener.pause = true;		
+		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		FB.ShareLink(contentTitle:"Chirality 2",
+>>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
 		contentURL:new System.Uri("https://www.google.com"),
 		contentDescription: descrpition,
 		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
@@ -187,13 +198,14 @@ public class GameOverManager : MonoBehaviour {
 
 	public void twitterShare() {
 		string address = "https://twitter.com/intent/tweet";
-		string name = "Chirality";
-		string description = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
+		string name = "Chirality 2";
+		string description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		string link = "https://www.google.com";
 		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
 	}
 
 	private void fbCallBack(IShareResult result) {
+		// AudioListener.pause = false;	
 		if(result.Cancelled || !string.IsNullOrEmpty(result.Error)) {
 			Debug.Log(result.Error);
 		}else if(!string.IsNullOrEmpty(result.PostId)) {
@@ -202,4 +214,12 @@ public class GameOverManager : MonoBehaviour {
 			Debug.Log("Share succeed");
 		}
 	}
+<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
 }
+=======
+
+	private void FBInitCompletion() {		
+		FB.Mobile.ShareDialogMode = ShareDialogMode.NATIVE;
+	}
+}
+>>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
