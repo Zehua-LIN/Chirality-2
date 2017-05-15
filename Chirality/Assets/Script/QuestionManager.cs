@@ -54,7 +54,7 @@ public class QuestionManager : MonoBehaviour {
 		}
 		set{
 			score = value;
-			scoreNumberLabel.text = score.ToString();
+			scoreNumberLabel.text = score.ToString() + "/" + totalNumberOfCells.ToString();
 		}
 	}
 
@@ -101,8 +101,8 @@ public class QuestionManager : MonoBehaviour {
 		currentQuestion = Instantiate(currentQuestionObject.gameObject,canvas.transform,false);	// instantiate the prefab
 		currentQuestionAnswer = Instantiate(currentQuestionObject.answerObject,canvas.transform,false);
 		if(leftHandMode) {
-			currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x,0);
-			currentQuestionAnswer.transform.localPosition = new Vector2(-currentQuestionAnswer.transform.localPosition.x,0);
+			currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x + 30,0);
+			currentQuestionAnswer.transform.localPosition = new Vector2(-currentQuestionAnswer.transform.localPosition.x + 30,0);
 		}
 		currentQuestionAnswer.SetActive(false);
 		questionName.text = currentQuestionObject.name;
@@ -146,6 +146,7 @@ public class QuestionManager : MonoBehaviour {
 				plusScore();
 				elementInCell.transform.GetComponent<Image>().color = Color.green;
 			}else {
+				Score += 0;
 				elementInCell.transform.GetComponent<Image>().color = Color.red;
 			}		
 		}
@@ -213,12 +214,12 @@ public class QuestionManager : MonoBehaviour {
 			switch (gameLevel)
 			{
 				case 1:
-					if(!PlayerPrefs.HasKey("Level_1_High_Percentage") || PlayerPrefs.GetFloat("Level_1_High_Percentage") < 0) {
+					if(!PlayerPrefs.HasKey("Level_1_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_1_High_Percentage",0f);
 					}
 					break;
 				case 3:
-					if(!PlayerPrefs.HasKey("Level_3_High_Percentage") || PlayerPrefs.GetFloat("Level_3_High_Percentage") < 0) {
+					if(!PlayerPrefs.HasKey("Level_3_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_3_High_Percentage",0f);
 					}
 					break;

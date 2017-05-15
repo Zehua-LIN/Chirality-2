@@ -16,6 +16,12 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField] Animator levelTwoSubMenu;
 	[SerializeField] Animator levelFourSubMenu;
 	[SerializeField] Button[] levelButtons;
+	[SerializeField] Button levelFourStandardButton;
+	[SerializeField] Button levelFourExtremeButton;
+	[SerializeField] Button levelTwoStandardButton;
+	[SerializeField] Button levelTwoTimeButton;
+	[SerializeField] Button levelTwoExtremeButton;
+
 	[SerializeField] Image[] medals;
 	[SerializeField] Sprite menuButtonSelected;
 	[SerializeField] Sprite menuButtonUnselected;
@@ -126,16 +132,43 @@ public class MenuManager : MonoBehaviour {
 		}
 	}
 
+	public void resetScore() {
+		for(int i = 1; i <= 6; i++) {
+			PlayerPrefs.DeleteKey("Level_" + i + "_High_Percentage");
+			if(levelButtons[i-1].transform.childCount > 1) {
+				Destroy(levelButtons[i-1].transform.GetChild(1).gameObject);
+			}
+		}
+		
+		
+	}
+
 	void loadMedals() {
 		for(int i = 1; i <= 6; i++) {
-			float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage",-1);
-			if(highest >= 0) {
+			if(PlayerPrefs.HasKey("Level_" + i + "_High_Percentage")) {
+				float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage");				
 				int medalNumber = getMedal(highest);
 				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
 				medal.rectTransform.sizeDelta = new Vector2(70,70);
-				medal.transform.localPosition = new Vector2(200,0);
-			}			
+				medal.transform.localPosition = new Vector2(200,0);				
+			}					
 		}		
+
+		// lvl 4 sub medals
+		if(PlayerPrefs.HasKey("Level_4_Standard_High_Percentage")) {
+			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");				
+			int medalNumber = getMedal(highest);
+			Image medal = Instantiate(medals[medalNumber],levelFourStandardButton.transform,false);
+			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.transform.localPosition = new Vector2(200,0);	
+		}
+		if(PlayerPrefs.HasKey("Level_4_Standard_Extreme_Percentage")) {
+			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");				
+			int medalNumber = getMedal(highest);
+			Image medal = Instantiate(medals[medalNumber],levelFourStandardButton.transform,false);
+			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.transform.localPosition = new Vector2(200,0);	
+		}
 	}
 
 	int getMedal(float score) {
