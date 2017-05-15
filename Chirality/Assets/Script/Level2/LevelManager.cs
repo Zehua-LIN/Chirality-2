@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour {
 	public GameObject[] tiles;
 	public Text matchText;
 	public GameObject helpPanel;
+	public GameObject exitPanel;
+	public GameObject retryPanel;
+
 
 	private bool _init = false;
 	private int _matches = 27;
@@ -39,8 +42,25 @@ public class LevelManager : MonoBehaviour {
 
 	// switch to the main scene
 	public void homeButtonPressed() {
+		exitPanel.SetActive(true);
+	}
+
+	public void yesButtonPressed() {
 		SceneManager.LoadScene("MainScene");
 	}
+
+	public void noButtonPressed() {
+		exitPanel.SetActive(false);
+	}
+
+	public void yesButtonRetry() {
+		SceneManager.LoadScene("Level_Two_TimeTrial_Scene");
+	}
+
+	public void noButtonRetry() {
+		SceneManager.LoadScene("MainScene");
+	}
+
 
 	public void toggleHelpPanel() {
 		helpPanel.SetActive(!helpPanel.activeInHierarchy);
@@ -48,8 +68,8 @@ public class LevelManager : MonoBehaviour {
 
 
 	void Start() {
-
 		helpPanel.SetActive(false);
+		setUpHelpPanel ();
 
 		startTime = Time.time;
 
@@ -82,7 +102,7 @@ public class LevelManager : MonoBehaviour {
 			trialTimeLeft -= Time.deltaTime;
 			timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
 			if (trialTimeLeft < 0) {
-				SceneManager.LoadScene ("MainScene");
+				retryPanel.SetActive(true);
 			}
 		}
 
@@ -275,16 +295,51 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void endGame() {
-		
-		float t = Time.time - startTime;
+		string gameOverTitle = "Title";
+		float t = 0f;
+		if (mode.text == "Standard") {
+			gameOverTitle = "Structure Classification: Standard";
+			t = Time.time - startTime;
+		}
+		else if (mode.text == "Extreme") {
+			gameOverTitle = "Structure Classification: Extreme";
+			t = timeLeft;
+		}
+		else if (mode.text == "Time Trial") {
+			gameOverTitle = "Structure Classification: Time Trial";
+			t = trialTimeLeft;
+		}
 		int score = (int)t;
-		PlayerPrefs.SetString("Game_Title","Structure Classification Standard");
+		PlayerPrefs.SetString("Game_Title",gameOverTitle);
 		PlayerPrefs.SetInt("Score",score);
 		SceneManager.LoadScene("Game_Over_Scene");
 
 
 	}
 
-	
+	void setUpHelpPanel() {
+		switch (mode.text) {
+		case "Standard":
+			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Standard",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_Two_Standard",false);
+			}
+			break;
+		case "Time Trial":
+			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Trial",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_Two_Trial",false);
+			}
+			break;
+		case "Extreme":
+			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Extreme",true)) {
+				helpPanel.SetActive(true);
+				PlayerPrefsX.SetBool("First_Time_Level_Two_Extreme",false);
+			}
+			break;
+		default:
+			break;
+		}
+	}
 
 }

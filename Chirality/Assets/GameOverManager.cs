@@ -24,19 +24,12 @@ public class GameOverManager : MonoBehaviour {
 
 	void Start () {
 		if(!FB.IsInitialized) {
-<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
-			FB.Init();
-=======
 			FB.Init(FBInitCompletion);
->>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
 		}else {
 			FB.ActivateApp();
 		}
 		
-<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
-		
-=======
->>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
+
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
 				
@@ -71,7 +64,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	void displayMedalAndComment() {
-		if(title =="Structure Classification Standard") {
+		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayMedalAndCommentForLevel2();
 		}
 		else if(percentage < 0.5f) {
@@ -98,43 +91,152 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	void displayMedalAndCommentForLevel2() {
+
+		if (title == "Structure Classification: Standard") {
+			displayMedalAndCommentForStandardMode ();
+		} else if (title == "Structure Classification: Extreme") {
+			displayMedalAndCommentForExtremeMode ();
+		} else if (title == "Structure Classification: Time Trial") {
+			displayMedalAndCommentForTrialMode ();
+		}
+
+
+
+
+	}
+
+	void displayMedalAndCommentForStandardMode() {
+		scoreLabel.text = ""+ score;
 		int min = score/60;
 		int sec = score%60;
 		string comment = "";
 		if (min == 0) {
-                comment = "You took " + sec + "seconds.";
-            }
-        else if (min == 1) {
-                comment = "You took " + min + " minute "+ sec +" seconds.";
-            }
-        else if (min > 1) {
-                comment = "You took " + min +" minutes " +sec +  " seconds.";
-            }
+			comment = "You took " + sec + "seconds.";
+			scoreLabel.text = score + " sec";
+		}
+		else if (min == 1) {
+			comment = "You took " + min + " minute "+ sec +" seconds.";
+			scoreLabel.text = min + ":" + sec;
+		}
+		else if (min > 1) {
+			comment = "You took " + min +" minutes " +sec +  " seconds.";
+			scoreLabel.text = min + ":" + sec;
 
-        percentageLabel.text = comment;
-        highPercentageLabel.text = "";
+		}
 
-        if (score <= 70) {
+		percentageLabel.text = comment;
+		highPercentageLabel.text = "";
+
+		if (score <= 80) {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
-        }
-        else if (score <= 120) {
+		}
+		else if (score <= 120) {
 			instantiateMedal(3);
 			goodEffortLabel.text = "Well done!";
-        }
-        else if (score <= 180) {
+		}
+		else if (score <= 180) {
 			instantiateMedal(2);
 			goodEffortLabel.text = "Great work!";
-        }
-        else if (score <= 240) {
+		}
+		else if (score <= 240) {
 			instantiateMedal(1);
 			goodEffortLabel.text = "Nice try!";
-        }
-        else if (score >240) {
-        	instantiateMedal(0);
+		}
+		else if (score >240) {
+			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
-        }
+		}
 	}
+
+	void displayMedalAndCommentForExtremeMode() {
+		scoreLabel.text = ""+ score;
+		int min = score/60;
+		int sec = score%60;
+		string comment = "";
+		if (min == 0) {
+			comment = "You beat the clock with " + sec + " seconds remaining.";
+			scoreLabel.text = score + " sec";
+		}
+		else if (min == 1) {
+			comment = "You beat the clock with " + min + " minute and "+ sec +" seconds remaining.";
+			scoreLabel.text = min + ":" + sec;
+		}
+		else if (min > 1) {
+			comment = "You beat the clock with  " + min +" minutes and " +sec +  " seconds remaining.";
+			scoreLabel.text = min + ":" + sec;
+
+		}
+
+		percentageLabel.text = comment;
+		highPercentageLabel.text = "";
+
+		if (score <= 70) {
+			instantiateMedal(0);
+			goodEffortLabel.text = "Good Effort!";
+		}
+		else if (score <= 120) {
+			instantiateMedal(1);
+			goodEffortLabel.text = "Nice try!";
+		}
+		else if (score <= 180) {
+			instantiateMedal(2);
+			goodEffortLabel.text = "Great work!";
+		}
+		else if (score < 240) {
+			instantiateMedal(3);
+			goodEffortLabel.text = "Well done!";
+		}
+		else if (score >= 240) {
+			instantiateMedal(4);
+			goodEffortLabel.text = "Congratulations!";
+		}
+	}
+
+	void displayMedalAndCommentForTrialMode() {
+		scoreLabel.text = ""+ score;
+		int min = score/60;
+		int sec = score%60;
+		string comment = "";
+		if (min == 0) {
+			comment = "You beat the clock with " + sec + " seconds remaining.";
+			scoreLabel.text = score + " sec";
+		}
+		else if (min == 1) {
+			comment = "You beat the clock with " + min + " minute and "+ sec +" seconds remaining.";
+			scoreLabel.text = min + ":" + sec;
+		}
+		else if (min > 1) {
+			comment = "You beat the clock with  " + min +" minutes and " +sec +  " seconds remaining.";
+			scoreLabel.text = min + ":" + sec;
+
+		}
+
+		percentageLabel.text = comment;
+		highPercentageLabel.text = "";
+
+		if (score <= 20) {
+			instantiateMedal(0);
+			goodEffortLabel.text = "Good Effort!";
+		}
+		else if (score <= 35) {
+			instantiateMedal(1);
+			goodEffortLabel.text = "Nice try!";
+		}
+		else if (score <= 50) {
+			instantiateMedal(2);
+			goodEffortLabel.text = "Great work!";
+		}
+		else if (score < 65) {
+			instantiateMedal(3);
+			goodEffortLabel.text = "Well done!";
+		}
+		else if (score >= 65) {
+			instantiateMedal(4);
+			goodEffortLabel.text = "Congratulations!";
+		}
+	}
+
 
 	void updateHighScore() {
 		if(percentage > highPercentage) {
@@ -175,21 +277,25 @@ public class GameOverManager : MonoBehaviour {
 			case "Intermolecular Forces":
 				SceneManager.LoadScene("Level_Three_Scene");	
 				break;
+			case "Structure Classification: Standard":
+				SceneManager.LoadScene("Level_Two_Scene");	
+				break;
+			case "Structure Classification: Extreme":
+				SceneManager.LoadScene("Level_Two_Extreme_Scene");	
+				break;
+			case "Structure Classification: Time Trial":
+				SceneManager.LoadScene("Level_Two_TimeTrial_Scene");	
+				break;
 			default:
 				break;
 		}
 	}
 
 	public void fbShare() {
-<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
-		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
-		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
-		FB.ShareLink(contentTitle:"Chirality",
-=======
+
 		// AudioListener.pause = true;		
 		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality 2",
->>>>>>> master:Chirality/Assets/Script/GameOverManager.cs
 		contentURL:new System.Uri("https://www.google.com"),
 		contentDescription: descrpition,
 		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
@@ -214,12 +320,9 @@ public class GameOverManager : MonoBehaviour {
 			Debug.Log("Share succeed");
 		}
 	}
-<<<<<<< HEAD:Chirality/Assets/GameOverManager.cs
-}
-=======
+
 
 	private void FBInitCompletion() {		
 		FB.Mobile.ShareDialogMode = ShareDialogMode.NATIVE;
 	}
 }
->>>>>>> master:Chirality/Assets/Script/GameOverManager.cs

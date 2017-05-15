@@ -20,7 +20,6 @@ TagManager:
   - H-bonding
   - dipole-dipole
   - van der Waal's
-  - Manager
   layers:
   - Default
   - TransparentFX

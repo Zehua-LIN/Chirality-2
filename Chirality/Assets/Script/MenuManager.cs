@@ -190,3 +190,4 @@ public class MenuManager : MonoBehaviour {
 		ColorUtility.TryParseHtmlString("#072B3BFF",out textColorSelected);
 	}
 }
+
