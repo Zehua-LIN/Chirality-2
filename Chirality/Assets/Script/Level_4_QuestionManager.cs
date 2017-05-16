@@ -23,6 +23,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
     [SerializeField] Button NextButton;
+    [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -127,7 +128,8 @@ public class Level_4_QuestionManager : MonoBehaviour
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
                 questions.Remove(currentQuestionObject);
-                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+
+                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
                 selected_answer.transform.GetComponent<Image>().color = Color.white;
                 NextButton.transform.GetComponent<Image>().color = Color.white;
 
@@ -164,20 +166,23 @@ public class Level_4_QuestionManager : MonoBehaviour
         {
             if (selected_answer != null)
             {
-                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+                //selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
             }
             selected_answer = caller;
 
             Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
             if (buttonColor != Color.red)
             {
-                caller.transform.parent.GetComponent<Image>().color = Color.red;
+                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
+                //caller.transform.parent.GetComponent<Image>().color = Color.red;
                 NextButton.transform.GetComponent<Image>().color = Color.cyan;
             }
             else
             {
                 selected_answer = null;
-                caller.transform.parent.GetComponent<Image>().color = Color.white;
+                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+                //caller.transform.parent.GetComponent<Image>().color = Color.white;
             }
         }
 
