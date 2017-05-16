@@ -143,10 +143,10 @@ public class Level_4_QuestionManager : MonoBehaviour
                 PlayerPrefs.SetInt("Score", score);
                 PlayerPrefs.SetFloat("Percentage", percetange);
 
-      
-                if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+
+                if (!PlayerPrefs.HasKey("Level_4_Standard_High_Percentage"))
                 {
-                    PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                    PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", 0f);
                 }
                 SceneManager.LoadScene("Game_Over_Scene");
             }
@@ -250,45 +250,6 @@ public class Level_4_QuestionManager : MonoBehaviour
     {
         currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
         currentQuestionAnswer.SetActive(!currentQuestionAnswer.activeInHierarchy);
-    }
-
-    public void funFactPanelTouched()
-    {
-        if (numberOfQuestionsAnswred < 5)
-        {
-            Destroy(currentQuestion);
-            Destroy(currentQuestionAnswer);
-            questions.Remove(currentQuestionObject);
-            
-            instantiateRandomQuestionToDisplay();
-        }
-        else
-        {
-            // go to game over scene 
-            PlayerPrefs.SetString("Game_Title", gameTitle.text);
-            float percetange = Mathf.Round((score / totalNumberOfCells) * 100) / 100f;
-            PlayerPrefs.SetInt("Score", score);
-            PlayerPrefs.SetFloat("Percentage", percetange);
-
-            switch (gameLevel)
-            {
-                case 1:
-                    if (!PlayerPrefs.HasKey("Level_One_High_Percentage"))
-                    {
-                        PlayerPrefs.SetFloat("Level_One_High_Percentage", 0f);
-                    }
-                    break;
-                case 3:
-                    if (!PlayerPrefs.HasKey("Level_Three_High_Percentage"))
-                    {
-                        PlayerPrefs.SetFloat("Level_Three_High_Percentage", 0f);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            SceneManager.LoadScene("Game_Over_Scene");
-        }
     }
 
     string readJsonData(int level)

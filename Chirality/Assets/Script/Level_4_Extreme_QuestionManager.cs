@@ -24,9 +24,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
-    private int score = 0;
     private int numberOfQuestionsAnswred = 0;
-    private float totalNumberOfCells = 0f;
     private bool soundEffectToggle;
     private GameObject currentQuestion;
     private GameObject currentQuestionAnswer;
@@ -41,18 +39,6 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         get
         {
             return currentStatus;
-        }
-    }
-
-    private int Score
-    {
-        get
-        {
-            return score;
-        }
-        set
-        {
-            score = value;
         }
     }
 
@@ -71,13 +57,13 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
                 float percetange = 0f;
-                PlayerPrefs.SetInt("Score", score);
+                PlayerPrefs.SetInt("Score", 0);
                 PlayerPrefs.SetFloat("Percentage", percetange);
 
 
-                if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+                if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
                 {
-                    PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                    PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
                 }
                 SceneManager.LoadScene("Game_Over_Scene");
             }
@@ -174,14 +160,14 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             {
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = score / 10f;
-                PlayerPrefs.SetInt("Score", score);
+                float percetange = targetTime / 60f;
+                PlayerPrefs.SetInt("Score", (int) targetTime);
                 PlayerPrefs.SetFloat("Percentage", percetange);
 
-      
-                if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+
+                if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
                 {
-                    PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                    PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
                 }
                 SceneManager.LoadScene("Game_Over_Scene");
             }
@@ -232,7 +218,6 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         if (selected_answer.name.Equals(currentQuestionObject.name))
         {
             selected_answer.transform.GetComponent<Image>().color = Color.green;
-            plusScore();
         }
         else
         {
@@ -245,17 +230,12 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             PlayerPrefs.SetFloat("Percentage", percetange);
 
 
-            if (!PlayerPrefs.HasKey("Level_Four_High_Percentage"))
+            if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
             {
-                PlayerPrefs.SetFloat("Level_Four_High_Percentage", 0f);
+                PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
             }
             SceneManager.LoadScene("Game_Over_Scene");
         }
-    }
-
-    void plusScore()
-    {
-        Score++;
     }
 
     // helper methos to convert json array to normal List
@@ -296,45 +276,6 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     {
         currentQuestion.SetActive(!currentQuestion.activeInHierarchy);
         currentQuestionAnswer.SetActive(!currentQuestionAnswer.activeInHierarchy);
-    }
-
-    public void funFactPanelTouched()
-    {
-        if (numberOfQuestionsAnswred < 5)
-        {
-            Destroy(currentQuestion);
-            Destroy(currentQuestionAnswer);
-            questions.Remove(currentQuestionObject);
-            
-            instantiateRandomQuestionToDisplay();
-        }
-        else
-        {
-            // go to game over scene 
-            PlayerPrefs.SetString("Game_Title", gameTitle.text);
-            float percetange = Mathf.Round((score / totalNumberOfCells) * 100) / 100f;
-            PlayerPrefs.SetInt("Score", score);
-            PlayerPrefs.SetFloat("Percentage", percetange);
-
-            switch (gameLevel)
-            {
-                case 1:
-                    if (!PlayerPrefs.HasKey("Level_One_High_Percentage"))
-                    {
-                        PlayerPrefs.SetFloat("Level_One_High_Percentage", 0f);
-                    }
-                    break;
-                case 3:
-                    if (!PlayerPrefs.HasKey("Level_Three_High_Percentage"))
-                    {
-                        PlayerPrefs.SetFloat("Level_Three_High_Percentage", 0f);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            SceneManager.LoadScene("Game_Over_Scene");
-        }
     }
 
     string readJsonData(int level)

@@ -51,7 +51,10 @@ public class GameOverManager : MonoBehaviour {
 				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 				break;
             case "Level 4: Isomers":
-                highPercentage = PlayerPrefs.GetFloat("Level_Four_High_Percentage");
+                highPercentage = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
+                break;
+            case "Level 4: Isomers Extreme":
+                highPercentage = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
                 break;
 			default:
 				highPercentage = 0f;		
@@ -102,7 +105,10 @@ public class GameOverManager : MonoBehaviour {
 					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
                 case "Level 4: Isomers":
-                    PlayerPrefs.SetFloat("Level_4_High_Percentage",percentage);
+                    PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", percentage);
+                    break;
+                case "Level 4: Isomers Extreme":
+                    PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", percentage);
                     break;
 				default:
 					break;
@@ -133,6 +139,9 @@ public class GameOverManager : MonoBehaviour {
 				break;
             case "Level 4: Isomers":
                 SceneManager.LoadScene("Level_Four_Scene");
+                break;
+            case "Level 4: Isomers Extreme":
+                SceneManager.LoadScene("Level_Four_Scene_Extreme");
                 break;
 			default:
 				break;
