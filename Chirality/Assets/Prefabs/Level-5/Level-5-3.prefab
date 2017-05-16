@@ -146,7 +146,6 @@ MonoBehaviour:
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
   correctToggle: {fileID: 0}
-  arrayTgg: []
 --- !u!114 &114279331037445776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,7 +256,6 @@ MonoBehaviour:
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
   correctToggle: {fileID: 0}
-  arrayTgg: []
 --- !u!114 &114525226491139352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,7 +477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443, y: 20}
+  m_AnchoredPosition: {x: 443, y: 50}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224131837759969654
@@ -517,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318, y: 80}
+  m_AnchoredPosition: {x: 318, y: 50}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224592799180064196
@@ -535,7 +533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224757832594895574
@@ -592,6 +590,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}

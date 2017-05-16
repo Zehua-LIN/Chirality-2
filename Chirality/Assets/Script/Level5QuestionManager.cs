@@ -65,6 +65,16 @@ public class Level5QuestionManager : MonoBehaviour
 		}
 	}
 
+	//private int Score {
+	//	get{
+	//		return score;
+	//	}
+	//	set{
+	//		score = value;
+	//		scoreNumberLabel.text = score.ToString();
+	//	}
+	//}
+
 
 	void Start()
 	{
@@ -101,6 +111,8 @@ public class Level5QuestionManager : MonoBehaviour
 
 		// change the game status and deactivate the answer button
 		currentStatus = gameStatus.InGame;
+
+		mainQuestionSelectedToggles = new List<Toggle>();
 
 		getQuestionToggles();
 		eToggleSelected = false;
@@ -172,6 +184,7 @@ public class Level5QuestionManager : MonoBehaviour
 				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j]))
 				{
 					imagecm.sprite = acolourgr;
+					//plusScore ();
 				} else {
 					for (int e = 0; e < toggleImages.Length; e++)
 					{
@@ -201,8 +214,11 @@ public class Level5QuestionManager : MonoBehaviour
 
 	public void nextButtonPressed() {
 		if (currentStatus == gameStatus.InGame) {
-			checkMainQuestionAnswer ();
-			displayAnsPanel ();
+			Toggle[] arraySelectedToggles = mainQuestionSelectedToggles.ToArray();
+			if (arraySelectedToggles.Length > 0) {
+				checkMainQuestionAnswer ();
+				displayAnsPanel ();
+			}
 		} else if (currentStatus == gameStatus.InCheck) {
 			for (int j = 0; j < mainQuestionToggles.Length; j++) {
 				if (currentQuestionObject.answer.Contains (mainQuestionToggles [j].tag)) {
@@ -223,21 +239,21 @@ public class Level5QuestionManager : MonoBehaviour
 			numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 			currentStatus = gameStatus.InFunFact;
 		} else {
-			displayQuestion ();
+			if (eToggleSelected) {
+				displayQuestion ();
+			}
 		}
 
 	}
 
 
 	void displayQuestion() {
-		if (numberOfQuestionsAnswred < 3) {
+		if (numberOfQuestionsAnswred < 4) {
 			//Destroy (currentQuestion);
-			if (eToggleSelected) {
-				currentQuestion.SetActive (false);
-				extra.SetActive (false);
-				questions.Remove (currentQuestionObject);
-				instantiateRandomQuestionToDisplay ();
-			}
+			currentQuestion.SetActive (false);
+			extra.SetActive (false);
+			questions.Remove (currentQuestionObject);
+			instantiateRandomQuestionToDisplay ();
 		} else {
 			// go to game over scene 
 			PlayerPrefs.SetString ("Game_Title", gameTitle.text);
@@ -255,6 +271,9 @@ public class Level5QuestionManager : MonoBehaviour
 		eToggleSelected = true;
 	}
 
+	//public void plusScore() {
+	//	Score++;
+	//}
 
 	// switch to the main scene
 	public void homeButtonPressed() {

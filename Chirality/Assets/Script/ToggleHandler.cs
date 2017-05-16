@@ -56,12 +56,14 @@ public class ToggleHandler : MonoBehaviour {
 			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
 			{
 				correctToggle = extraQuestionToggles[i];
+				correctToggle.targetGraphic.color = Color.green;
 			}
 		}
 		if (toggle.tag != "correctToggleEQ5") {
 			toggle.targetGraphic.color = Color.red;
-		}
-		correctToggle.targetGraphic.color = Color.green;
+		} //else {
+			//Level5QuestionManager.Instance.plusScore ();
+		//}
 		Level5QuestionManager.changeToEToggleSelected();
 	}
 
