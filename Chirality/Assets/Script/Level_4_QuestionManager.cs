@@ -112,6 +112,11 @@ public class Level_4_QuestionManager : MonoBehaviour
             currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x, 0);
         }
 
+        Debug.Log("Current question name:" + currentQuestionObject.name);
+        Debug.Log("Current ID: " + currentQuestionObject.ID);
+        Debug.Log("Current prefab name: " + currentQuestion.name);
+        
+
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;
     }
