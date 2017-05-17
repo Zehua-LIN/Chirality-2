@@ -130,7 +130,7 @@ public class Level_4_QuestionManager : MonoBehaviour
                 questions.Remove(currentQuestionObject);
 
                 selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                selected_answer.transform.GetComponent<Image>().color = Color.white;
+                //selected_answer.transform.GetComponent<Image>().color = Color.white;
                 NextButton.transform.GetComponent<Image>().color = Color.white;
 
                 selected_answer = null;
@@ -202,12 +202,13 @@ public class Level_4_QuestionManager : MonoBehaviour
 
         if (selected_answer.name.Equals(currentQuestionObject.name))
         {
-            selected_answer.transform.GetComponent<Image>().color = Color.green;
+            //selected_answer.transform.GetComponent<Image>().color = Color.green;
+            selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
             plusScore();
         }
         else
         {
-            selected_answer.transform.GetComponent<Image>().color = Color.red;
+            selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[3];
         }
         
     }

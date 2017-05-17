@@ -21,6 +21,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     [SerializeField] GameObject exitPanel;
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
+    [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -147,8 +148,8 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
                 questions.Remove(currentQuestionObject);
-                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
-                selected_answer.transform.GetComponent<Image>().color = Color.white;
+                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+                //selected_answer.transform.GetComponent<Image>().color = Color.white;
 
                 targetTime = targetTime + 5.0f;
 
@@ -185,19 +186,19 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         {
             if (selected_answer != null)
             {
-                selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
+                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
             }
             selected_answer = caller;
 
             Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
             if (buttonColor != Color.red)
             {
-                caller.transform.parent.GetComponent<Image>().color = Color.red;
+                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
             }
             else
             {
                 selected_answer = null;
-                caller.transform.parent.GetComponent<Image>().color = Color.white;
+                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
             }
         }
 
@@ -217,11 +218,11 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
         if (selected_answer.name.Equals(currentQuestionObject.name))
         {
-            selected_answer.transform.GetComponent<Image>().color = Color.green;
+            selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
         }
         else
         {
-            selected_answer.transform.GetComponent<Image>().color = Color.red;
+            selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[3];
 
             // go to game over scene 
             PlayerPrefs.SetString("Game_Title", gameTitle.text);
