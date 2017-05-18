@@ -64,16 +64,7 @@ public class Level5QuestionManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
-
-	//private int Score {
-	//	get{
-	//		return score;
-	//	}
-	//	set{
-	//		score = value;
-	//		scoreNumberLabel.text = score.ToString();
-	//	}
-	//}
+		
 
 
 	void Start()
@@ -184,7 +175,6 @@ public class Level5QuestionManager : MonoBehaviour
 				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j]))
 				{
 					imagecm.sprite = acolourgr;
-					//plusScore ();
 				} else {
 					for (int e = 0; e < toggleImages.Length; e++)
 					{
@@ -202,8 +192,7 @@ public class Level5QuestionManager : MonoBehaviour
 				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j]))
 				{
 					imagecm.sprite = acolourr;
-				}
-				else
+				} else
 				{
 					mainQuestionToggles[j].gameObject.SetActive(false);
 				}
@@ -214,11 +203,8 @@ public class Level5QuestionManager : MonoBehaviour
 
 	public void nextButtonPressed() {
 		if (currentStatus == gameStatus.InGame) {
-			Toggle[] arraySelectedToggles = mainQuestionSelectedToggles.ToArray();
-			if (arraySelectedToggles.Length > 0) {
-				checkMainQuestionAnswer ();
-				displayAnsPanel ();
-			}
+			checkMainQuestionAnswer ();
+			displayAnsPanel ();
 		} else if (currentStatus == gameStatus.InCheck) {
 			for (int j = 0; j < mainQuestionToggles.Length; j++) {
 				if (currentQuestionObject.answer.Contains (mainQuestionToggles [j].tag)) {
@@ -248,7 +234,7 @@ public class Level5QuestionManager : MonoBehaviour
 
 
 	void displayQuestion() {
-		if (numberOfQuestionsAnswred < 4) {
+		if (numberOfQuestionsAnswred < 5) {
 			//Destroy (currentQuestion);
 			currentQuestion.SetActive (false);
 			extra.SetActive (false);
@@ -270,10 +256,7 @@ public class Level5QuestionManager : MonoBehaviour
 	{
 		eToggleSelected = true;
 	}
-
-	//public void plusScore() {
-	//	Score++;
-	//}
+		
 
 	// switch to the main scene
 	public void homeButtonPressed() {
