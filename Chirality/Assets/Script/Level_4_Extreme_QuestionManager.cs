@@ -45,7 +45,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
     void Update()
     {
-        if (!helpPanel.activeInHierarchy)
+        if ((currentStatus != gameStatus.InCheck) && (!helpPanel.activeInHierarchy))
         {
             targetTime -= Time.deltaTime;
 
@@ -74,7 +74,11 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         }
         else
         {
-            currentQuestion.SetActive(false);
+            if (helpPanel.activeInHierarchy)
+            {
+                currentQuestion.SetActive(false);
+            }
+            
         }
     }
 
