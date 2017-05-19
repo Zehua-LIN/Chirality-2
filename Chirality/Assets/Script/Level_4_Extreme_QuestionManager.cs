@@ -21,6 +21,9 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     [SerializeField] GameObject exitPanel;
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
+    [SerializeField] GameObject retryPanel;
+    [SerializeField] Button retryYesButton;
+    [SerializeField] Button retryNoButton;
     [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
@@ -55,18 +58,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
                 timer.text = targetTimeInt.ToString();
             else
             {
-                // go to game over scene 
-                PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = 0f;
-                PlayerPrefs.SetInt("Score", 0);
-                PlayerPrefs.SetFloat("Percentage", percetange);
-
-
-                if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
-                {
-                    PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
-                }
-                SceneManager.LoadScene("Game_Over_Scene");
+                retryPanelOpen();
             }
             
 
@@ -228,18 +220,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         {
             selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[3];
 
-            // go to game over scene 
-            PlayerPrefs.SetString("Game_Title", gameTitle.text);
-            float percetange = 0f;
-            PlayerPrefs.SetInt("Score", 0);
-            PlayerPrefs.SetFloat("Percentage", percetange);
-
-
-            if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
-            {
-                PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
-            }
-            SceneManager.LoadScene("Game_Over_Scene");
+            retryPanelOpen();
         }
     }
 
@@ -268,6 +249,20 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     public void noButtonPressed()
     {
         exitPanel.SetActive(false);
+    }
+
+    public void retryPanelOpen()
+    {
+        retryPanel.SetActive(true);
+    }
+
+    public void retryYesButtonPressed()
+    {
+        SceneManager.LoadScene("Level_Four_Scene_Extreme");
+    }
+    public void retryNoButtonPressed()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     public void toggleHelpPanel()
