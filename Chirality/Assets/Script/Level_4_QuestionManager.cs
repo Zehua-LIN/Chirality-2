@@ -55,7 +55,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         set
         {
             score = value;
-            scoreNumberLabel.text = score.ToString();
+            scoreNumberLabel.text = score.ToString() + "/10";
         }
     }
 
