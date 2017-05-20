@@ -65,10 +65,27 @@ public class GameOverManager : MonoBehaviour {
 	void displayRecord() {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
-		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
+
+        if (title == "Level 4: Isomers Extreme")
+        {
+            Debug.Log("Displaying extreme score");
+            highPercentageLabel.text = "Your previous best was " + ((int)highPercentage).ToString() + " seconds!";
+        }
+        else
+        {
+            highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
+        }
+		
 	}
 
-	void displayMedalAndComment() {
+	void displayMedalAndComment() 
+    {
+        if (title == "Level 4: Isomers Extreme")
+        {
+            displayMedalAndCommentForExtremeMode();
+            return;
+        }
+
 		if(percentage < 0.5f) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
@@ -91,6 +108,43 @@ public class GameOverManager : MonoBehaviour {
 			percentageLabel.text = "A perfect score! Your knowledge is obviously crystal clear.";
 		}
 	}
+
+    void displayMedalAndCommentForExtremeMode()
+    {
+        scoreLabel.text = "" + score;
+        string comment = "";
+        comment = "You ended with " + score + " seconds.";
+        scoreLabel.text = score + " sec";
+
+        percentageLabel.text = comment;
+        //highPercentageLabel.text = "";
+
+        if (score >= 40)
+        {
+            instantiateMedal(4);
+            goodEffortLabel.text = "Congratulations!";
+        }
+        else if (score >= 30)
+        {
+            instantiateMedal(3);
+            goodEffortLabel.text = "Well done!";
+        }
+        else if (score >= 20)
+        {
+            instantiateMedal(2);
+            goodEffortLabel.text = "Great work!";
+        }
+        else if (score >= 10)
+        {
+            instantiateMedal(1);
+            goodEffortLabel.text = "Nice try!";
+        }
+        else
+        {
+            instantiateMedal(0);
+            goodEffortLabel.text = "Good Effort!";
+        }
+    }
 
 	void updateHighScore() {
 		if(percentage > highPercentage) {
@@ -148,21 +202,44 @@ public class GameOverManager : MonoBehaviour {
 		}
 	}
 
-	public void fbShare() {
+	public void fbShare() 
+    {
+
+        string description;
+
+        if (title == "Level 4: Isomers Extreme")
+        {
+            description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+        }
+        else
+        {
+            description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+        }
+
 		// AudioListener.pause = true;		
-		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		
 		FB.ShareLink(contentTitle:"Chirality 2",
 		contentURL:new System.Uri("https://www.google.com"),
-		contentDescription: descrpition,
+        contentDescription: description,
 		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
 		callback: fbCallBack);
 	}
 
-	public void twitterShare() {
+	public void twitterShare() 
+    {
 		string address = "https://twitter.com/intent/tweet";
 		string name = "Chirality 2";
-		string description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
-		string link = "https://www.google.com";
+        string description;
+
+        if (title == "Level 4: Isomers Extreme")
+        {
+            description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+        }
+        else
+        {
+            description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+        }
+        string link = "https://www.google.com";
 		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
 	}
 

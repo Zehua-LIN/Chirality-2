@@ -34,7 +34,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     private GameObject currentQuestionAnswer;
     private Level_4_Question currentQuestionObject;
     private gameStatus currentStatus = gameStatus.InGame;
-    private float targetTime = 11.0f;
+    private float targetTime = 21.0f;
     private GameObject selected_answer = null;
     private bool leftHandMode;
 
@@ -139,15 +139,13 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-            if (numberOfQuestionsAnswred < 10)
+            if (numberOfQuestionsAnswred < 1)
             {
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
                 questions.Remove(currentQuestionObject);
                 selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
                 //selected_answer.transform.GetComponent<Image>().color = Color.white;
-
-                targetTime = targetTime + 5.0f;
 
                 selected_answer = null;
 
@@ -157,9 +155,8 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             {
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = targetTime / 60f;
                 PlayerPrefs.SetInt("Score", (int) targetTime);
-                PlayerPrefs.SetFloat("Percentage", percetange);
+                PlayerPrefs.SetFloat("Percentage", targetTime);
 
 
                 if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
@@ -215,6 +212,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         if (selected_answer.name.Equals(currentQuestionObject.name))
         {
             selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+            targetTime = targetTime + 5.0f;
         }
         else
         {
