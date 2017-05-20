@@ -6,9 +6,6 @@ using LitJson;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum gameState
-{ InGame, InCheck, InFunFact }
-
 public class Level5QuestionManager : MonoBehaviour
 {
 
@@ -143,57 +140,48 @@ public class Level5QuestionManager : MonoBehaviour
 		int nn = aa.Length;
 	}
 
-	public void checkMainQuestionAnswer()
-	{
+	public void checkMainQuestionAnswer() {
 		currentStatus = gameStatus.InCheck;
 
 		// first, make the toggles not interactable anymore
-		for (int jj = 0; jj < mainQuestionToggles.Length; jj++)
-		{
+		for (int jj = 0; jj < mainQuestionToggles.Length; jj++) {
 			mainQuestionToggles[jj].enabled = false;
 		}
 
 		// for each toggle in the canvas
-		for (int j = 0; j < mainQuestionToggles.Length; j++)
-		{
+		for (int j = 0; j < mainQuestionToggles.Length; j++) {
 			Image[] toggleImages = mainQuestionToggles[j].GetComponentsInChildren<Image>();
-			Image imagecm = toggleImages [0];
-			Image imageck = toggleImages [0];
+			Image imagecm = toggleImages[0];
 
-			for (int i = 0; i < toggleImages.Length; i++)
-			{
-				if (toggleImages[i].tag.Equals("cm"))
-				{
+			for (int i = 0; i < toggleImages.Length; i++) {
+				if (toggleImages[i].tag.Equals("cm")) {
 					imagecm = toggleImages[i];
 				}
 			}
 
 			// check if it should be selected
-			if (currentQuestionObject.answer.Contains(mainQuestionToggles[j].tag))
-			{
+			if (currentQuestionObject.answer.Contains(mainQuestionToggles[j].tag)) {
+				//Debug.Log("This should be selected:");
+				//Debug.Log(mainQuestionToggles[j].tag);
+
 				// check if it was selected
-				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j]))
-				{
+				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j])) {
 					imagecm.sprite = acolourgr;
 				} else {
-					for (int e = 0; e < toggleImages.Length; e++)
-					{
-						if (toggleImages[e].tag.Equals("bckg"))
-						{
-							imageck = toggleImages[e];
-							imageck.enabled = false;
-							mainQuestionToggles[j].isOn = true;
-							imagecm.sprite = acolourb;
+					for (int e = 0; e < toggleImages.Length; e++) {
+						if (toggleImages[e].tag.Equals("bckg")) {
+							imagecm = toggleImages[e];
 						}
 					}
+					imagecm.sprite = acolourb;
 				}
-			} else {
+
+			}
+			else {
 				// check if this toggle, that is not a right answer, was selected
-				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j]))
-				{
+				if (mainQuestionSelectedToggles.Contains(mainQuestionToggles[j])) {
 					imagecm.sprite = acolourr;
-				} else
-				{
+				} else {
 					mainQuestionToggles[j].gameObject.SetActive(false);
 				}
 			}
@@ -207,13 +195,14 @@ public class Level5QuestionManager : MonoBehaviour
 			displayAnsPanel ();
 		} else if (currentStatus == gameStatus.InCheck) {
 			for (int j = 0; j < mainQuestionToggles.Length; j++) {
+				Image[] toggleImages = mainQuestionToggles [j].GetComponentsInChildren<Image> ();
+				Image imagecm = toggleImages [0];
 				if (currentQuestionObject.answer.Contains (mainQuestionToggles [j].tag)) {
 					if (mainQuestionSelectedToggles.Contains (mainQuestionToggles [j])) {
-						for (int i = 0; i < currentQuestion.transform.childCount; i++) {
-							GameObject t = currentQuestion.transform.GetChild (i).GetChild (0).GetChild (0).gameObject;
-							t.transform.GetComponent<Image> ().color = Color.green;
-						}
-					}
+						imagecm.sprite = acolourgr;
+					} else if (imagecm.sprite == acolourb) {
+						imagecm.sprite = acolourgr;
+					} 
 				} else {
 					if (mainQuestionSelectedToggles.Contains (mainQuestionToggles [j])) {
 						mainQuestionToggles [j].gameObject.SetActive (false);
@@ -231,6 +220,7 @@ public class Level5QuestionManager : MonoBehaviour
 		}
 
 	}
+
 
 
 	void displayQuestion() {

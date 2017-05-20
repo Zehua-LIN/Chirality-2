@@ -61,9 +61,7 @@ public class ToggleHandler : MonoBehaviour {
 		}
 		if (toggle.tag != "correctToggleEQ5") {
 			toggle.targetGraphic.color = Color.red;
-		} //else {
-			//Level5QuestionManager.Instance.plusScore ();
-		//}
+		} 
 		Level5QuestionManager.changeToEToggleSelected();
 	}
 

@@ -52,6 +52,7 @@ TagManager:
   - t28
   - t29
   - t30
+  - t7
   layers:
   - Default
   - TransparentFX
