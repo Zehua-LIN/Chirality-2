@@ -14,6 +14,9 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] Image newRecord;
 	[SerializeField] Image[] medals;
 	[SerializeField] GameObject infoPanel;
+	[SerializeField] GameObject infoPanelStandard;
+	[SerializeField] GameObject infoPanelExtreme;
+	[SerializeField] GameObject infoPanelTrial;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text goodEffortLabel;
 	
@@ -360,7 +363,16 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void toggleInfoPanel() {
-		infoPanel.SetActive(!infoPanel.activeInHierarchy);
+		if (title == "Structure Classification: Standard") {
+			infoPanelStandard.SetActive (!infoPanelStandard.activeInHierarchy);
+		} else if (title == "Structure Classification: Extreme") {
+			infoPanelExtreme.SetActive (!infoPanelExtreme.activeInHierarchy);
+		} else if (title == "Structure Classification: Time Trial") {
+			infoPanelTrial.SetActive (!infoPanelTrial.activeInHierarchy);
+		}
+		else {
+			infoPanel.SetActive(!infoPanel.activeInHierarchy);
+		}
 	}
 
 	void instantiateMedal(int i) {

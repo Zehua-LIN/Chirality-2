@@ -118,7 +118,7 @@ public class LevelManager : MonoBehaviour {
 				timeLeft -= Time.deltaTime;
 				timerText.text = "Time: " + Mathf.Round (timeLeft);
 				if (timeLeft < 0) {
-					SceneManager.LoadScene ("MainScene");
+					retryPanel.SetActive(true);
 				}
 
 			} else if (mode.text == "Standard") {
@@ -353,19 +353,19 @@ public class LevelManager : MonoBehaviour {
 		switch (mode.text) {
 		case "Standard":
 			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Standard",true)) {
-				helpPanel.SetActive(true);
+				toggleHelpPanel();
 				PlayerPrefsX.SetBool("First_Time_Level_Two_Standard",false);
 			}
 			break;
 		case "Time Trial":
 			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Trial",true)) {
-				helpPanel.SetActive(true);
+				toggleHelpPanel();
 				PlayerPrefsX.SetBool("First_Time_Level_Two_Trial",false);
 			}
 			break;
 		case "Extreme":
 			if(PlayerPrefsX.GetBool("First_Time_Level_Two_Extreme",true)) {
-				helpPanel.SetActive(true);
+				toggleHelpPanel();
 				PlayerPrefsX.SetBool("First_Time_Level_Two_Extreme",false);
 			}
 			break;
