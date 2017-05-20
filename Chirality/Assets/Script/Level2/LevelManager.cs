@@ -24,6 +24,10 @@ public class LevelManager : MonoBehaviour {
 	public GameObject helpPanel;
 	public GameObject exitPanel;
 	public GameObject retryPanel;
+	public GameObject tilesPanel;
+	public bool dimPanel = false;
+	public bool pauseTime = false;
+
 
 
 	private bool _init = false;
@@ -32,6 +36,7 @@ public class LevelManager : MonoBehaviour {
 	public Text timerText;
 	public Text mode;
 	private float startTime;
+	private float tempTime;
 
 	// time for extreme mode
 	private float timeLeft = 300.0f;
@@ -63,7 +68,25 @@ public class LevelManager : MonoBehaviour {
 
 
 	public void toggleHelpPanel() {
+		pauseTime = !pauseTime;
+
+		if (pauseTime) {
+			tempTime = Time.time;
+		}
+
+		if (!pauseTime) {
+			startTime += (Time.time - tempTime);
+		}
+
 		helpPanel.SetActive(!helpPanel.activeInHierarchy);
+		dimPanel = !dimPanel;
+		if (dimPanel) {
+			tilesPanel.GetComponent<CanvasGroup> ().alpha = 0.1f;
+		} else {
+			tilesPanel.GetComponent<CanvasGroup> ().alpha = 1;
+
+		}
+
 	}
 
 
@@ -81,36 +104,40 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-		// for extreme mode 
-		if (mode.text == "Extreme") {
-
-			timeLeft -= Time.deltaTime;
-			timerText.text = "Time: " + Mathf.Round (timeLeft);
-			if (timeLeft < 0) {
-				SceneManager.LoadScene ("MainScene");
-			}
-
-		} else if (mode.text == "Standard") {
-			float t = Time.time - startTime;
-			string minutes = ((int)t / 60).ToString ();
-			string seconds = (t % 60).ToString ("f0");
-			timerText.text = "Time: " + minutes + ":" + seconds;
-
-
-		} else if (mode.text == "Time Trial") {
-			trialTimeLeft -= Time.deltaTime;
-			timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
-			if (trialTimeLeft < 0) {
-				retryPanel.SetActive(true);
-			}
-		}
-
-
 		if (!_init)
 			initializeCards ();
 		if (Input.GetMouseButtonUp (0))
 			checkCards ();
+
+
+
+		if (!pauseTime) {
+			// for extreme mode 
+			if (mode.text == "Extreme") {
+
+				timeLeft -= Time.deltaTime;
+				timerText.text = "Time: " + Mathf.Round (timeLeft);
+				if (timeLeft < 0) {
+					SceneManager.LoadScene ("MainScene");
+				}
+
+			} else if (mode.text == "Standard") {
+				float t = Time.time - startTime;
+				string minutes = ((int)t / 60).ToString ();
+				string seconds = (t % 60).ToString ("f0");
+				timerText.text = "Time: " + minutes + ":" + seconds;
+
+
+			} else if (mode.text == "Time Trial") {
+				trialTimeLeft -= Time.deltaTime;
+				timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
+				if (trialTimeLeft < 0) {
+					retryPanel.SetActive(true);
+				}
+			}
+		}
+
+
 	}
 
 
@@ -312,6 +339,11 @@ public class LevelManager : MonoBehaviour {
 		int score = (int)t;
 		PlayerPrefs.SetString("Game_Title",gameOverTitle);
 		PlayerPrefs.SetInt("Score",score);
+		PlayerPrefs.SetFloat ("Percentage", t);
+		if (!PlayerPrefs.HasKey ("Level_2_Standard_High_Percentage")) {
+			PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", 0f);
+		}
+
 		SceneManager.LoadScene("Game_Over_Scene");
 
 

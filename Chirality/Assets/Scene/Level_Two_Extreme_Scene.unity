@@ -642,6 +642,9 @@ MonoBehaviour:
   helpPanel: {fileID: 2048347819}
   exitPanel: {fileID: 337950564}
   retryPanel: {fileID: 0}
+  tilesPanel: {fileID: 1756617226}
+  dimPanel: 0
+  pauseTime: 0
   timerText: {fileID: 1349394876}
   mode: {fileID: 1913149874}
 --- !u!4 &116886657
@@ -6963,6 +6966,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1756617227}
+  - component: {fileID: 1756617228}
   m_Layer: 5
   m_Name: Tile List
   m_TagString: Untagged
@@ -7042,6 +7046,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1756617228
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756617226}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1785721124
 GameObject:
   m_ObjectHideFlags: 0

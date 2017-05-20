@@ -51,6 +51,15 @@ public class GameOverManager : MonoBehaviour {
 			case "Intermolecular Forces":
 				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 				break;
+			case "Structure Classification: Standard":
+				highPercentage = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");
+				break;
+			case "Structure Classification: Extreme":
+				highPercentage = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");
+				break;
+			case "Structure Classification: Time Trial":
+				highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
+				break;
 			default:
 				highPercentage = 0f;		
 				break;
@@ -61,6 +70,15 @@ public class GameOverManager : MonoBehaviour {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
+
+		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
+			displayRecordForLevel2();
+		}
+	}
+
+	void displayRecordForLevel2() {
+		scoreLabel.text = "";
+		highPercentageLabel.text = "";
 	}
 
 	void displayMedalAndComment() {
@@ -125,7 +143,28 @@ public class GameOverManager : MonoBehaviour {
 		}
 
 		percentageLabel.text = comment;
-		highPercentageLabel.text = "";
+
+		if (highPercentage > 0) {
+
+			string bestScoreLabel = "";
+
+			int highMin = (int)highPercentage / 60;
+			int highSec = (int)highPercentage % 60;
+
+			if (min == 0) {
+				bestScoreLabel = "Your best was " + highSec + "seconds.";
+			}
+			else if (min == 1) {
+				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
+			}
+			else if (min > 1) {
+				bestScoreLabel = "Your best was " + highMin +" minutes " +highSec +  " seconds.";
+			}
+
+			highPercentageLabel.text = bestScoreLabel;
+
+		}
+
 
 		if (score <= 80) {
 			instantiateMedal(4);
@@ -169,7 +208,29 @@ public class GameOverManager : MonoBehaviour {
 		}
 
 		percentageLabel.text = comment;
-		highPercentageLabel.text = "";
+
+
+		if (highPercentage > 0) {
+
+			string bestScoreLabel = "";
+
+			int highMin = (int)highPercentage / 60;
+			int highSec = (int)highPercentage % 60;
+
+			if (min == 0) {
+				bestScoreLabel = "Your best was " + highSec + "seconds.";
+			}
+			else if (min == 1) {
+				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
+			}
+			else if (min > 1) {
+				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
+			}
+
+			highPercentageLabel.text = bestScoreLabel;
+
+		}
+
 
 		if (score <= 70) {
 			instantiateMedal(0);
@@ -213,7 +274,29 @@ public class GameOverManager : MonoBehaviour {
 		}
 
 		percentageLabel.text = comment;
-		highPercentageLabel.text = "";
+
+
+		if (highPercentage > 0) {
+
+			string bestScoreLabel = "";
+
+			int highMin = (int)highPercentage / 60;
+			int highSec = (int)highPercentage % 60;
+
+			if (min == 0) {
+				bestScoreLabel = "Your best was " + highSec + "seconds.";
+			}
+			else if (min == 1) {
+				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
+			}
+			else if (min > 1) {
+				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
+			}
+
+			highPercentageLabel.text = bestScoreLabel;
+
+		}
+
 
 		if (score <= 20) {
 			instantiateMedal(0);
@@ -239,21 +322,41 @@ public class GameOverManager : MonoBehaviour {
 
 
 	void updateHighScore() {
-		if(percentage > highPercentage) {
-			newRecord.gameObject.SetActive(true);
 
-			switch (title)
-			{
+		if (title == "Structure Classification: Standard") { 
+
+			if (percentage < highPercentage) {
+				newRecord.gameObject.SetActive (true);
+				PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", percentage);
+			}
+				
+		} else {
+
+			if(percentage > highPercentage) {
+				newRecord.gameObject.SetActive(true);
+
+				switch (title)
+				{
 				case "Functional Groups":
 					PlayerPrefs.SetFloat("Level_1_High_Percentage",percentage);
 					break;
 				case "Intermolecular Forces":
 					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
+				case "Structure Classification: Extreme":
+					PlayerPrefs.SetFloat("Level_2_Extreme_High_Percentage",percentage);
+					break;
+				case "Structure Classification: Time Trial":
+					PlayerPrefs.SetFloat("Level_2_Trial_High_Percentage",percentage);
+					break;
 				default:
 					break;
+				}
 			}
 		}
+
+
+
 	}
 
 	public void toggleInfoPanel() {
