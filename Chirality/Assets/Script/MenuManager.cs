@@ -39,7 +39,6 @@ public class MenuManager : MonoBehaviour {
 		convertTextColor();
 	}
 
-
 	void loadUserSetting() {
 		// read user setting
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
@@ -167,6 +166,17 @@ public class MenuManager : MonoBehaviour {
 			Image medal = Instantiate(medals[medalNumber],levelFourStandardButton.transform,false);
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
 			medal.transform.localPosition = new Vector2(200,0);	
+		}
+
+		// lvl2 sub medals
+		if(PlayerPrefs.HasKey("Level_2_Standard_Highest")) {
+
+		}
+		if(PlayerPrefs.HasKey("Level_2_Time_Highest")) {
+
+		}
+		if(PlayerPrefs.HasKey("Level_2_Extreme_Highest")) {
+
 		}
 	}
 
