@@ -34,7 +34,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     private GameObject currentQuestionAnswer;
     private Level_4_Question currentQuestionObject;
     private gameStatus currentStatus = gameStatus.InGame;
-    private float targetTime = 21.0f;
+    private float targetTime = 11.0f;
     private GameObject selected_answer = null;
     private bool leftHandMode;
 

@@ -1,0 +1,163 @@
+Mono path[0] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Managed'
+Mono path[1] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono'
+Mono config path = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono/etc'
+PlayerConnection initialized from D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55323
+Multi-casting "[IP] 10.35.0.42 [Port] 55323 [Flags] 2 [Guid] 1406690036 [EditorId] 2218305168 [Version] 1048832 [Id] WindowsPlayer(Omnis-Arcanum) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55323]
+PlayerConnection already initialized - listening to [0.0.0.0:55323]
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+    Driver:   21.21.13.7633
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Arcade.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Arcade.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\FacebookNamedPipeClient.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\FacebookNamedPipeClient.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Settings.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Settings.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Mono path[0] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Managed'
+Mono path[1] = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono'
+Mono config path = 'D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data/Mono/etc'
+PlayerConnection initialized from D:/Documents/GitHub/Chirality-Project/Chirality/Chirality_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55211
+Multi-casting "[IP] 10.35.0.42 [Port] 55211 [Flags] 2 [Guid] 3151041388 [EditorId] 2218305168 [Version] 1048832 [Id] WindowsPlayer(Omnis-Arcanum) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55211]
+PlayerConnection already initialized - listening to [0.0.0.0:55211]
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+    Driver:   21.21.13.7633
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Arcade.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Arcade.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\FacebookNamedPipeClient.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\FacebookNamedPipeClient.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Settings.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\Facebook.Unity.Settings.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll (this message is harmless)
+Loading D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\LitJson.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\Chirality-Project\Chirality\Chirality_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.017836 ms
+Level num is: Level_Four_Scene
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.219929 ms
+System memory in use before: 27.6 MB.
+System memory in use after: 27.5 MB.
+
+Unloading 72 unused Assets to reduce memory usage. Loaded Objects now: 605.
+Total: 1.064012 ms (FindLiveObjects: 0.063940 ms CreateObjectMapping: 0.068285 ms MarkObjects: 0.559630 ms  DeleteObjects: 0.370604 ms)
+
+Current question name:skeletal
+Current ID: 16
+Current prefab name: skeletal2(Clone)
+Current question name:optical
+Current ID: 7
+Current prefab name: optical2(Clone)
+Current question name:functional
+Current ID: 14
+Current prefab name: functional3(Clone)
+Current question name:geometric
+Current ID: 4
+Current prefab name: geometric2(Clone)
+Current question name:geometric
+Current ID: 5
+Current prefab name: geometric3(Clone)
+Current question name:functional
+Current ID: 13
+Current prefab name: functional2(Clone)
+Current question name:positional
+Current ID: 0
+Current prefab name: positional1(Clone)
+Current question name:same
+Current ID: 9
+Current prefab name: same1(Clone)
+Current question name:functional
+Current ID: 12
+Current prefab name: functional1(Clone)
+Current question name:geometric
+Current ID: 3
+Current prefab name: geometric1(Clone)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.127952 ms
+System memory in use before: 27.5 MB.
+System memory in use after: 27.5 MB.
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 587.
+Total: 0.854810 ms (FindLiveObjects: 0.037246 ms CreateObjectMapping: 0.050282 ms MarkObjects: 0.622329 ms  DeleteObjects: 0.143709 ms)
+
+InvalidOperationException: Pipe name not passed to application on start.
+ Make sure you are running inside the facebook games client.
+  at Facebook.Unity.Arcade.ArcadeWrapper..ctor () [0x00000] in <filename unknown>:0 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00109] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:513 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00124] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:519 
+  at System.Reflection.MonoCMethod.Invoke (BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:528 
+  at System.Reflection.ConstructorInfo.Invoke (System.Object[] parameters) [0x0000e] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Reflection/ConstructorInfo.cs:77 
+  at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x000b5] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System/Activator.cs:372 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] in /Users/builduser/buildslave/mono/build/mcs/class/corlib/System/Activator.cs:254 
+  at Facebook.Unity.Arcade.ArcadeFacebook.GetArcadeWrapper () [0x00000] in <filename unknown>:0 
+  at Facebook.Unity.Arcade.ArcadeFacebook..ctor () [0x00000] in <filename unknown>:0 
+  at Facebook.Unity.Arcade.ArcadeFacebookLoader.get_FBGameObject () [0x00000] in <filename unknown>:0 
+  at Facebook.Unity.FB+CompiledFacebookLoader.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename: /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 513)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.437027 ms
+System memory in use before: 27.8 MB.
+System memory in use after: 27.9 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 741.
+Total: 1.133229 ms (FindLiveObjects: 0.063008 ms CreateObjectMapping: 0.053076 ms MarkObjects: 0.990450 ms  DeleteObjects: 0.025141 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 11a4 -> priority: 1 
