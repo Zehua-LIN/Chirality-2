@@ -328,7 +328,7 @@ public class GameOverManager : MonoBehaviour {
 
 		if (title == "Structure Classification: Standard") { 
 
-			if (percentage < highPercentage) {
+			if (percentage < highPercentage || highPercentage == 0) {
 				newRecord.gameObject.SetActive (true);
 				PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", percentage);
 			}
