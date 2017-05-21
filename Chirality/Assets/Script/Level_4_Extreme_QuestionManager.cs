@@ -24,6 +24,8 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     [SerializeField] GameObject retryPanel;
     [SerializeField] Button retryYesButton;
     [SerializeField] Button retryNoButton;
+    [SerializeField] GameObject leftHandedHelpArrowLeft;
+    [SerializeField] GameObject leftHandedHelpArrowRight;
     [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
@@ -98,6 +100,13 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         if (leftHandMode)
         {
             deck.transform.localPosition = new Vector2(-deck.transform.localPosition.x, 0);
+            leftHandedHelpArrowLeft.SetActive(true);
+            leftHandedHelpArrowRight.SetActive(false);
+        }
+        else
+        {
+            leftHandedHelpArrowLeft.SetActive(false);
+            leftHandedHelpArrowRight.SetActive(true);
         }
 
         string path = readJsonData(gameLevel);
