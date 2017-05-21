@@ -66,6 +66,8 @@ public class Level5QuestionManager : MonoBehaviour
 
 	void Start()
 	{
+		//PlayerPrefs.DeleteAll();
+
 		setUpHelpPanel();
 
 		AnsPanel.SetActive (false);
@@ -295,9 +297,9 @@ public class Level5QuestionManager : MonoBehaviour
 	void setUpHelpPanel() {
 		switch (gameTitle.text) {
 		case "Chiral Carbons":
-			if(PlayerPrefsX.GetBool("First_Time_Level_Five",true)) {
+			if(PlayerPrefsX.GetBool("First_Time_Level_One",true)) {
 				helpPanel.SetActive(true);
-				PlayerPrefsX.SetBool("First_Time_Level_Five",false);
+				PlayerPrefsX.SetBool("First_Time_Level_One",false);
 			}
 			break;
 		default:
