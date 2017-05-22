@@ -41,28 +41,42 @@ public class ToggleHandler : MonoBehaviour {
 
 	public void ChangeColour() {
 
+		Toggle togggle = GetComponent<Toggle>();
+
 		extraQuestionCanvas = toggle.GetComponentInParent<Canvas>();
 		extraQuestionToggles = extraQuestionCanvas.GetComponentsInChildren<Toggle>();
 
 		// first, make the toggles not interactable anymore
 
-		for (int j = 0; j < extraQuestionToggles.Length; j++) {
+		for (int j = 0; j < extraQuestionToggles.Length; j++)
+		{
 			extraQuestionToggles[j].interactable = false;
 		}
 
 		// change the colour
-		for (int i = 0; i < extraQuestionToggles.Length; i++) {
+		for (int i = 0; i < extraQuestionToggles.Length; i++)
+		{
 
 			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
 			{
 				correctToggle = extraQuestionToggles[i];
 				correctToggle.targetGraphic.color = Color.green;
+
 			}
 		}
-		if (toggle.tag != "correctToggleEQ5") {
+		if (toggle.tag != "correctToggleEQ5")
+		{
 			toggle.targetGraphic.color = Color.red;
-		} 
+		}
+
+		if (togggle.tag == "correctToggleEQ5")
+		{
+			Level5QuestionManager.addEQuestionScore();
+			Level5QuestionManager.updateScore();
+		}
+
 		Level5QuestionManager.changeToEToggleSelected();
 	}
+
 
 }

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 // to keep track of the game status
 public enum gameStatus
-{ InGame, InCheck, InFunFact }
+{ InGame, InCheck, InFunFact, InExtra }
 
 public class QuestionManager : MonoBehaviour {
 

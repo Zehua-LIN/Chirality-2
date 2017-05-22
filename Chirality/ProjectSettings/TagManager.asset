@@ -53,6 +53,7 @@ TagManager:
   - t29
   - t30
   - t7
+  - scorenumberlabel
   layers:
   - Default
   - TransparentFX

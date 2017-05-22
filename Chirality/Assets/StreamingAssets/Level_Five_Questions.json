@@ -5,7 +5,10 @@
   "code" : "Q1",
   "name" : "Oestradiol",
   "numberOfAns" : 18,
-  "answer" : ["","","","t4","","","","t8","t9","","","","","","t15","t16","",""]
+  "answer" : ["","","","t4","","","","t8","t9","","","","","","t15","t16","",""],
+  "numberCrToggles": 5,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 1,
@@ -13,7 +16,10 @@
   "code" : "Q2",
   "name" : "Thalidomide",
   "numberOfAns" : 13,
-  "answer" : ["","t2","","","","","","","","","","",""]
+  "answer" : ["","t2","","","","","","","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 2,
@@ -21,7 +27,10 @@
   "code" : "Q3",
   "name" : "Testisterone",
   "numberOfAns" : 19,
-  "answer" : ["t1","","","t4","t5","","","","","t10","","","","t14","t15","","","",""]
+  "answer" : ["t1","","","t4","t5","","","","","t10","","","","t14","t15","","","",""],
+  "numberCrToggles": 6,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 3,
@@ -29,7 +38,10 @@
   "code" : "Q4",
   "name" : "Tartaric acid",
   "numberOfAns" : 4,
-  "answer" : ["","t2","t3",""]
+  "answer" : ["","t2","t3",""],
+  "numberCrToggles": 2,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 4,
@@ -37,7 +49,10 @@
   "code" : "Q5",
   "name" : "Amphetamine",
   "numberOfAns" : 9,
-  "answer" : ["","","","","t5","","","",""]
+  "answer" : ["","","","","t5","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 5,
@@ -45,7 +60,10 @@
   "code" : "Q6",
   "name" : "Ephedrine",
   "numberOfAns" : 10,
-  "answer" : ["","","","t4","t5","","","","",""]
+  "answer" : ["","","","t4","t5","","","","",""],
+  "numberCrToggles": 2,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 6,
@@ -53,7 +71,10 @@
   "code" : "Q7",
   "name" : "Ribose",
   "numberOfAns" : 5,
-  "answer" : ["","t2","t3","t4",""]
+  "answer" : ["","t2","t3","t4",""],
+  "numberCrToggles": 3,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 7,
@@ -61,7 +82,10 @@
   "code" : "Q8",
   "name" : "Limonene",
   "numberOfAns" : 10,
-  "answer" : ["","","","","t5","","","","",""]
+  "answer" : ["","","","","t5","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 8,
@@ -69,7 +93,10 @@
   "code" : "Q9",
   "name" : "Carvone",
   "numberOfAns" : 10,
-  "answer" : ["","","","","t5","","","","",""]
+  "answer" : ["","","","","t5","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   },
   {
   "id" : 9,
@@ -77,12 +104,10 @@
   "code" : "Q10",
   "name" : "Paracetamol",
   "numberOfAns" : 8,
-  "answer" : ["","","","","","","",""]
+  "answer" : ["","","","","","","",""],
+  "numberCrToggles": 0,
+  "facts" : ["Morphine has a high potential for addiction; during the American Civil War, around 400 000 soldiers became addicted to morphine.","Morphine is primarily used to treat both acute and chronic pain.","Morphine comes from the opium poppy (which is also a valuable ornamental plant) but is also produced synthetically.","Morphine is the most abundant of opium’s 24 alkaloids, accounting for 9 to 14% of opium-extract by mass.","Morphine is named after Morpheus, the Roman god of dreams (who also later became the god of slumber).","Less popular and less mentioned effects of Morphine use include nausea, vomiting and decreased gastrointestinal motility.","Only 1g of Morphine hydrate will dissolve In 5L of water so pharmaceutical companies produce sulphate and hydrochloride salts of the drug that are over 300 times more water-soluble.","The three dimensional structure of morphine consists of five rings, three of which are approximately in the same plane; the other two are each at right angles to this trio.","If you substitute morphine’s methyl group with a propenyl group, you create nalorphine, an antagonist which counters morphine’s effects.","Morphine is a precursor for producing heroin, which can be produced by adding two acetyl groups to the molecule morphine."]
+  
   }
   ]
-
-
-
-
-
 

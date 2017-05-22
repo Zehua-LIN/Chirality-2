@@ -16,7 +16,7 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] GameObject infoPanel;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text goodEffortLabel;
-	
+
 	private string title = "";
 	private int score = 0;
 	private float percentage = 0f;
@@ -28,18 +28,18 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			FB.ActivateApp();
 		}
-		
-		
+
+
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
-				
+
 		loadRecords();
 		displayRecord();
 		displayMedalAndComment();
 		updateHighScore();				
 	}
 
-	
+
 
 	void loadRecords() {
 		title = PlayerPrefs.GetString("Game_Title");
@@ -47,21 +47,24 @@ public class GameOverManager : MonoBehaviour {
 		score = PlayerPrefs.GetInt("Score");
 		switch (title)
 		{
-			case "Functional Groups":
-				highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
-				break;
-			case "Intermolecular Forces":
-				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
-				break;
-			default:
-				highPercentage = 0f;		
-				break;
+		case "Functional Groups":
+			highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
+			break;
+		case "Intermolecular Forces":
+			highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
+			break;
+		case "Chiral Carbons":
+			highPercentage = PlayerPrefs.GetFloat("Level_5_High_Percentage");
+			break;
+		default:
+			highPercentage = 0f;		
+			break;
 		}
 	}
 
 	void displayRecord() {
 		gameTitle.text = title;
-		scoreLabel.text = score.ToString();
+		scoreLabel.text = (percentage * 100).ToString() + "%";
 		highPercentageLabel.text = "Your best was " + (highPercentage * 100).ToString() + "%!";
 	}
 
@@ -95,14 +98,17 @@ public class GameOverManager : MonoBehaviour {
 
 			switch (title)
 			{
-				case "Functional Groups":
-					PlayerPrefs.SetFloat("Level_1_High_Percentage",percentage);
-					break;
-				case "Intermolecular Forces":
-					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
-					break;
-				default:
-					break;
+			case "Functional Groups":
+				PlayerPrefs.SetFloat("Level_1_High_Percentage",percentage);
+				break;
+			case "Intermolecular Forces":
+				PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
+				break;
+			case "Chiral Carbons":
+				PlayerPrefs.SetFloat("Level_5_High_Percentage", percentage);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -122,17 +128,17 @@ public class GameOverManager : MonoBehaviour {
 	public void replay() {
 		switch (title)
 		{
-			case "Functional Groups":
-				SceneManager.LoadScene("Level_One_Scene");					
-				break;
-			case "Intermolecular Forces":
-				SceneManager.LoadScene("Level_Three_Scene");	
-				break;
-		    case "Chiral Carbons":
-			    SceneManager.LoadScene("Level_Five_Scene");	
-			    break;
-			default:
-				break;
+		case "Functional Groups":
+			SceneManager.LoadScene("Level_One_Scene");					
+			break;
+		case "Intermolecular Forces":
+			SceneManager.LoadScene("Level_Three_Scene");	
+			break;
+		case "Chiral Carbons":
+			SceneManager.LoadScene("Level_Five_Scene");	
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -140,10 +146,10 @@ public class GameOverManager : MonoBehaviour {
 		FB.Mobile.ShareDialogMode = ShareDialogMode.AUTOMATIC;
 		string descrpition = "Hey, I got " + score + " points in Chirality: " + title + ", come and check it out!";
 		FB.ShareLink(contentTitle:"Chirality",
-		contentURL:new System.Uri("https://www.google.com"),
-		contentDescription: descrpition,
-		photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
-		callback: fbCallBack);
+			contentURL:new System.Uri("https://www.google.com"),
+			contentDescription: descrpition,
+			photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
+			callback: fbCallBack);
 	}
 
 	public void twitterShare() {
