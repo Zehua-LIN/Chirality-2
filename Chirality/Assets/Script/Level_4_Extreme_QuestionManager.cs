@@ -148,7 +148,7 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-            if (numberOfQuestionsAnswred < 1)
+            if (numberOfQuestionsAnswred < 10)
             {
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);

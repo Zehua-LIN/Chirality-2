@@ -15,7 +15,11 @@
         "id" : 2,
         "level" : 4,
         "code" : "Q3",
+<<<<<<< HEAD
         "name" : "positional"
+=======
+        "name" : "geometric"
+>>>>>>> master
     },
     {   
         "id" : 3,
@@ -27,18 +31,27 @@
         "id" : 4,
         "level" : 4,
         "code" : "Q5",
+<<<<<<< HEAD
         "name" : "geometric"
+=======
+        "name" : "optical"
+>>>>>>> master
     },
     {   
         "id" : 5,
         "level" : 4,
         "code" : "Q6",
+<<<<<<< HEAD
         "name" : "geometric"
+=======
+        "name" : "optical"
+>>>>>>> master
     },
     {   
         "id" : 6,
         "level" : 4,
         "code" : "Q7",
+<<<<<<< HEAD
         "name" : "optical"
     },
     {   
@@ -52,23 +65,47 @@
         "level" : 4,
         "code" : "Q9",
         "name" : "optical"
+=======
+        "name" : "same"
+    },
+        {   
+        "id" : 7,
+        "level" : 4,
+        "code" : "Q8",
+        "name" : "same"
+    },
+            {   
+        "id" : 8,
+        "level" : 4,
+        "code" : "Q9",
+        "name" : "functional"
+>>>>>>> master
     },
     {   
         "id" : 9,
         "level" : 4,
         "code" : "Q10",
+<<<<<<< HEAD
         "name" : "same"
+=======
+        "name" : "functional"
+>>>>>>> master
     },
     {   
         "id" : 10,
         "level" : 4,
         "code" : "Q11",
+<<<<<<< HEAD
         "name" : "same"
+=======
+        "name" : "skeletal"
+>>>>>>> master
     },
     {   
         "id" : 11,
         "level" : 4,
         "code" : "Q12",
+<<<<<<< HEAD
         "name" : "same"
     },
     {   
@@ -105,6 +142,8 @@
         "id" : 17,
         "level" : 4,
         "code" : "Q18",
+=======
+>>>>>>> master
         "name" : "skeletal"
     }
         
