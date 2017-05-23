@@ -32,7 +32,6 @@ public class GameOverManager : MonoBehaviour {
 			FB.ActivateApp();
 		}
 
-
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
 
@@ -69,7 +68,6 @@ public class GameOverManager : MonoBehaviour {
 		case "Structure Classification: Time Trial":
 			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
 			break;
-
 		default:
 			highPercentage = 0f;		
 			break;
@@ -79,7 +77,6 @@ public class GameOverManager : MonoBehaviour {
 	void displayRecord() {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
-
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
@@ -170,7 +167,6 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	void displayMedalAndCommentForLevel2() {
-
 		if (title == "Structure Classification: Standard") {
 			displayMedalAndCommentForStandardMode ();
 		} else if (title == "Structure Classification: Extreme") {
@@ -283,9 +279,7 @@ public class GameOverManager : MonoBehaviour {
 			else if (min > 1) {
 				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
-
 			highPercentageLabel.text = bestScoreLabel;
-
 		}
 
 
@@ -329,9 +323,7 @@ public class GameOverManager : MonoBehaviour {
 			scoreLabel.text = min + ":" + sec;
 
 		}
-
 		percentageLabel.text = comment;
-
 
 		if (highPercentage > 0) {
 
@@ -388,7 +380,7 @@ public class GameOverManager : MonoBehaviour {
 				PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", percentage);
 			}
 
-		} else {
+		}else {
 
 			if(percentage > highPercentage) {
 				newRecord.gameObject.SetActive(true);

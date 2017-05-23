@@ -138,6 +138,40 @@ public class MenuManager : MonoBehaviour {
 				Destroy(levelButtons[i-1].transform.GetChild(1).gameObject);
 			}
 		}
+
+		// level 2
+		if(PlayerPrefs.HasKey("Level_2_Standard_High_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_2_Standard_High_Percentage");
+			if(levelTwoStandardButton.transform.childCount > 1) {
+				Destroy(levelTwoStandardButton.transform.GetChild(1).gameObject);
+			}
+		}
+		if(PlayerPrefs.HasKey("Level_2_Trial_High_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_2_Trial_High_Percentage");
+			if(levelTwoTimeButton.transform.childCount > 1) {
+				Destroy(levelTwoTimeButton.transform.GetChild(1).gameObject);
+			}
+		}
+		if(PlayerPrefs.HasKey("Level_2_Extreme_High_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_2_Extreme_High_Percentage");
+			if(levelTwoExtremeButton.transform.childCount > 1) {
+				Destroy(levelTwoExtremeButton.transform.GetChild(1).gameObject);
+			}
+		}
+
+		// level 4
+		if(PlayerPrefs.HasKey("Level_4_Standard_High_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_4_Standard_High_Percentage");
+			if(levelFourStandardButton.transform.childCount > 1) {
+				Destroy(levelFourStandardButton.transform.GetChild(1).gameObject);
+			}
+		}
+		if(PlayerPrefs.HasKey("Level_4_Standard_Extreme_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_4_Standard_Extreme_Percentage");
+			if(levelFourExtremeButton.transform.childCount > 1) {
+				Destroy(levelFourExtremeButton.transform.GetChild(1).gameObject);
+			}
+		}
 		
 		
 	}
@@ -163,21 +197,33 @@ public class MenuManager : MonoBehaviour {
 		}
 		if(PlayerPrefs.HasKey("Level_4_Standard_Extreme_Percentage")) {
 			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");				
-			int medalNumber = getMedal(highest);
-			Image medal = Instantiate(medals[medalNumber],levelFourStandardButton.transform,false);
+			int medalNumber = getMedalForLevel4Extreme(highest);
+			Image medal = Instantiate(medals[medalNumber],levelFourExtremeButton.transform,false);
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
 			medal.transform.localPosition = new Vector2(200,0);	
 		}
 
 		// lvl2 sub medals
-		if(PlayerPrefs.HasKey("Level_2_Standard_Highest")) {
-
+		if(PlayerPrefs.HasKey("Level_2_Standard_High_Percentage")) {
+			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");				
+			int medalNumber = getMedalForLevel2Standard(highest);
+			Image medal = Instantiate(medals[medalNumber],levelTwoStandardButton.transform,false);
+			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.transform.localPosition = new Vector2(200,0);	
 		}
-		if(PlayerPrefs.HasKey("Level_2_Time_Highest")) {
-
+		if(PlayerPrefs.HasKey("Level_2_Trial_High_Percentage")) {
+			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");				
+			int medalNumber = getMedalForLevel2TimeTrial(highest);
+			Image medal = Instantiate(medals[medalNumber],levelTwoTimeButton.transform,false);
+			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.transform.localPosition = new Vector2(200,0);	
 		}
-		if(PlayerPrefs.HasKey("Level_2_Extreme_Highest")) {
-
+		if(PlayerPrefs.HasKey("Level_2_Extreme_High_Percentage")) {
+			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");				
+			int medalNumber = getMedalForLevel2Extreme(highest);
+			Image medal = Instantiate(medals[medalNumber],levelTwoExtremeButton.transform,false);
+			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.transform.localPosition = new Vector2(200,0);	
 		}
 	}
 
@@ -191,6 +237,74 @@ public class MenuManager : MonoBehaviour {
 		}else if(score >= 0.9f && score <= 0.99f) {
 			return 3;
 		}else {
+			return 4;
+		}
+	}
+
+	int getMedalForLevel4Extreme(float score) {
+		if(score >= 40) {
+			return 4;
+		}else if(score >= 30) {
+			return 3;
+		}else if(score >= 20) {
+			return 2;
+		}else if (score >= 10) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+
+	int getMedalForLevel2Standard(float score) {
+		if (score <= 80) {
+			return 4;
+		}
+		else if (score <= 120) {
+			return 3;
+		}
+		else if (score <= 180) {
+			return 2;
+		}
+		else if (score <= 240) {
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+
+	int getMedalForLevel2Extreme(float score) {
+		if (score <= 70) {
+			return 0;
+		}
+		else if (score <= 120) {
+			return 1;
+		}
+		else if (score <= 180) {
+			return 2;
+		}
+		else if (score < 240) {
+			return 3;
+		}
+		else {
+			return 4;
+		}
+	}
+
+	int getMedalForLevel2TimeTrial(float score) {
+		if (score <= 20) {
+			return 0;
+		}
+		else if (score <= 35) {
+			return 1;
+		}
+		else if (score <= 50) {
+			return 2;
+		}
+		else if (score < 65) {
+			return 3;
+		}
+		else {
 			return 4;
 		}
 	}
