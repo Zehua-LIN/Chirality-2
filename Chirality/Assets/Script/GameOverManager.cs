@@ -19,7 +19,7 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] GameObject infoPanelTrial;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text goodEffortLabel;
-	
+
 	private string title = "";
 	private int score = 0;
 	private float percentage = 0f;
@@ -31,11 +31,11 @@ public class GameOverManager : MonoBehaviour {
 		}else {
 			FB.ActivateApp();
 		}
-		
+
 
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
-				
+
 		loadRecords();
 		displayRecord();
 		displayMedalAndComment();
@@ -48,34 +48,46 @@ public class GameOverManager : MonoBehaviour {
 		score = PlayerPrefs.GetInt("Score");
 		switch (title)
 		{
-			case "Functional Groups":
-				highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
-				break;
-			case "Intermolecular Forces":
-				highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
-				break;
-			case "Structure Classification: Standard":
-				highPercentage = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");
-				break;
-			case "Structure Classification: Extreme":
-				highPercentage = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");
-				break;
-			case "Structure Classification: Time Trial":
-				highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
-				break;
-			default:
-				highPercentage = 0f;		
-				break;
+		case "Functional Groups":
+			highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
+			break;
+		case "Intermolecular Forces":
+			highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
+			break;
+		case "Level 4: Isomers":
+			highPercentage = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
+			break;
+		case "Level 4: Isomers Extreme":
+			highPercentage = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
+			break;
+		case "Structure Classification: Standard":
+			highPercentage = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");
+			break;
+		case "Structure Classification: Extreme":
+			highPercentage = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");
+			break;
+		case "Structure Classification: Time Trial":
+			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
+			break;
+
+		default:
+			highPercentage = 0f;		
+			break;
 		}
 	}
 
 	void displayRecord() {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
+
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayRecordForLevel2();
+		}else if (title == "Level 4: Isomers Extreme")
+		{
+			Debug.Log("Displaying extreme score");
+			highPercentageLabel.text = "Your previous best was " + ((int)highPercentage).ToString() + " seconds!";			
 		}
 	}
 
@@ -87,8 +99,16 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndComment() {
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayMedalAndCommentForLevel2();
+			return;
 		}
-		else if(percentage < 0.5f) {
+
+		if (title == "Level 4: Isomers Extreme")
+		{
+			displayMedalAndCommentForLevel4ExtremeMode();
+			return;
+		}
+
+		if(percentage < 0.5f) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
 			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + "%.";
@@ -111,22 +131,56 @@ public class GameOverManager : MonoBehaviour {
 		}
 	}
 
+
+	void displayMedalAndCommentForLevel4ExtremeMode() //level 4 extreme
+	{
+		scoreLabel.text = "" + score;
+		string comment = "";
+		comment = "You ended with " + score + " seconds.";
+		scoreLabel.text = score + " sec";
+
+		percentageLabel.text = comment;
+		//highPercentageLabel.text = "";
+
+		if (score >= 40)
+		{
+			instantiateMedal(4);
+			goodEffortLabel.text = "Congratulations!";
+		}
+		else if (score >= 30)
+		{
+			instantiateMedal(3);
+			goodEffortLabel.text = "Well done!";
+		}
+		else if (score >= 20)
+		{
+			instantiateMedal(2);
+			goodEffortLabel.text = "Great work!";
+		}
+		else if (score >= 10)
+		{
+			instantiateMedal(1);
+			goodEffortLabel.text = "Nice try!";
+		}
+		else
+		{
+			instantiateMedal(0);
+			goodEffortLabel.text = "Good Effort!";
+		}
+	}
+
 	void displayMedalAndCommentForLevel2() {
 
 		if (title == "Structure Classification: Standard") {
 			displayMedalAndCommentForStandardMode ();
 		} else if (title == "Structure Classification: Extreme") {
-			displayMedalAndCommentForExtremeMode ();
+			displayMedalAndCommentForLevel2ExtremeMode ();
 		} else if (title == "Structure Classification: Time Trial") {
 			displayMedalAndCommentForTrialMode ();
 		}
-
-
-
-
 	}
 
-	void displayMedalAndCommentForStandardMode() {
+	void displayMedalAndCommentForStandardMode() { // level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
 		int sec = score%60;
@@ -191,7 +245,7 @@ public class GameOverManager : MonoBehaviour {
 		}
 	}
 
-	void displayMedalAndCommentForExtremeMode() {
+	void displayMedalAndCommentForLevel2ExtremeMode() {
 		scoreLabel.text = ""+ score;
 		int min = score/60;
 		int sec = score%60;
@@ -257,7 +311,7 @@ public class GameOverManager : MonoBehaviour {
 		}
 	}
 
-	void displayMedalAndCommentForTrialMode() {
+	void displayMedalAndCommentForTrialMode() { //level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
 		int sec = score%60;
@@ -324,6 +378,7 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 
+
 	void updateHighScore() {
 
 		if (title == "Structure Classification: Standard") { 
@@ -332,7 +387,7 @@ public class GameOverManager : MonoBehaviour {
 				newRecord.gameObject.SetActive (true);
 				PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", percentage);
 			}
-				
+
 		} else {
 
 			if(percentage > highPercentage) {
@@ -346,6 +401,12 @@ public class GameOverManager : MonoBehaviour {
 				case "Intermolecular Forces":
 					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
+				case "Level 4: Isomers":
+					PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", percentage);
+					break;
+				case "Level 4: Isomers Extreme":
+					PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", percentage);
+					break;
 				case "Structure Classification: Extreme":
 					PlayerPrefs.SetFloat("Level_2_Extreme_High_Percentage",percentage);
 					break;
@@ -357,8 +418,6 @@ public class GameOverManager : MonoBehaviour {
 				}
 			}
 		}
-
-
 
 	}
 
@@ -386,41 +445,71 @@ public class GameOverManager : MonoBehaviour {
 	public void replay() {
 		switch (title)
 		{
-			case "Functional Groups":
-				SceneManager.LoadScene("Level_One_Scene");					
-				break;
-			case "Intermolecular Forces":
-				SceneManager.LoadScene("Level_Three_Scene");	
-				break;
-			case "Structure Classification: Standard":
-				SceneManager.LoadScene("Level_Two_Scene");	
-				break;
-			case "Structure Classification: Extreme":
-				SceneManager.LoadScene("Level_Two_Extreme_Scene");	
-				break;
-			case "Structure Classification: Time Trial":
-				SceneManager.LoadScene("Level_Two_TimeTrial_Scene");	
-				break;
-			default:
-				break;
+		case "Functional Groups":
+			SceneManager.LoadScene("Level_One_Scene");					
+			break;
+		case "Intermolecular Forces":
+			SceneManager.LoadScene("Level_Three_Scene");	
+			break;
+		case "Level 4: Isomers":
+			SceneManager.LoadScene("Level_Four_Scene");
+			break;
+		case "Level 4: Isomers Extreme":
+			SceneManager.LoadScene("Level_Four_Scene_Extreme");
+			break;
+		case "Structure Classification: Standard":
+			SceneManager.LoadScene("Level_Two_Scene");	
+			break;
+		case "Structure Classification: Extreme":
+			SceneManager.LoadScene("Level_Two_Extreme_Scene");	
+			break;
+		case "Structure Classification: Time Trial":
+			SceneManager.LoadScene("Level_Two_TimeTrial_Scene");	
+			break;
+		default:
+			break;
 		}
 	}
 
-	public void fbShare() {
+
+	public void fbShare() 
+	{
+
+		string description;
+
+		if (title == "Level 4: Isomers Extreme")
+		{
+			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+		}
+		else
+		{
+			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		}
 
 		// AudioListener.pause = true;		
-		string descrpition = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!" + "\n" + "Now available on App Store & Google Play.";
+
 		FB.ShareLink(contentTitle:"Chirality 2",
-		contentURL:new System.Uri("https://itunes.apple.com/au/app/chirality/id1168523802?mt=8"),
-		contentDescription: descrpition,
-		// photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
-		callback: fbCallBack);
+			contentURL:new System.Uri("https://www.google.com"),
+			contentDescription: description,
+			photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
+
+			callback: fbCallBack);
 	}
 
-	public void twitterShare() {
+	public void twitterShare() 
+	{
 		string address = "https://twitter.com/intent/tweet";
 		string name = "Chirality 2";
-		string description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		string description;
+
+		if (title == "Level 4: Isomers Extreme")
+		{
+			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+		}
+		else
+		{
+			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+		}
 		string link = "Now available on App Store & Google Play.";
 		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
 	}
