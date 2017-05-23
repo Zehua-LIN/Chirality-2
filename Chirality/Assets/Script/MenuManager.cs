@@ -209,21 +209,21 @@ public class MenuManager : MonoBehaviour {
 			int medalNumber = getMedalForLevel2Standard(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoStandardButton.transform,false);
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
-			medal.transform.localPosition = new Vector2(200,0);	
+			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Trial_High_Percentage")) {
 			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");				
 			int medalNumber = getMedalForLevel2TimeTrial(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoTimeButton.transform,false);
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
-			medal.transform.localPosition = new Vector2(200,0);	
+			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Extreme_High_Percentage")) {
 			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");				
 			int medalNumber = getMedalForLevel2Extreme(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoExtremeButton.transform,false);
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
-			medal.transform.localPosition = new Vector2(200,0);	
+			medal.transform.localPosition = new Vector2(100,0);	
 		}
 	}
 

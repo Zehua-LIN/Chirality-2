@@ -464,27 +464,18 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 
-	public void fbShare() 
-	{
-
+	public void fbShare() {
 		string description;
-
-		if (title == "Level 4: Isomers Extreme")
-		{
+		if (title == "Level 4: Isomers Extreme"){
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
-		}
-		else
-		{
+		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		}
-
-		// AudioListener.pause = true;		
 
 		FB.ShareLink(contentTitle:"Chirality 2",
 			contentURL:new System.Uri("https://www.google.com"),
 			contentDescription: description,
 			photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
-
 			callback: fbCallBack);
 	}
 

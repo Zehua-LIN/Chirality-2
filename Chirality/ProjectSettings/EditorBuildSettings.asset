@@ -8,18 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/MainScene.unity
   - enabled: 1
-    path: Assets/Scene/Level_Four_Scene.unity
-  - enabled: 1
-    path: Assets/Scene/Level_Four_Scene_Extreme.unity
-  - enabled: 1
     path: Assets/Scene/Level_One_Scene.unity
-  - enabled: 1
-    path: Assets/Scene/Level_Three_Scene.unity
-  - enabled: 1
-    path: Assets/Scene/Game_Over_Scene.unity
-  - enabled: 1
-    path: Assets/Scene/Level_Two_Extreme_Scene.unity
   - enabled: 1
     path: Assets/Scene/Level_Two_Scene.unity
   - enabled: 1
     path: Assets/Scene/Level_Two_TimeTrial_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Two_Extreme_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Three_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Four_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Four_Scene_Extreme.unity
+  - enabled: 1
+    path: Assets/Scene/Game_Over_Scene.unity
