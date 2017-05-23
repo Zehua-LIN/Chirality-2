@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-m_EditorVersion: 5.5.0f3
-=======
-m_EditorVersion: 5.5.2f1
->>>>>>> master
+m_EditorVersion: 5.5.1f1
