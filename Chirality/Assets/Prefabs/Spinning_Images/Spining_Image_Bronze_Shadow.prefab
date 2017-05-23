@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114555353953826938}
   - component: {fileID: 95107981214331154}
   m_Layer: 5
-  m_Name: Spining_Image_Bronze
+  m_Name: Spining_Image_Bronze_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 40b31f26360d74f3bbe4d62401a9276d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3781fd297e0f6446cafd2b61ceef1a99, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
