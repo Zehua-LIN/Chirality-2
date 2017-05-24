@@ -166,8 +166,8 @@ public class MenuManager : MonoBehaviour {
 				Destroy(levelFourStandardButton.transform.GetChild(1).gameObject);
 			}
 		}
-		if(PlayerPrefs.HasKey("Level_4_Standard_Extreme_Percentage")) {
-			PlayerPrefs.DeleteKey("Level_4_Standard_Extreme_Percentage");
+		if(PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage")) {
+			PlayerPrefs.DeleteKey("Level_4_Extreme_High_Percentage");
 			if(levelFourExtremeButton.transform.childCount > 1) {
 				Destroy(levelFourExtremeButton.transform.GetChild(1).gameObject);
 			}
@@ -195,7 +195,7 @@ public class MenuManager : MonoBehaviour {
 			medal.rectTransform.sizeDelta = new Vector2(70,70);
 			medal.transform.localPosition = new Vector2(200,0);	
 		}
-		if(PlayerPrefs.HasKey("Level_4_Standard_Extreme_Percentage")) {
+		if(PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage")) {
 			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");				
 			int medalNumber = getMedalForLevel4Extreme(highest);
 			Image medal = Instantiate(medals[medalNumber],levelFourExtremeButton.transform,false);

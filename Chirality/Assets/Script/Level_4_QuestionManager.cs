@@ -31,7 +31,6 @@ public class Level_4_QuestionManager : MonoBehaviour
     private JsonData questionData;
     private int score = 0;
     private int numberOfQuestionsAnswred = 0;
-    private float totalNumberOfCells = 0f;
     private bool soundEffectToggle;
     private GameObject currentQuestion;
     private GameObject currentQuestionAnswer;
@@ -57,7 +56,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         set
         {
             score = value;
-            scoreNumberLabel.text = score.ToString() + "/10";
+            scoreNumberLabel.text = score.ToString() + "/" + numberOfQuestionsAnswred;
         }
     }
 
@@ -223,6 +222,7 @@ public class Level_4_QuestionManager : MonoBehaviour
         else
         {
             selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[3];
+            scoreNumberLabel.text = score.ToString() + "/" + numberOfQuestionsAnswred;
         }
         
     }
