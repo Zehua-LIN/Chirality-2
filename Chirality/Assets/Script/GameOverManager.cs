@@ -32,7 +32,6 @@ public class GameOverManager : MonoBehaviour {
 			FB.ActivateApp();
 		}
 
-
 		infoPanel.SetActive(false);
 		newRecord.gameObject.SetActive(false);
 
@@ -69,7 +68,6 @@ public class GameOverManager : MonoBehaviour {
 		case "Structure Classification: Time Trial":
 			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
 			break;
-
 		default:
 			highPercentage = 0f;		
 			break;
@@ -79,7 +77,6 @@ public class GameOverManager : MonoBehaviour {
 	void displayRecord() {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
-
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
@@ -170,7 +167,6 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	void displayMedalAndCommentForLevel2() {
-
 		if (title == "Structure Classification: Standard") {
 			displayMedalAndCommentForStandardMode ();
 		} else if (title == "Structure Classification: Extreme") {
@@ -283,9 +279,7 @@ public class GameOverManager : MonoBehaviour {
 			else if (min > 1) {
 				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
-
 			highPercentageLabel.text = bestScoreLabel;
-
 		}
 
 
@@ -329,9 +323,7 @@ public class GameOverManager : MonoBehaviour {
 			scoreLabel.text = min + ":" + sec;
 
 		}
-
 		percentageLabel.text = comment;
-
 
 		if (highPercentage > 0) {
 
@@ -388,7 +380,7 @@ public class GameOverManager : MonoBehaviour {
 				PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", percentage);
 			}
 
-		} else {
+		}else {
 
 			if(percentage > highPercentage) {
 				newRecord.gameObject.SetActive(true);
@@ -472,27 +464,18 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 
-	public void fbShare() 
-	{
-
+	public void fbShare() {
 		string description;
-
-		if (title == "Level 4: Isomers Extreme")
-		{
+		if (title == "Level 4: Isomers Extreme"){
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
-		}
-		else
-		{
+		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
 		}
-
-		// AudioListener.pause = true;		
 
 		FB.ShareLink(contentTitle:"Chirality 2",
 			contentURL:new System.Uri("https://www.google.com"),
 			contentDescription: description,
 			photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
-
 			callback: fbCallBack);
 	}
 
