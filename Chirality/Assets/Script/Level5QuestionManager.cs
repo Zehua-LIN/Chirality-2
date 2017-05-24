@@ -71,6 +71,9 @@ public class Level5QuestionManager : MonoBehaviour
 
 	void Start()
 	{
+		//PlayerPrefs.DeleteAll();
+
+
 		setUpHelpPanel();
 
 		AnsPanel.SetActive (false);
@@ -273,6 +276,7 @@ public class Level5QuestionManager : MonoBehaviour
 		if (numberOfQuestionsAnswred < 5) {
 			Destroy (currentQuestion);
 			currentQuestion.SetActive (false);
+			Destroy (extra);
 			extra.SetActive (false);
 			funFactPanel.SetActive(false);
 			questions.Remove (currentQuestionObject);

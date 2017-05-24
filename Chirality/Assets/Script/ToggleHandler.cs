@@ -11,6 +11,8 @@ public class ToggleHandler : MonoBehaviour {
 	public Canvas extraQuestionCanvas;
 	public Toggle correctToggle = null;
 	public static List<Toggle> selectedToggles;
+	public Sprite correct;	
+	public Sprite wrong;
 
 	// Use this for initialization
 
@@ -41,10 +43,11 @@ public class ToggleHandler : MonoBehaviour {
 
 	public void ChangeColour() {
 
-		Toggle togggle = GetComponent<Toggle>();
+		Toggle toggle = GetComponent<Toggle>();
 
 		extraQuestionCanvas = toggle.GetComponentInParent<Canvas>();
 		extraQuestionToggles = extraQuestionCanvas.GetComponentsInChildren<Toggle>();
+
 
 		// first, make the toggles not interactable anymore
 
@@ -56,27 +59,22 @@ public class ToggleHandler : MonoBehaviour {
 		// change the colour
 		for (int i = 0; i < extraQuestionToggles.Length; i++)
 		{
-
 			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
 			{
 				correctToggle = extraQuestionToggles[i];
-				correctToggle.targetGraphic.color = Color.green;
-
+				//correctToggle.targetGraphic.color = Color.green;
+				toggle.image.sprite = correct;
 			}
 		}
-		if (toggle.tag != "correctToggleEQ5")
-		{
-			toggle.targetGraphic.color = Color.red;
+		if (toggle.tag != "correctToggleEQ5") {
+			//toggle.targetGraphic.color = Color.red;
+			toggle.image.sprite = wrong;
+		} else {
+			Level5QuestionManager.addEQuestionScore ();
+			Level5QuestionManager.updateScore ();
 		}
+		Level5QuestionManager.changeToEToggleSelected ();
 
-		if (togggle.tag == "correctToggleEQ5")
-		{
-			Level5QuestionManager.addEQuestionScore();
-			Level5QuestionManager.updateScore();
-		}
-
-		Level5QuestionManager.changeToEToggleSelected();
 	}
-
 
 }
