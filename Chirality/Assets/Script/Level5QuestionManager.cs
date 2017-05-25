@@ -207,8 +207,6 @@ public class Level5QuestionManager : MonoBehaviour
 						}
 					}
 					imagecm.sprite = acolourb;
-					// missing answer removes 1 point from the main question score - not from the overall score
-					mainQuestionScore--;
 				}
 
 			}
