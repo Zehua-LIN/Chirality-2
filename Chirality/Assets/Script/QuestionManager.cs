@@ -71,7 +71,7 @@ public class QuestionManager : MonoBehaviour {
 	void Start () {
 		setUpHelpPanel();
 		// for testing
-		// PlayerPrefs.DeleteAll();
+		//PlayerPrefs.DeleteAll();
 
 		leftHandMode = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
 		if(leftHandMode) {

@@ -9,13 +9,9 @@ public class ToggleHandler : MonoBehaviour {
 	public ToggleGroup toggleGroup;
 	public Toggle[] extraQuestionToggles;
 	public Canvas extraQuestionCanvas;
-	public Toggle correctToggle = null;
 	public static List<Toggle> selectedToggles;
 	public Sprite correct;	
 	public Sprite wrong;
-
-	// Use this for initialization
-
 
 	public void ToggleAction(){
 		if (toggle.isOn) {
@@ -31,8 +27,7 @@ public class ToggleHandler : MonoBehaviour {
 		selectedToggles = Level5QuestionManager.GetSelectedTogglesList();
 
 		// if the list does not contain the toggle, add it to the list
-		if (!selectedToggles.Contains(toggle))
-		{
+		if (!selectedToggles.Contains(toggle)) {
 			selectedToggles.Add(toggle);
 		} else {
 			selectedToggles.Remove(toggle);
@@ -50,31 +45,19 @@ public class ToggleHandler : MonoBehaviour {
 
 
 		// first, make the toggles not interactable anymore
-
-		for (int j = 0; j < extraQuestionToggles.Length; j++)
-		{
+		for (int j = 0; j < extraQuestionToggles.Length; j++) {
 			extraQuestionToggles[j].interactable = false;
 		}
 
 		// change the colour
-		for (int i = 0; i < extraQuestionToggles.Length; i++)
-		{
-			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
-			{
-				correctToggle = extraQuestionToggles[i];
-				//correctToggle.targetGraphic.color = Color.green;
-				toggle.image.sprite = correct;
-			}
-		}
-		if (toggle.tag != "correctToggleEQ5") {
-			//toggle.targetGraphic.color = Color.red;
-			toggle.image.sprite = wrong;
-		} else {
+		if (toggle.tag == "correctToggleEQ5") {
+			toggle.image.sprite = correct;
 			Level5QuestionManager.addEQuestionScore ();
-			Level5QuestionManager.updateScore ();
+		} else {
+			toggle.image.sprite = wrong;
 		}
+	    Level5QuestionManager.updateScore ();
 		Level5QuestionManager.changeToEToggleSelected ();
-
 	}
 
 }
