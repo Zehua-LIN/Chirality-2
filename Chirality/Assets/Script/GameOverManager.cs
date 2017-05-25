@@ -53,6 +53,9 @@ public class GameOverManager : MonoBehaviour {
 		case "Intermolecular Forces":
 			highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
 			break;
+		case "Chiral Carbons":
+			highPercentage = PlayerPrefs.GetFloat ("Level_5_High_Percentage");
+			break;
 		case "Level 4: Isomers":
 			highPercentage = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
 			break;
@@ -77,6 +80,7 @@ public class GameOverManager : MonoBehaviour {
 	void displayRecord() {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + "%";
+
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
@@ -91,6 +95,7 @@ public class GameOverManager : MonoBehaviour {
 	void displayRecordForLevel2() {
 		scoreLabel.text = "";
 		highPercentageLabel.text = "";
+
 	}
 
 	void displayMedalAndComment() {
@@ -405,9 +410,13 @@ public class GameOverManager : MonoBehaviour {
 				case "Structure Classification: Time Trial":
 					PlayerPrefs.SetFloat("Level_2_Trial_High_Percentage",percentage);
 					break;
+				case "Chiral Carbons":
+					PlayerPrefs.SetFloat("Level_5_High_Percentage", percentage);
+					break;
 				default:
 					break;
 				}
+
 			}
 		}
 
@@ -442,6 +451,9 @@ public class GameOverManager : MonoBehaviour {
 			break;
 		case "Intermolecular Forces":
 			SceneManager.LoadScene("Level_Three_Scene");	
+			break;
+		case "Chiral Carbons":
+			SceneManager.LoadScene ("Level_Five_Scene");	
 			break;
 		case "Level 4: Isomers":
 			SceneManager.LoadScene("Level_Four_Scene");
