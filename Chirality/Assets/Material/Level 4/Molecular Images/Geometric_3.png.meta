@@ -76,7 +76,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
-    textureFormat: 31
+    textureFormat: 54
     textureCompression: 1
     compressionQuality: 0
     crunchedCompression: 0
