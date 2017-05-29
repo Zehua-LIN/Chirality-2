@@ -79,7 +79,7 @@ public class GameOverManager : MonoBehaviour {
 
 	void displayRecord() {
 		gameTitle.text = title;
-		scoreLabel.text = (percentage * 100).ToString() + "%";
+		scoreLabel.text = (percentage * 100).ToString() + " %";
 
 		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
@@ -210,7 +210,7 @@ public class GameOverManager : MonoBehaviour {
 			int highSec = (int)highPercentage % 60;
 
 			if (min == 0) {
-				bestScoreLabel = "Your best was " + highSec + "seconds.";
+				bestScoreLabel = "Your best was " + highSec + " seconds.";
 			}
 			else if (min == 1) {
 				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
@@ -276,7 +276,7 @@ public class GameOverManager : MonoBehaviour {
 			int highSec = (int)highPercentage % 60;
 
 			if (min == 0) {
-				bestScoreLabel = "Your best was " + highSec + "seconds.";
+				bestScoreLabel = "Your best was " + highSec + " seconds.";
 			}
 			else if (min == 1) {
 				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
@@ -338,7 +338,7 @@ public class GameOverManager : MonoBehaviour {
 			int highSec = (int)highPercentage % 60;
 
 			if (min == 0) {
-				bestScoreLabel = "Your best was " + highSec + "seconds.";
+				bestScoreLabel = "Your best was " + highSec + " seconds.";
 			}
 			else if (min == 1) {
 				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
