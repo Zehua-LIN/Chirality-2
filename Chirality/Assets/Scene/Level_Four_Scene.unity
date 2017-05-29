@@ -2666,7 +2666,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1391913193006172, guid: 6a1f83a45e6454b4b939498fa3012f66, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114087394934166242, guid: 6a1f83a45e6454b4b939498fa3012f66,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1154528704}
+    - target: {fileID: 114087394934166242, guid: 6a1f83a45e6454b4b939498fa3012f66,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: revealAnswer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a1f83a45e6454b4b939498fa3012f66, type: 2}

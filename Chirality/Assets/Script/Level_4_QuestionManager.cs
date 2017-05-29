@@ -135,42 +135,49 @@ public class Level_4_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-
-            if (numberOfQuestionsAnswred < 10)
-            {
-                Destroy(currentQuestion);
-                Destroy(currentQuestionAnswer);
-                questions.Remove(currentQuestionObject);
-
-                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.GetComponent<Image>().color = Color.white;
-                NextButton.transform.GetComponent<Image>().color = Color.white;
-
-                selected_answer = null;
-
-                instantiateRandomQuestionToDisplay();
-            }
-            else
-            {
-                // go to game over scene 
-                PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = score / 10f;
-                PlayerPrefs.SetInt("Score", score);
-                PlayerPrefs.SetFloat("Percentage", percetange);
-
-
-                if (!PlayerPrefs.HasKey("Level_4_Standard_High_Percentage"))
-                {
-                    PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", 0f);
-                }
-                SceneManager.LoadScene("Game_Over_Scene");
-            }
+            goToNextQuestion();
         }
         else
         {
             checkAnswer();
         }
          
+    }
+
+    public void goToNextQuestion()
+    {
+        if (numberOfQuestionsAnswred < 10)
+        {
+            Destroy(currentQuestion);
+            Destroy(currentQuestionAnswer);
+            questions.Remove(currentQuestionObject);
+
+            for (int i = 0; i < deck.transform.childCount; i++)
+            {
+                GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+            }
+            NextButton.transform.GetComponent<Image>().color = Color.white;
+
+            selected_answer = null;
+
+            instantiateRandomQuestionToDisplay();
+        }
+        else
+        {
+            // go to game over scene 
+            PlayerPrefs.SetString("Game_Title", gameTitle.text);
+            float percetange = score / 10f;
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetFloat("Percentage", percetange);
+
+
+            if (!PlayerPrefs.HasKey("Level_4_Standard_High_Percentage"))
+            {
+                PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", 0f);
+            }
+            SceneManager.LoadScene("Game_Over_Scene");
+        }
     }
 
     public void identifySelf(GameObject caller)
@@ -180,27 +187,30 @@ public class Level_4_QuestionManager : MonoBehaviour
             if (selected_answer != null)
             {
                 selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
             }
             selected_answer = caller;
 
             Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
-            if (buttonColor != Color.red)
-            {
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
-                //caller.transform.parent.GetComponent<Image>().color = Color.red;
-                NextButton.transform.GetComponent<Image>().color = Color.cyan;
-            }
-            else
-            {
-                selected_answer = null;
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //caller.transform.parent.GetComponent<Image>().color = Color.white;
-            }
+
+            caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
+            NextButton.transform.GetComponent<Image>().color = Color.cyan;
+            
         }
 
 
         
+    }
+
+    public void revealAnswer()
+    {
+        for (int i = 0; i < deck.transform.childCount; i++)
+        {
+            GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+            if (elementInCell.name.Equals(currentQuestionObject.name))
+            {
+                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+            }
+        }
     }
 
     void checkAnswer()
