@@ -209,6 +209,9 @@ public class Level_4_QuestionManager : MonoBehaviour
             if (elementInCell.name.Equals(currentQuestionObject.name))
             {
                 elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+                currentStatus = gameStatus.InCheck;
+                numberOfQuestionsAnswred += 1;
+                scoreNumberLabel.text = score.ToString() + "/" + numberOfQuestionsAnswred;
             }
         }
     }

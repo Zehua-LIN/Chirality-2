@@ -153,8 +153,11 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
                 questions.Remove(currentQuestionObject);
-                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.GetComponent<Image>().color = Color.white;
+                for (int i = 0; i < deck.transform.childCount; i++)
+                {
+                    GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                    elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+                }
 
                 selected_answer = null;
 
@@ -206,6 +209,20 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
         checkAnswer();
     
+    }
+
+    public void revealAnswer()
+    {
+        for (int i = 0; i < deck.transform.childCount; i++)
+        {
+            GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+            if (elementInCell.name.Equals(currentQuestionObject.name))
+            {
+                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+                currentStatus = gameStatus.InCheck;
+                numberOfQuestionsAnswred += 1;
+            }
+        }
     }
 
     void checkAnswer()
