@@ -23,3 +23,5 @@ EditorBuildSettings:
     path: Assets/Scene/Level_Four_Scene_Extreme.unity
   - enabled: 1
     path: Assets/Scene/Game_Over_Scene.unity
+  - enabled: 1
+    path: Assets/Scene/Level_Five_Scene.unity

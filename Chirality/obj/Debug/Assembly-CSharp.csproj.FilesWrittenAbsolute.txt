@@ -19,3 +19,27 @@
 /Users/errol/Desktop/Unity 2D/Test/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/errol/Desktop/Unity 2D/Test/obj/Debug/Assembly-CSharp.dll
 /Users/errol/Desktop/Unity 2D/Test/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/obj/Debug/Assembly-CSharp.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEditor.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.PlaymodeTestsRunner.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Facebook.Unity.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Facebook.Unity.Settings.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/LitJson.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Mono.Cecil.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Unity.DataContract.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/Vivi/Documents/Chirality-Project/Chirality/Temp/bin/Debug/Mono.Cecil.Mdb.dll

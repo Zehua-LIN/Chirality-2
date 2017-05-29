@@ -1,0 +1,113 @@
+ [
+  {
+  "id" : 0,
+  "level" : 5,
+  "code" : "Q1",
+  "name" : "Estradiol",
+  "numberOfAns" : 18,
+  "answer" : ["","","","t4","","","","t8","t9","","","","","","t15","t16","",""],
+  "numberCrToggles": 5,
+  "facts" : ["Estradiol is a diol due to it being an alcohol with two hydroxyl groups.","Estradiol is an estrane (18 carbon) steroid.","Men also produce Estradiol (via the same pathway as Testosterone) but in much lower amounts than women.","Estradiol is produced commercially by the reduction of Estrone, often using complex metal hydrides such as sodium borohydride.","A chiral carbon has 4 different groups attached to it.","In the body, Estradiol can be synthesised from Testosterone via the action of the Aromatase enzyme (also called Estrogen synthase).","Due to having two hydroxyl groups Estradiol is often abbreviated as E2.","Estradiol has an alcohol functional group at the C3 and C17 positions, and a methyl group at C13.","The molecular formula for Estradiol is C18H24O2 and it has a molecular weight of 272.388 g/mol.","Estradiol is not only found in humans and most vertebrates but in crustaceans, insects, fish and many other animals."]
+  
+  },
+  {
+  "id" : 1,
+  "level" : 5,
+  "code" : "Q2",
+  "name" : "Thalidomide",
+  "numberOfAns" : 13,
+  "answer" : ["","t2","","","","","","","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Thalidomide is a piperidinyl isoindole and was originally introduced as a non-barbiturate hypnotic.","Thalidomide is a racaemic glutamic acid analogue, consisting of S- and R+ enantiomers that interconvert under physiological conditions.","Thalidomide was not approved for use in the United States in the 1950s due to the actions of FDA regulator Frances Kelsey. Her stance is thought to have saved the United States from a medical tragedy.","Australian, Dr William McBride and German, Dr Widukind Lenz separately worked out the likely cause and effect relationship between thalidomide use and birth defects.","Trade names for Thalidomide include Contergan, Distaval, Thalomid, Immunoprin, Talidex, Talizer and Neurosedyn.","Compounds with two or more chiral centres can exist as more than 2 optical isomers.","The chemical formulae for Thalidomide is C13H10N2O4.","Although German company Gruenenthal patented Thalidomide in the mid-1950s there is still debate over who actually invented it.","In modern times Thalidomide is sometimes used to treat cancer and leprosy.","The IUPAC name for Thalidomide is (RS)-2-(2,6-dioxopiperidin-3-yl)-1H-isoindole- 1,3(2H)-dione."]
+  
+  },
+  {
+  "id" : 2,
+  "level" : 5,
+  "code" : "Q3",
+  "name" : "Testisterone",
+  "numberOfAns" : 19,
+  "answer" : ["","","","","t5","t6","","","","t10","t11","","","","","","t17","t18",""],
+  "numberCrToggles": 6,
+  "facts" : ["Three hexagonal C-rings and one pentagonal C-ring are fused together in Testosterone to a form a framework called an androstane skeleton.","Like other steroid hormones, Testosterone is derived from Cholesterol.","The mirror images of a chiral molecule are called enantiomers or optical isomers.","The IUPAC name for Testosterone is 17β-hydroxy-4-androsten-3-one.","Androgens such as Testosterone have 19 carbon atoms in their structure and are therefore referred to as C19 steroids.","The hydroxyl side chain at the C-17 position of Testosterone permits alkylation of the molecule (substitution of an ethyl or methyl group for the hydroxyl group) which improves bio-adsorption.","Through esterification (the substitution of an acid group for the hydroxyl group) the water solubility of testosterone can be lowered and its lipid solubility increased.","With a few exceptions, most steroids are rather ‘flat’ molecules: the hexagonal carbon rings usually assume the boat rather than chair form and are mostly fused in the trans-conformation.","In steroids, substituent groups above the plane of the molecule are said to be in the ß position, whereas those under the plane are said to be in the α position.","Stereoisomerism (i.e. molecules with the same chemical formula, but different three- dimensional conformations) is very important for biological activity."]
+  
+  },
+  {
+  "id" : 3,
+  "level" : 5,
+  "code" : "Q4",
+  "name" : "Tartaric acid",
+  "numberOfAns" : 4,
+  "answer" : ["","t2","t3",""],
+  "numberCrToggles": 2,
+  "facts" : ["A structure that contains two or more chiral carbons but is superimposable on its mirror image is a meso compound.","Tartaric acid is a white crystalline dicarboxylic acid found in many plants, particularly grapes.","Salts of tartaric acid are known as tartrates.","Tartaric acid is one of the main acids found in wine.","Tartaric acid is a muscle toxin, which works by inhibiting the production of malic acid. In high enough doses this causes paralysis and death.","Tartaric acid is used as an antioxidant and to impart its distinctive sour taste in foods with E number E334.","Tartaric acid is a useful raw material in organic chemistry for the synthesis of other chiral molecules.","Diastereomers are stereoisomers that are not mirror images and are non- superimposable on one another.","Tartaric acid is manufactured by processing the crystalline wastes of wine vats, but it can also be extracted from some natural fruits.","The ‘wine diamonds’ that sometimes appear on the cork in wine bottles are made of Tartaric acid."]
+  
+  },
+  {
+  "id" : 4,
+  "level" : 5,
+  "code" : "Q5",
+  "name" : "Amphetamine",
+  "numberOfAns" : 9,
+  "answer" : ["","","","","t5","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Amphetamine is a methyl homolog of the mammalian neurotransmitter phenethylamine, with the chemical formula C9H13N.","Australian researchers have shown that it is possible to make 3,4-methylenedioxy-methamphetamine (MDMA) from material extracted from black pepper.","Amphetamine is contracted from the full name, alpha‐methylphenethylamine.","Amphetamine was discovered in 1887 and exists as two enantiomers levoamphetamine and dextroamphetamine.","Despite being a stimulant, one use of Amphetamine (as is in the treatment of attention deficit hyperactivity disorder (ADHD).","Despite what certain TV shows would have you believe, pure N-methylamphetamine is white not blue.","The IUPAC name for Amphetamine is (RS)-1-phenylpropan-2-amine.","Amphetamine was first synthesised in 1887 by Romanian chemist Lazar Edeleanu.","The enantiomers of Amphetamine are usually referred to as dexamphetamine (S(+)- amphetamine) and levoamphetamine (R(-)-amphetamine).","The number of isomers a chiral molecule can have is given by the formula 2n, where n = the number of chiral carbons."]
+  
+  },
+  {
+  "id" : 5,
+  "level" : 5,
+  "code" : "Q6",
+  "name" : "Ephedrine",
+  "numberOfAns" : 10,
+  "answer" : ["","","","t4","t5","","","","",""],
+  "numberCrToggles": 2,
+  "facts" : ["Ephedrine is an alkaloid derived from various plants in the Ephedra genus (family Ephedraceae).","Ephedrine works mainly by increasing the activity of Noradrenaline on adrenergic receptors in the body.","Ephedrine can be used to make Methamphetamine via reduction to remove the hydroxyl group.","The first chemical synthesis of Ephedrine was by Japanese organic chemist Nagai Nagayoshi in 1885.","Pseudoephedrine (the active ingredient in many common cough and cold treatments) is a diastereomer of Ephedrine.","Ephedrine exhibits optical isomerism and has two chiral centres, giving rise to four stereoisomers.","Ephedrine is similar in molecular structure to Phenylpropanolamine, Methamphetamine and Epinephrine (adrenaline).","The term ‘Chiral’ was first used by Lord Kelvin in 1893.","Use of Ephedrine dates back more than 5,000 years. The first recorded history of its use comes from China.","In its pure form Ephedrine is a white powder but it can be sold in tablet or capsule form or as loose plant material."]
+  
+  },
+  {
+  "id" : 6,
+  "level" : 5,
+  "code" : "Q7",
+  "name" : "Ribose",
+  "numberOfAns" : 5,
+  "answer" : ["","t2","t3","t4",""],
+  "numberCrToggles": 3,
+  "facts" : ["The structure of Ribose is shown in this app as a Fischer projection, a system developed to describe the structure of carbohydrates.","D-Ribose was first reported in 1891 by Emil Fischer, the German chemist who developed the Fischer projection.","Ribose it is a pentose (5 carbon) carbohydrate. If it had 6 carbons it would be a hexose.","Ribose has an important role in biology as it forms as part of ribonucleic acid (RNA). Deoxyribose forms part of DNA.","The word chirality is derived from the Greek word for “hand”, a familiar chiral object.","Ribose has two enantiomers, D-ribose and L-Ribose. The term usually indicates D-ribose, which, unlike the L form, occurs widely in nature.","Phosphorylated derivatives of ribose such as ATP and NADH play central roles in metabolism.","Like many monosaccharides, ribose exists in an equilibrium among 5 forms; the linear form, and two (alpha and beta) forms of five or six membered rings.","The ‘D-’ in the name D-ribose refers to the stereochemistry of the chiral carbon atom farthest away from the aldehyde group.","Ribose is sometimes used to improve athletic performance and the ability to exercise due to its role in energy metabolism."]
+  
+  },
+  {
+  "id" : 7,
+  "level" : 5,
+  "code" : "Q8",
+  "name" : "Limonene",
+  "numberOfAns" : 10,
+  "answer" : ["","","","","t5","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Limonene’s two enantiomers have identical chemical properties but different odours. Despite the name (+)-Limonene smells of oranges!","The stereocentre of a chiral molecule need not always be a carbon atom. Some tetravalent phosphorous and trivalent sulphur compounds are also chiral.","The name Limonene comes from the fact that it is found in high levels in lemons.","The IUPAC name of Limonene is 1-methyl-4-(1-methylethenyl)-cyclohexene.","Most naturally occurring chiral compounds are found as a single optical isomer only. Limonene is an exception as both enantiomers are produced in nature.","Limonene is found in high concentrations in the peel of citrus fruits. It is thought that this may be connected with the fact that it is an insecticide.","(-)-Limonene is an important precursor in the biosynthesis of (-)-menthol the major component of mint.","The non-polar nature of Limonene means that it has an affinity for petroleum based greases and it has been used as an industrial cleaner for more than thirty years.","Limonene has found use as a solvent for filament-fused 3D printing.","Racemic limonene is known as dipentene."]
+  
+  },
+  {
+  "id" : 8,
+  "level" : 5,
+  "code" : "Q9",
+  "name" : "Carvone",
+  "numberOfAns" : 10,
+  "answer" : ["","","","","t5","","","","",""],
+  "numberCrToggles": 1,
+  "facts" : ["Carvone is available inexpensively in both enantiomerically pure forms, making it an attractive starting material for the synthesis of natural products.","Carbons on double or triple bonds cannot be chiral centres because they can’t have bonds to four different groups.","R-(–)-carvone smells like spearmint leaves. S-(+)-carvone smells like caraway seeds.","Carvone is produced by both extraction and purification of essential oils from caraway, dill and spearmint seeds and by chemical and biotechnological synthesis.","Carvone has found use as a fragrance and flavour, potato sprouting inhibitor, antimicrobial agent, chemical building block and a biochemical environmental indicator.","Carvone is a monoterpene, a class of compounds that consist of two isoprene units with the molecular formula C10H16.","The fact that two Carvone enantiomers smell different indicates that human olfactory receptors must either be chiral or contain chiral groups.","Carvone is often used in the form of a flavouring agent, especially in chewing gums and liqueurs. It is also added to perfumes and soaps to enhance their scent.","German chemist Franz Varrentrapp was the first to isolate Carvone in 1877.","Carvone is the common name for 5-isopropenyl-2-methylcyclohex-2-en-1-one."]
+  
+  },
+  {
+  "id" : 9,
+  "level" : 5,
+  "code" : "Q10",
+  "name" : "Paracetamol",
+  "numberOfAns" : 8,
+  "answer" : ["","","","","","","",""],
+  "numberCrToggles": 0,
+  "facts" : ["Paracetamol consists of a benzene ring core, substituted by one hydroxyl group and the nitrogen atom of an amide group in the para (1,4) pattern.","Straight-chain alkyl group carbons (CH3 or CH2 units) will not be chiral centres as they have two or more identical groups (hydrogens) attached to the carbons.","Paracetamol from human use (and excretion) can be found in wastewater and the environment.","Paracetamol is one of, if not the, most widely used drug in the world.","Paracetamol is also known as acetaminophen. Both names come from the compound’s chemical name - para-acetylaminophenol and para-acetylaminophenol.","Paracetamol is a p-aminophenol derivative with analgesic (painkiller) and antipyretic (prevents or reduces fever) activities.","The synthesis of Paracetamol from phenol is a common undergraduate chemistry practical.","The painkilling properties of Paracetamol were discovered by accident about 100 years ago when a similar molecule (Acetanilide) was added to a patient's prescription by mistake.","To date, the mechanism of action of Paracetamol is not completely understood.","Paracetamol is not useful for treating muscle pain."]
+  
+  }
+  ]
+
