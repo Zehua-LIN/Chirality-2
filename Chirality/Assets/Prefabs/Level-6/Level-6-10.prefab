@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222077821863724216}
   - component: {fileID: 114526229601324322}
   m_Layer: 5
-  m_Name: Level-6-9
+  m_Name: Level-6-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5e78d4d8c6d674e02aedbc27dead62e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e228d4355c53345dfaffd5c38d4618e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,5 +77,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -220, y: 0}
-  m_SizeDelta: {x: 460, y: 435}
+  m_SizeDelta: {x: 618, y: 405.5}
   m_Pivot: {x: 0.5, y: 0.5}
