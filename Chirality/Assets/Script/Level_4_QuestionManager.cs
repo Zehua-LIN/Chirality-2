@@ -25,6 +25,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     [SerializeField] Button NextButton;
     [SerializeField] GameObject leftHandedHelpArrowLeft;
     [SerializeField] GameObject leftHandedHelpArrowRight;
+    [SerializeField] Button displayAnswerButton;
     [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
@@ -112,6 +113,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     // pick a random question from the List<Question> and display it
     void instantiateRandomQuestionToDisplay()
     {
+        displayAnswerButton.gameObject.SetActive(false);
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
@@ -119,11 +121,6 @@ public class Level_4_QuestionManager : MonoBehaviour
         {
             currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x, 0);
         }
-
-        Debug.Log("Current question name:" + currentQuestionObject.name);
-        Debug.Log("Current ID: " + currentQuestionObject.ID);
-        Debug.Log("Current prefab name: " + currentQuestion.name);
-        
 
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;
@@ -203,17 +200,19 @@ public class Level_4_QuestionManager : MonoBehaviour
 
     public void revealAnswer()
     {
-        for (int i = 0; i < deck.transform.childCount; i++)
+        if (currentStatus == gameStatus.InCheck)
         {
-            GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
-            if (elementInCell.name.Equals(currentQuestionObject.name))
+            for (int i = 0; i < deck.transform.childCount; i++)
             {
-                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
-                currentStatus = gameStatus.InCheck;
-                numberOfQuestionsAnswred += 1;
-                scoreNumberLabel.text = score.ToString() + "/" + numberOfQuestionsAnswred;
+                GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                if (elementInCell.name.Equals(currentQuestionObject.name))
+                {
+                    elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+                }
             }
         }
+
+        
     }
 
     void checkAnswer()
@@ -224,6 +223,9 @@ public class Level_4_QuestionManager : MonoBehaviour
 
         // change the game status
         currentStatus = gameStatus.InCheck;
+
+        displayAnswerButton.gameObject.SetActive(true); 
+
         numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
         if (selected_answer.name.Equals(currentQuestionObject.name))

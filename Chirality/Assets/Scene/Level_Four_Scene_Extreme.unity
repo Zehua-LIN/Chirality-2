@@ -919,6 +919,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1154528705}
+    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: retryYesButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1154528705}
+    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: retryNoButtonPressed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 383a8fee61ae74293b3f8b7671e7cfc1, type: 2}
   m_IsPrefabParent: 0
@@ -1017,6 +1037,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 626332043}
+--- !u!114 &666015416 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114087394934166242, guid: 6a1f83a45e6454b4b939498fa3012f66,
+    type: 2}
+  m_PrefabInternal: {fileID: 1529967392}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &711573007 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224351877565113332, guid: e250125d407204d458755ebcad7637b3,
@@ -1449,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1018838535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1933,8 +1959,10 @@ MonoBehaviour:
   retryPanel: {fileID: 625442730}
   retryYesButton: {fileID: 625442729}
   retryNoButton: {fileID: 625442728}
+  NextButton: {fileID: 2093326732}
   leftHandedHelpArrowLeft: {fileID: 1818563913}
   leftHandedHelpArrowRight: {fileID: 1135459753}
+  displayAnswerButton: {fileID: 666015416}
   buttonSprites:
   - {fileID: 21300000, guid: af3ece634d40e8b4ebe4806a5314bc87, type: 3}
   - {fileID: 21300000, guid: 0438e2631aeee4246b01f77012cef72d, type: 3}
@@ -2007,7 +2035,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 4: Isomers Extreme'
+  m_Text: Isomers Extreme
 --- !u!222 &1156389452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2299,7 +2327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1330848753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2525,6 +2553,10 @@ Prefab:
         type: 2}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351083946912642, guid: 201c3efd231c94a9895be8daecfcf066, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 201c3efd231c94a9895be8daecfcf066, type: 2}
@@ -2800,7 +2832,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1391913193006172, guid: 6a1f83a45e6454b4b939498fa3012f66, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114087394934166242, guid: 6a1f83a45e6454b4b939498fa3012f66,
         type: 2}
@@ -3405,6 +3437,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1154528705}
+    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: yesButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1154528705}
+    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: noButtonPressed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 383a8fee61ae74293b3f8b7671e7cfc1, type: 2}
   m_IsPrefabParent: 0
@@ -3855,6 +3907,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2093326732 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114671256863549016, guid: 201c3efd231c94a9895be8daecfcf066,
+    type: 2}
+  m_PrefabInternal: {fileID: 1382213736}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2118920315
 GameObject:
   m_ObjectHideFlags: 0
