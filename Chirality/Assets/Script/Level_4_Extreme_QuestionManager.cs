@@ -327,18 +327,10 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
     void setUpHelpPanel()
     {
-        switch (gameTitle.text)
-        {
-            case "Level 4: Isomers":
-                if (PlayerPrefsX.GetBool("First_Time_Level_Four", true))
-                {
-                    helpPanel.SetActive(true);
-                    PlayerPrefsX.SetBool("First_Time_Level_Four", false);
-                }
-                break;
-            default:
-                break;
-        }
+		if (PlayerPrefsX.GetBool("First_Time_Level_Four_Extreme", true)){
+			helpPanel.SetActive(true);
+			PlayerPrefsX.SetBool ("First_Time_Level_Four_Extreme", false);
+		}
     }
 
 

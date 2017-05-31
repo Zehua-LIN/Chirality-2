@@ -31,9 +31,9 @@
         "level" : 1,
         "code" : "Q4",
         "name" : "Muscarine",
-        "numberOfCells" : 3,
+        "numberOfCells" : 2,
         "numberOfFacts" : 10,
-        "answer" : ["amine","alcohol","ether"],
+        "answer" : ["alcohol","ether"],
         "facts" : ["Muscarine is a toxic component of a number of mushroom species.","Muscarine was first isolated from Amanita muscaria (fly agaric) by German chemists Oswald Schmiedeberg and Richard Koppe in 1869.","Muscarine mimics the function of the natural neurotransmitter acetylcholine in the 'muscarinic' part of the cholinergic nervous system, despite the less flexible structure due to the five-membered ring which acetylcholine does not have.","There are two mirror forms of muscarine, named: 2S-muscarine and 2R- muscarine.","The specific antidote for Muscarine poisoning is atropine. Atropine inhibits acetylcholine and thus muscarine by binding to muscarinic receptors.","Muscarine is toxic and causes profound activation of the parasympathetic nervous system that may end in convulsions and death.","Muscarine is a foundation stone of modern pharmacology, being one of the first substances known which reproduced some of the responses to stimulation of the parasympathetic nervous system.","The lethal dose of muscarine for humans is not precisely known, with estimates ranging from 40 mg to 495 mg.","Muscarine is similar to acetylcholine but as it does not contain an ester linkage it is not metabolised by the cholinesterase enzyme in the body.","Muscarine is a quaternary ammonium salt."]},
     {  
         "id" : 4,
