@@ -180,9 +180,9 @@ public class Level6Manager : MonoBehaviour {
 					PlayerPrefs.SetFloat("Percentage", percetange);
 
 
-					if (!PlayerPrefs.HasKey("Level_6_Standard_High_Percentage"))
+					if (!PlayerPrefs.HasKey("Level_6_High_Percentage"))
 					{
-						PlayerPrefs.SetFloat("Level_6_Standard_High_Percentage", 0f);
+						PlayerPrefs.SetFloat("Level_6_High_Percentage", 0f);
 					}
 					SceneManager.LoadScene("Game_Over_Scene");
 				}
@@ -422,9 +422,9 @@ public class Level6Manager : MonoBehaviour {
 	}
 
 	void setUpHelpPanel() {
-		if(PlayerPrefsX.GetBool("First_Time_Level_One",true)) {
+		if(PlayerPrefsX.GetBool("First_Time_Level_Six",true)) {
 			helpPanel.SetActive(true);
-			PlayerPrefsX.SetBool("First_Time_Level_One",false);
+			PlayerPrefsX.SetBool("First_Time_Level_Six",false);
 		}
 	}
 }
