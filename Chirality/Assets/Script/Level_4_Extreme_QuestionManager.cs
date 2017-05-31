@@ -24,8 +24,10 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     [SerializeField] GameObject retryPanel;
     [SerializeField] Button retryYesButton;
     [SerializeField] Button retryNoButton;
+    [SerializeField] Button NextButton;
     [SerializeField] GameObject leftHandedHelpArrowLeft;
     [SerializeField] GameObject leftHandedHelpArrowRight;
+    [SerializeField] Button displayAnswerButton;
     [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
@@ -130,6 +132,8 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     // pick a random question from the List<Question> and display it
     void instantiateRandomQuestionToDisplay()
     {
+        displayAnswerButton.gameObject.SetActive(false);
+        NextButton.gameObject.SetActive(false);
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
@@ -148,13 +152,22 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-            if (numberOfQuestionsAnswred < 10)
+            if (selected_answer.transform.parent.GetComponent<Image>().sprite == buttonSprites[3])
+            {
+                retryPanelOpen();
+            }
+            else if (numberOfQuestionsAnswred < 10)
             {
                 Destroy(currentQuestion);
                 Destroy(currentQuestionAnswer);
                 questions.Remove(currentQuestionObject);
-                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.GetComponent<Image>().color = Color.white;
+                for (int i = 0; i < deck.transform.childCount; i++)
+                {
+                    GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                    elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+                }
+
+                NextButton.transform.GetComponent<Image>().color = Color.white;
 
                 selected_answer = null;
 
@@ -193,19 +206,28 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             selected_answer = caller;
 
             Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
-            if (buttonColor != Color.red)
-            {
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
-            }
-            else
-            {
-                selected_answer = null;
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-            }
+
+            caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
+
+
         }
 
         checkAnswer();
     
+    }
+
+    public void revealAnswer()
+    {
+        for (int i = 0; i < deck.transform.childCount; i++)
+        {
+            GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+            if (elementInCell.name.Equals(currentQuestionObject.name))
+            {
+                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+                currentStatus = gameStatus.InCheck;
+                numberOfQuestionsAnswred += 1;
+            }
+        }
     }
 
     void checkAnswer()
@@ -216,6 +238,9 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
         // change the game status
         currentStatus = gameStatus.InCheck;
+        displayAnswerButton.gameObject.SetActive(true);
+        NextButton.gameObject.SetActive(true);
+        NextButton.transform.GetComponent<Image>().color = Color.cyan;
         numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
         if (selected_answer.name.Equals(currentQuestionObject.name))
@@ -226,8 +251,6 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         else
         {
             selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[3];
-
-            retryPanelOpen();
         }
     }
 

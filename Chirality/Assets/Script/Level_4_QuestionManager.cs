@@ -25,6 +25,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     [SerializeField] Button NextButton;
     [SerializeField] GameObject leftHandedHelpArrowLeft;
     [SerializeField] GameObject leftHandedHelpArrowRight;
+    [SerializeField] Button displayAnswerButton;
     [SerializeField] Sprite[] buttonSprites;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
@@ -112,6 +113,7 @@ public class Level_4_QuestionManager : MonoBehaviour
     // pick a random question from the List<Question> and display it
     void instantiateRandomQuestionToDisplay()
     {
+        displayAnswerButton.gameObject.SetActive(false);
         int randomNum = Random.Range(0, questions.Count); // random a question
         currentQuestionObject = questions[randomNum];
         currentQuestion = Instantiate(currentQuestionObject.gameObject, canvas.transform, false);	// instantiate the prefab
@@ -119,11 +121,6 @@ public class Level_4_QuestionManager : MonoBehaviour
         {
             currentQuestion.transform.localPosition = new Vector2(-currentQuestion.transform.localPosition.x, 0);
         }
-
-        Debug.Log("Current question name:" + currentQuestionObject.name);
-        Debug.Log("Current ID: " + currentQuestionObject.ID);
-        Debug.Log("Current prefab name: " + currentQuestion.name);
-        
 
         // change the game status and deactivate the answer button
         currentStatus = gameStatus.InGame;
@@ -135,42 +132,49 @@ public class Level_4_QuestionManager : MonoBehaviour
         
         if (currentStatus == gameStatus.InCheck)
         {
-
-            if (numberOfQuestionsAnswred < 10)
-            {
-                Destroy(currentQuestion);
-                Destroy(currentQuestionAnswer);
-                questions.Remove(currentQuestionObject);
-
-                selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.GetComponent<Image>().color = Color.white;
-                NextButton.transform.GetComponent<Image>().color = Color.white;
-
-                selected_answer = null;
-
-                instantiateRandomQuestionToDisplay();
-            }
-            else
-            {
-                // go to game over scene 
-                PlayerPrefs.SetString("Game_Title", gameTitle.text);
-                float percetange = score / 10f;
-                PlayerPrefs.SetInt("Score", score);
-                PlayerPrefs.SetFloat("Percentage", percetange);
-
-
-                if (!PlayerPrefs.HasKey("Level_4_Standard_High_Percentage"))
-                {
-                    PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", 0f);
-                }
-                SceneManager.LoadScene("Game_Over_Scene");
-            }
+            goToNextQuestion();
         }
         else
         {
             checkAnswer();
         }
          
+    }
+
+    public void goToNextQuestion()
+    {
+        if (numberOfQuestionsAnswred < 10)
+        {
+            Destroy(currentQuestion);
+            Destroy(currentQuestionAnswer);
+            questions.Remove(currentQuestionObject);
+
+            for (int i = 0; i < deck.transform.childCount; i++)
+            {
+                GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
+            }
+            NextButton.transform.GetComponent<Image>().color = Color.white;
+
+            selected_answer = null;
+
+            instantiateRandomQuestionToDisplay();
+        }
+        else
+        {
+            // go to game over scene 
+            PlayerPrefs.SetString("Game_Title", gameTitle.text);
+            float percetange = score / 10f;
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetFloat("Percentage", percetange);
+
+
+            if (!PlayerPrefs.HasKey("Level_4_Standard_High_Percentage"))
+            {
+                PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", 0f);
+            }
+            SceneManager.LoadScene("Game_Over_Scene");
+        }
     }
 
     public void identifySelf(GameObject caller)
@@ -180,25 +184,33 @@ public class Level_4_QuestionManager : MonoBehaviour
             if (selected_answer != null)
             {
                 selected_answer.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //selected_answer.transform.parent.GetComponent<Image>().color = Color.white;
             }
             selected_answer = caller;
 
             Color buttonColor = selected_answer.transform.parent.GetComponent<Image>().color;
-            if (buttonColor != Color.red)
-            {
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
-                //caller.transform.parent.GetComponent<Image>().color = Color.red;
-                NextButton.transform.GetComponent<Image>().color = Color.cyan;
-            }
-            else
-            {
-                selected_answer = null;
-                caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[0];
-                //caller.transform.parent.GetComponent<Image>().color = Color.white;
-            }
+
+            caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
+            NextButton.transform.GetComponent<Image>().color = Color.cyan;
+            
         }
 
+
+        
+    }
+
+    public void revealAnswer()
+    {
+        if (currentStatus == gameStatus.InCheck)
+        {
+            for (int i = 0; i < deck.transform.childCount; i++)
+            {
+                GameObject elementInCell = deck.transform.GetChild(i).GetChild(0).gameObject;
+                if (elementInCell.name.Equals(currentQuestionObject.name))
+                {
+                    elementInCell.transform.parent.GetComponent<Image>().sprite = buttonSprites[2];
+                }
+            }
+        }
 
         
     }
@@ -211,6 +223,9 @@ public class Level_4_QuestionManager : MonoBehaviour
 
         // change the game status
         currentStatus = gameStatus.InCheck;
+
+        displayAnswerButton.gameObject.SetActive(true); 
+
         numberOfQuestionsAnswred += 1;	// to keep track of how many questions have been answered
 
         if (selected_answer.name.Equals(currentQuestionObject.name))
