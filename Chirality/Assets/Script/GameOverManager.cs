@@ -56,10 +56,10 @@ public class GameOverManager : MonoBehaviour {
 		case "Chiral Carbons":
 			highPercentage = PlayerPrefs.GetFloat ("Level_5_High_Percentage");
 			break;
-		case "Level 4: Isomers":
+		case "Isomers":
 			highPercentage = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
 			break;
-		case "Level 4: Isomers Extreme":
+		case "Isomers Extreme":
 			highPercentage = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
 			break;
 		case "Structure Classification: Standard":
@@ -70,6 +70,9 @@ public class GameOverManager : MonoBehaviour {
 			break;
 		case "Structure Classification: Time Trial":
 			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
+			break;
+		case "Naming Molecules":
+			highPercentage = PlayerPrefs.GetFloat ("Level_6_High_Percentage");
 			break;
 		default:
 			highPercentage = 0f;		
@@ -85,7 +88,7 @@ public class GameOverManager : MonoBehaviour {
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayRecordForLevel2();
-		}else if (title == "Level 4: Isomers Extreme")
+		}else if (title == "Isomers Extreme")
 		{
 			Debug.Log("Displaying extreme score");
 			highPercentageLabel.text = "Your previous best was " + ((int)highPercentage).ToString() + " seconds!";			
@@ -104,7 +107,7 @@ public class GameOverManager : MonoBehaviour {
 			return;
 		}
 
-		if (title == "Level 4: Isomers Extreme")
+		if (title == "Isomers Extreme")
 		{
 			displayMedalAndCommentForLevel4ExtremeMode();
 			return;
@@ -398,10 +401,10 @@ public class GameOverManager : MonoBehaviour {
 				case "Intermolecular Forces":
 					PlayerPrefs.SetFloat("Level_3_High_Percentage",percentage);
 					break;
-				case "Level 4: Isomers":
+				case "Isomers":
 					PlayerPrefs.SetFloat("Level_4_Standard_High_Percentage", percentage);
 					break;
-				case "Level 4: Isomers Extreme":
+				case "Isomers Extreme":
 					PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", percentage);
 					break;
 				case "Structure Classification: Extreme":
@@ -412,6 +415,9 @@ public class GameOverManager : MonoBehaviour {
 					break;
 				case "Chiral Carbons":
 					PlayerPrefs.SetFloat("Level_5_High_Percentage", percentage);
+					break;
+				case "Naming Molecules":
+					PlayerPrefs.SetFloat("Level_6_High_Percentage", percentage);
 					break;
 				default:
 					break;
@@ -455,10 +461,10 @@ public class GameOverManager : MonoBehaviour {
 		case "Chiral Carbons":
 			SceneManager.LoadScene ("Level_Five_Scene");	
 			break;
-		case "Level 4: Isomers":
+		case "Isomers":
 			SceneManager.LoadScene("Level_Four_Scene");
 			break;
-		case "Level 4: Isomers Extreme":
+		case "Isomers Extreme":
 			SceneManager.LoadScene("Level_Four_Scene_Extreme");
 			break;
 		case "Structure Classification: Standard":
@@ -470,6 +476,9 @@ public class GameOverManager : MonoBehaviour {
 		case "Structure Classification: Time Trial":
 			SceneManager.LoadScene("Level_Two_TimeTrial_Scene");	
 			break;
+		case "Naming Molecules" :
+			SceneManager.LoadScene("Level_Six_Scene");	
+			break;
 		default:
 			break;
 		}
@@ -478,7 +487,7 @@ public class GameOverManager : MonoBehaviour {
 
 	public void fbShare() {
 		string description;
-		if (title == "Level 4: Isomers Extreme"){
+		if (title == "Isomers Extreme"){
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
 		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
@@ -497,7 +506,7 @@ public class GameOverManager : MonoBehaviour {
 		string name = "Chirality 2";
 		string description;
 
-		if (title == "Level 4: Isomers Extreme")
+		if (title == "Isomers Extreme")
 		{
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
 		}
