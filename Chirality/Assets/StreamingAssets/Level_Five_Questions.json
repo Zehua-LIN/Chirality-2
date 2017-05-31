@@ -25,9 +25,9 @@
   "id" : 2,
   "level" : 5,
   "code" : "Q3",
-  "name" : "Testisterone",
+  "name" : "Testosterone",
   "numberOfAns" : 19,
-  "answer" : ["","","","","t5","t6","","","","t10","t11","","","","","","t17","t18",""],
+  "answer" : ["","","","t4","","t6","","","","t10","t11","","","","","","t17","t18",""],
   "numberCrToggles": 6,
   "facts" : ["Three hexagonal C-rings and one pentagonal C-ring are fused together in Testosterone to a form a framework called an androstane skeleton.","Like other steroid hormones, Testosterone is derived from Cholesterol.","The mirror images of a chiral molecule are called enantiomers or optical isomers.","The IUPAC name for Testosterone is 17β-hydroxy-4-androsten-3-one.","Androgens such as Testosterone have 19 carbon atoms in their structure and are therefore referred to as C19 steroids.","The hydroxyl side chain at the C-17 position of Testosterone permits alkylation of the molecule (substitution of an ethyl or methyl group for the hydroxyl group) which improves bio-adsorption.","Through esterification (the substitution of an acid group for the hydroxyl group) the water solubility of testosterone can be lowered and its lipid solubility increased.","With a few exceptions, most steroids are rather ‘flat’ molecules: the hexagonal carbon rings usually assume the boat rather than chair form and are mostly fused in the trans-conformation.","In steroids, substituent groups above the plane of the molecule are said to be in the ß position, whereas those under the plane are said to be in the α position.","Stereoisomerism (i.e. molecules with the same chemical formula, but different three- dimensional conformations) is very important for biological activity."]
   

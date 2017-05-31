@@ -10,6 +10,7 @@ public class ToggleHandler : MonoBehaviour {
 	public Toggle[] extraQuestionToggles;
 	public Canvas extraQuestionCanvas;
 	public static List<Toggle> selectedToggles;
+	public Toggle correctToggle = null;
 	public Sprite correct;	
 	public Sprite wrong;
 
@@ -50,14 +51,27 @@ public class ToggleHandler : MonoBehaviour {
 		}
 
 		// change the colour
-		if (toggle.tag == "correctToggleEQ5") {
-			toggle.image.sprite = correct;
-			Level5QuestionManager.addEQuestionScore ();
-		} else {
-			toggle.image.sprite = wrong;
+		for (int i = 0; i < extraQuestionToggles.Length; i++)
+		{
+
+			if (extraQuestionToggles[i].tag == "correctToggleEQ5")
+			{
+				correctToggle = extraQuestionToggles[i];
+				correctToggle.image.sprite = correct;
+			}
 		}
-	    Level5QuestionManager.updateScore ();
-		Level5QuestionManager.changeToEToggleSelected ();
+
+		if (toggle.tag != "correctToggleEQ5")
+		{
+			toggle.image.sprite = wrong;
+		} else {
+			toggle.image.sprite = correct;
+			Level5QuestionManager.addEQuestionScore();
+			Level5QuestionManager.updateScore();
+		}
+
+		Level5QuestionManager.changeToEToggleSelected();
+
 	}
 
 }
