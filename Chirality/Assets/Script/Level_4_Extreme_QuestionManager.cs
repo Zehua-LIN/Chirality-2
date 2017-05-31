@@ -209,10 +209,10 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
             caller.transform.parent.GetComponent<Image>().sprite = buttonSprites[1];
 
-
+            checkAnswer();
         }
 
-        checkAnswer();
+        
     
     }
 
