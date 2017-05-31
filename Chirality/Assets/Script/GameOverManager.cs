@@ -71,6 +71,9 @@ public class GameOverManager : MonoBehaviour {
 		case "Structure Classification: Time Trial":
 			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
 			break;
+		case "Naming Molecules":
+			highPercentage = PlayerPrefs.GetFloat ("Level_6_High_Percentage");
+			break;
 		default:
 			highPercentage = 0f;		
 			break;
@@ -413,6 +416,9 @@ public class GameOverManager : MonoBehaviour {
 				case "Chiral Carbons":
 					PlayerPrefs.SetFloat("Level_5_High_Percentage", percentage);
 					break;
+				case "Naming Molecules":
+					PlayerPrefs.SetFloat("Level_6_High_Percentage", percentage);
+					break;
 				default:
 					break;
 				}
@@ -469,6 +475,9 @@ public class GameOverManager : MonoBehaviour {
 			break;
 		case "Structure Classification: Time Trial":
 			SceneManager.LoadScene("Level_Two_TimeTrial_Scene");	
+			break;
+		case "Naming Molecules" :
+			SceneManager.LoadScene("Level_Six_Scene");	
 			break;
 		default:
 			break;
