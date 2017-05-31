@@ -1,0 +1,98 @@
+[
+    {   
+        "id" : 0,
+        "level" : 6,
+        "code" : "Q1",
+        "name" : "3-bromo-2-chloroheptane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["2-bromo-3-chloroheptane","3-bromo-2-chloroheptane","2-chloro-3-bromoheptane","2-chloro-3-bromopentane"],
+        "facts" : ["Fun Fact"]},
+    {
+        "id" : 1,
+        "level" : 6,
+        "code" : "Q2",
+        "name" : "trans-1-fluoro-2-methylcyclopropane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["trans-1-fluoro-2-methylcyclopropane","cis-1-fluoro-2-methylcyclopropane","trans-1-fluoro-2-methylpropane","cis-1-methyl-2-fluorocyclopropane"],
+        "facts" : ["Fun Fact"]},
+    {   
+        "id" : 2,
+        "level" : 6,
+        "code" : "Q3",
+        "name" : "3,3-dichloro-2-fluorohexane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["3,3-dichloro-2-fluorohexane","33-dichloro-2-fluoropentane","2-fluoro-3,3-dichloropentane","33-dichloro-2-fluorohexane"],
+        "facts" : ["Fun Fact"]},
+    {   
+        "id" : 3,
+        "level" : 6,
+        "code" : "Q4",
+        "name" : "6-bromo-2-cyclopropyloctane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["6-bromo-2-cyclopropyloctane", "3-bromo-7-cyclopropyloctane","2-cyclopropyl-6-bromooctane","3-bromo-7-cyclopropylpentane"],
+        "facts" : ["Fun Fact"]},
+    {  
+        "id" : 4,
+        "level" : 6,
+        "code" : "Q5",
+        "name" : "2-nitropentane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["2-nitropentane", "5-nitropentane","2-methylnitrobutane","4-methylnitrobutane"],
+        "facts" : ["Fun Fact"]},
+    {   
+        "id" : 5,
+        "level" : 6,
+        "code" : "Q6",
+        "name" : "N-ethyl-4-aminoheptane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["N-ethyl-4-aminoheptane","N-ethyl-4-aminohexane","4-methyl-N-aminoheptane","4-ethyl-N-aminohexane"],
+        "facts" : ["Fun Fact"]},
+    {   
+        "id" : 6,
+        "level" : 6,
+        "code" : "Q7",
+        "name" : "N-ethyl-N-methyl-2-aminobutane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["N-ethyl-N-methyl-2-aminobutane","N-methyl-N-ethyl-2-aminobutane","N-ethyl-N-methyl-3-aminobutane","N-methyl-N-ethyl-3-aminobutane"],
+        "facts" : ["Fun Fact"]},
+    {
+        "id" : 7,
+        "level" : 6,
+        "code" : "Q8",
+        "name" : "1-amino-1,3-difluorocyclohexane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["1-amino-1,3-difluorocyclohexane","1,3-difluoro-3-aminocyclohexane","3-amino-1,3-difluorocyclohexane","1-amino-1,3-fluorocyclohexane"],
+        "facts" : ["Fun Fact"]},
+    {
+        "id" : 8,
+        "level" : 6,
+        "code" : "Q9",
+        "name" : "2-amino-2,4-dimethyloctane",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["2-amino-2,4-dimethyloctane","2-amino-2,4-dimethylheptane","1-amino-1,4-dimethylheptane","1-amino-1,3-dimethylheptane"],
+        "facts" : ["Fun Fact"]},
+    {
+        "id" : 9,
+        "level" : 6,
+        "code" : "Q10",
+        "name" : "dipropylamine",
+        "numberOfCells" : 4,
+        "numberOfFacts" : 1,
+        "answer" : ["dipropylamine","diethylamine","N,N-diethylamine","N-propyl-aminoethane"],
+        "facts" : ["Fun Fact"]}
+]
+
+
+
+
+
+
