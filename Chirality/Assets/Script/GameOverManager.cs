@@ -494,9 +494,9 @@ public class GameOverManager : MonoBehaviour {
 		}
 
 		FB.ShareLink(contentTitle:"Chirality 2",
-			contentURL:new System.Uri("https://www.google.com"),
+			contentURL:new System.Uri("https://spencerandjones2016.blogspot.com.au/"),
 			contentDescription: description,
-			photoURL: new System.Uri("https://cdn.sstatic.net/Sites/chemistry/img/apple-touch-icon@2.png?v=469e81391644"),
+			photoURL: new System.Uri("https://4.bp.blogspot.com/-KeAemQB8JYE/WBL3QLQ7YTI/AAAAAAAAAAU/-T4q_jWkLZ8Re5RkX5RQkkBC6SZEE6xTQCK4B/s113/artwork-source%2Bcopy.jpg"),
 			callback: fbCallBack);
 	}
 
