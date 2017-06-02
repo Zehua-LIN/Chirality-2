@@ -84,7 +84,7 @@ public class GameOverManager : MonoBehaviour {
 		gameTitle.text = title;
 		scoreLabel.text = (percentage * 100).ToString() + " %";
 
-		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
+		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + " %!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayRecordForLevel2();
@@ -116,19 +116,19 @@ public class GameOverManager : MonoBehaviour {
 		if(percentage < 0.5f) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
-			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + "%.";
+			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + " %.";
 		}else if(percentage >= 0.5f && percentage <= 0.69f) {
 			instantiateMedal(1);
 			goodEffortLabel.text = "Nice try!";
-			percentageLabel.text = "You joined tin and copper with " + (percentage * 100).ToString() + "%.";
+			percentageLabel.text = "You joined tin and copper with " + (percentage * 100).ToString() + " %.";
 		}else if(percentage >= 0.7f && percentage <= 0.89f) {
 			instantiateMedal(2);
 			goodEffortLabel.text = "Great work!";
-			percentageLabel.text = "With that sterling effort you got " + (percentage * 100).ToString() + "%.";
+			percentageLabel.text = "With that sterling effort you got " + (percentage * 100).ToString() + " %.";
 		}else if(percentage >= 0.9f && percentage <= 0.99f) {
 			instantiateMedal(3);
 			goodEffortLabel.text = "Well done!";
-			percentageLabel.text = "Your chemistry prowess is gold standard. You got " + (percentage * 100).ToString() + "%.";
+			percentageLabel.text = "Your chemistry prowess is gold standard. You got " + (percentage * 100).ToString() + " %.";
 		}else {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
@@ -190,7 +190,7 @@ public class GameOverManager : MonoBehaviour {
 		int sec = score%60;
 		string comment = "";
 		if (min == 0) {
-			comment = "You took " + sec + "seconds.";
+			comment = "You took " + sec + " seconds.";
 			scoreLabel.text = score + " sec";
 		}
 		else if (min == 1) {
@@ -213,13 +213,13 @@ public class GameOverManager : MonoBehaviour {
 			int highSec = (int)highPercentage % 60;
 
 			if (min == 0) {
-				bestScoreLabel = "Your best was " + highSec + " seconds.";
+				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
 			else if (min == 1) {
-				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
+				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
 			else if (min > 1) {
-				bestScoreLabel = "Your best was " + highMin +" minutes " +highSec +  " seconds.";
+				bestScoreLabel = "Your previous best was " + highMin +" minutes " +highSec +  " seconds.";
 			}
 
 			highPercentageLabel.text = bestScoreLabel;
@@ -279,13 +279,13 @@ public class GameOverManager : MonoBehaviour {
 			int highSec = (int)highPercentage % 60;
 
 			if (min == 0) {
-				bestScoreLabel = "Your best was " + highSec + " seconds.";
+				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
 			else if (min == 1) {
-				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
+				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
 			else if (min > 1) {
-				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
+				bestScoreLabel = "Your previous best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
 			highPercentageLabel.text = bestScoreLabel;
 		}
@@ -488,9 +488,9 @@ public class GameOverManager : MonoBehaviour {
 	public void fbShare() {
 		string description;
 		if (title == "Isomers Extreme"){
-			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ". Come and check it out!";
 		}else {
-			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
 		}
 
 		FB.ShareLink(contentTitle:"Chirality 2",
@@ -508,11 +508,11 @@ public class GameOverManager : MonoBehaviour {
 
 		if (title == "Isomers Extreme")
 		{
-			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ", come and check it out!";
+			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ". Come and check it out!";
 		}
 		else
 		{
-			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ", come and check it out!";
+			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
 		}
 		string link = "Now available on App Store & Google Play.";
 		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
