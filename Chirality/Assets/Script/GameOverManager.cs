@@ -41,6 +41,12 @@ public class GameOverManager : MonoBehaviour {
 		updateHighScore();				
 	}
 
+	void Update() {
+		if(Input.GetKey(KeyCode.Escape)) {
+			goToMenuScene();
+		}
+	}
+
 	void loadRecords() {
 		title = PlayerPrefs.GetString("Game_Title");
 		percentage = PlayerPrefs.GetFloat("Percentage");

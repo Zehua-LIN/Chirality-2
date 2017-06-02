@@ -39,6 +39,12 @@ public class MenuManager : MonoBehaviour {
 		convertTextColor();
 	}
 
+	void Update() {
+		if(Input.GetKey(KeyCode.Escape)) {
+			Application.Quit();
+		}
+	}
+
 	void loadUserSetting() {
 		// read user setting
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
