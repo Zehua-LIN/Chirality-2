@@ -76,6 +76,12 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             }
             
         }
+
+        
+		if(Input.GetKey(KeyCode.Escape)) {
+			homeButtonPressed();
+		}
+	
     }
 
     void Awake()
