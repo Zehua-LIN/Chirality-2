@@ -39,6 +39,12 @@ public class MenuManager : MonoBehaviour {
 		convertTextColor();
 	}
 
+	void Update() {
+		if(Input.GetKey(KeyCode.Escape)) {
+			Application.Quit();
+		}
+	}
+
 	void loadUserSetting() {
 		// read user setting
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
@@ -177,54 +183,110 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	void loadMedals() {
-		for(int i = 1; i <= 6; i++) {
-			if(PlayerPrefs.HasKey("Level_" + i + "_High_Percentage")) {
-				float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage");				
-				int medalNumber = getMedal(highest);
-				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
-				medal.rectTransform.sizeDelta = new Vector2(70,70);
-				medal.transform.localPosition = new Vector2(200,0);				
-			}					
-		}		
+		float level4High = -1;
+		float level2High = -1;
+		string level4Name = "";
+		string level2Name = "";
 
 		// lvl 4 sub medals
 		if(PlayerPrefs.HasKey("Level_4_Standard_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");				
+			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");	
+			if(highest > level4High) {
+				level4High = highest;
+				level4Name = "Standard";
+				PlayerPrefs.SetFloat("Level_4_High_Percentage",highest);
+			}			
 			int medalNumber = getMedal(highest);
 			Image medal = Instantiate(medals[medalNumber],levelFourStandardButton.transform,false);
-			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.rectTransform.sizeDelta = new Vector2(65,65);
 			medal.transform.localPosition = new Vector2(200,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");				
+			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
+			if(highest > level4High) {
+				level4High = highest;
+				level4Name = "Extreme";
+				PlayerPrefs.SetFloat("Level_4_High_Percentage",highest);
+			}				
 			int medalNumber = getMedalForLevel4Extreme(highest);
 			Image medal = Instantiate(medals[medalNumber],levelFourExtremeButton.transform,false);
-			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.rectTransform.sizeDelta = new Vector2(65,65);
 			medal.transform.localPosition = new Vector2(200,0);	
 		}
 
 		// lvl2 sub medals
 		if(PlayerPrefs.HasKey("Level_2_Standard_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");				
+			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");	
+			if(highest > level2High) {
+				level2High = highest;
+				level2Name = "Standard";
+				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
+			}			
 			int medalNumber = getMedalForLevel2Standard(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoStandardButton.transform,false);
-			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.rectTransform.sizeDelta = new Vector2(65,65);
 			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Trial_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");				
+			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");	
+			if(highest > level2High) {
+				level2High = highest;
+				level2Name = "Time";
+				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
+			}				
 			int medalNumber = getMedalForLevel2TimeTrial(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoTimeButton.transform,false);
-			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.rectTransform.sizeDelta = new Vector2(65,65);
 			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Extreme_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");				
+			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");	
+			if(highest > level2High) {
+				level2High = highest;
+				level2Name = "Extreme";
+				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
+			}				
 			int medalNumber = getMedalForLevel2Extreme(highest);
 			Image medal = Instantiate(medals[medalNumber],levelTwoExtremeButton.transform,false);
-			medal.rectTransform.sizeDelta = new Vector2(70,70);
+			medal.rectTransform.sizeDelta = new Vector2(65,65);
 			medal.transform.localPosition = new Vector2(100,0);	
 		}
+
+
+		for(int i = 1; i <= 6; i++) {
+			if(PlayerPrefs.HasKey("Level_" + i + "_High_Percentage")) {
+				int medalNumber = -1;
+				float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage");	
+				if(i == 2) {
+					switch(level2Name) {
+						case "Standard":
+							medalNumber = getMedalForLevel2Standard(highest);
+							break;
+						case "Time":
+							medalNumber = getMedalForLevel2TimeTrial(highest);
+							break;
+						case "Extreme":
+							medalNumber = getMedalForLevel2Extreme(highest);
+							break;
+					}
+				}else if(i == 4) {
+					switch(level4Name) {
+						case "Standard":
+							medalNumber = getMedal(highest);
+							break;			
+						case "Extreme":
+							medalNumber = getMedalForLevel4Extreme(highest);
+							break;
+					}
+				}else {
+					medalNumber = getMedal(highest);
+				}
+				
+				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
+				medal.rectTransform.sizeDelta = new Vector2(65,65);
+				medal.transform.localPosition = new Vector2(200,0);				
+			}					
+		}	
 	}
 
 	int getMedal(float score) {

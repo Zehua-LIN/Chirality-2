@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 114995398245104180}
   m_Layer: 0
   m_Name: Toggle19
-  m_TagString: t18
+  m_TagString: t19
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1268,7 +1268,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114167086610000084
@@ -1313,7 +1312,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114178336378966974
@@ -1412,7 +1410,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114197603507223612
@@ -1430,7 +1427,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114221642737276082
@@ -1448,7 +1444,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114256972029305260
@@ -1654,7 +1649,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114324278407370348
@@ -1739,7 +1733,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114335874832282972
@@ -1851,7 +1844,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114376044754612464
@@ -1869,7 +1861,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114390526456335588
@@ -2169,7 +2160,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114463750583593826
@@ -2214,7 +2204,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114512068240340280
@@ -2447,7 +2436,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114581553193397776
@@ -2519,7 +2507,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114595761052227130
@@ -2564,7 +2551,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114603951996608702
@@ -2663,7 +2649,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114629021169630616
@@ -2748,7 +2733,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114669396146840212
@@ -3276,7 +3260,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114865253805795772
@@ -3563,7 +3546,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!114 &114928641705108530
@@ -3662,7 +3644,6 @@ MonoBehaviour:
   toggleGroup: {fileID: 0}
   extraQuestionToggles: []
   extraQuestionCanvas: {fileID: 0}
-  correctToggle: {fileID: 0}
   correct: {fileID: 0}
   wrong: {fileID: 0}
 --- !u!222 &222064353033174176
@@ -4644,7 +4625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 340, y: 90}
+  m_AnchoredPosition: {x: 318, y: 155}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224641056810611442

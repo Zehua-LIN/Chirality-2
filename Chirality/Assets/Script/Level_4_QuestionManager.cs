@@ -99,6 +99,12 @@ public class Level_4_QuestionManager : MonoBehaviour
         instantiateRandomQuestionToDisplay();
     }
 
+    void Update() {
+		if(Input.GetKey(KeyCode.Escape)) {
+			homeButtonPressed();
+		}
+	}
+
 
 
     // create the Question objects from the Questions.json and append them to the List<Question>

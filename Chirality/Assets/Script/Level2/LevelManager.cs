@@ -137,6 +137,11 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 
+		
+		if(Input.GetKey(KeyCode.Escape)) {
+			homeButtonPressed();
+		}
+
 
 	}
 

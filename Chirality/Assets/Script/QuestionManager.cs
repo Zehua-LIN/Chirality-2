@@ -86,6 +86,12 @@ public class QuestionManager : MonoBehaviour {
 		StartCoroutine(configureNextButtonColor());
 	}
 
+	void Update() {
+		if(Input.GetKey(KeyCode.Escape)) {
+			homeButtonPressed();
+		}
+	}
+
 	// create the Question objects from the Questions.json and append them to the List<Question>
 	void loadQuestions() {
 		for (int i = 0; i < questionData.Count; i++){

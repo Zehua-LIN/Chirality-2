@@ -57,6 +57,12 @@ public class ExtremeManager : MonoBehaviour {
 			initializeCards ();
 		if (Input.GetMouseButtonUp (0))
 			checkCards ();
+
+		
+		if(Input.GetKey(KeyCode.Escape)) {
+			homeButtonPressed();
+		}
+	
 	}
 
 
