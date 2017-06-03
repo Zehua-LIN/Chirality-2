@@ -185,12 +185,15 @@ public class MenuManager : MonoBehaviour {
 	void loadMedals() {
 		float level4High = -1;
 		float level2High = -1;
+		string level4Name = "";
+		string level2Name = "";
 
 		// lvl 4 sub medals
 		if(PlayerPrefs.HasKey("Level_4_Standard_High_Percentage")) {
 			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");	
 			if(highest > level4High) {
 				level4High = highest;
+				level4Name = "Standard";
 				PlayerPrefs.SetFloat("Level_4_High_Percentage",highest);
 			}			
 			int medalNumber = getMedal(highest);
@@ -202,6 +205,7 @@ public class MenuManager : MonoBehaviour {
 			float highest = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
 			if(highest > level4High) {
 				level4High = highest;
+				level4Name = "Extreme";
 				PlayerPrefs.SetFloat("Level_4_High_Percentage",highest);
 			}				
 			int medalNumber = getMedalForLevel4Extreme(highest);
@@ -215,6 +219,7 @@ public class MenuManager : MonoBehaviour {
 			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");	
 			if(highest > level2High) {
 				level2High = highest;
+				level2Name = "Standard";
 				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
 			}			
 			int medalNumber = getMedalForLevel2Standard(highest);
@@ -226,6 +231,7 @@ public class MenuManager : MonoBehaviour {
 			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");	
 			if(highest > level2High) {
 				level2High = highest;
+				level2Name = "Time";
 				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
 			}				
 			int medalNumber = getMedalForLevel2TimeTrial(highest);
@@ -237,6 +243,7 @@ public class MenuManager : MonoBehaviour {
 			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");	
 			if(highest > level2High) {
 				level2High = highest;
+				level2Name = "Extreme";
 				PlayerPrefs.SetFloat("Level_2_High_Percentage",highest);
 			}				
 			int medalNumber = getMedalForLevel2Extreme(highest);
@@ -248,8 +255,33 @@ public class MenuManager : MonoBehaviour {
 
 		for(int i = 1; i <= 6; i++) {
 			if(PlayerPrefs.HasKey("Level_" + i + "_High_Percentage")) {
-				float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage");				
-				int medalNumber = getMedal(highest);
+				int medalNumber = -1;
+				float highest = PlayerPrefs.GetFloat("Level_" + i + "_High_Percentage");	
+				if(i == 2) {
+					switch(level2Name) {
+						case "Standard":
+							medalNumber = getMedalForLevel2Standard(highest);
+							break;
+						case "Time":
+							medalNumber = getMedalForLevel2TimeTrial(highest);
+							break;
+						case "Extreme":
+							medalNumber = getMedalForLevel2Extreme(highest);
+							break;
+					}
+				}else if(i == 4) {
+					switch(level4Name) {
+						case "Standard":
+							medalNumber = getMedal(highest);
+							break;			
+						case "Extreme":
+							medalNumber = getMedalForLevel4Extreme(highest);
+							break;
+					}
+				}else {
+					medalNumber = getMedal(highest);
+				}
+				
 				Image medal = Instantiate(medals[medalNumber],levelButtons[i-1].transform,false);
 				medal.rectTransform.sizeDelta = new Vector2(65,65);
 				medal.transform.localPosition = new Vector2(200,0);				
