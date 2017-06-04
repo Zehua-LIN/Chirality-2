@@ -193,7 +193,8 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndCommentForStandardMode() { // level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
+
 		string comment = "";
 		if (min == 0) {
 			comment = "You took " + sec + " seconds.";
@@ -216,15 +217,16 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+
+			if (highMin == 0) {
 				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your previous best was " + highMin +" minutes " +highSec +  " seconds.";
 			}
 
@@ -258,7 +260,7 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndCommentForLevel2ExtremeMode() {
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
 		string comment = "";
 		if (min == 0) {
 			comment = "You beat the clock with " + sec + " seconds remaining.";
@@ -282,15 +284,15 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+			if (highMin == 0) {
 				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your previous best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
 			highPercentageLabel.text = bestScoreLabel;
@@ -322,7 +324,7 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndCommentForTrialMode() { //level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
 		string comment = "";
 		if (min == 0) {
 			comment = "You beat the clock with " + sec + " seconds remaining.";
@@ -344,15 +346,15 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+			if (highMin == 0) {
 				bestScoreLabel = "Your best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
 
