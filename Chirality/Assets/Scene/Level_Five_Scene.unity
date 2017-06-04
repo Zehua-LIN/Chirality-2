@@ -1499,6 +1499,36 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 114396378708000502, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092029224755146, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114386496066676244, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942985244695696, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017754369435500, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675623708126832, guid: 582378cc54abc423cbb42fef2b4afd79,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114487518936918184, guid: 582378cc54abc423cbb42fef2b4afd79, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 582378cc54abc423cbb42fef2b4afd79, type: 2}
@@ -1587,36 +1617,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224722153091432766, guid: 582378cc54abc423cbb42fef2b4afd79,
     type: 2}
   m_PrefabInternal: {fileID: 1894667852}
---- !u!114 &1994366493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1994366491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 398261103}
-          m_MethodName: nextButtonPressed
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &2021725093 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114611352793836562, guid: c92c5c4d9ccd044f090f617621b25f53,
