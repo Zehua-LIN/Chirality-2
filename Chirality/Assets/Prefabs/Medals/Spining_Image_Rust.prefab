@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1821803499529970}
+  m_RootGameObject: {fileID: 1846339687529656}
   m_IsPrefabParent: 1
---- !u!1 &1821803499529970
+--- !u!1 &1846339687529656
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224501998790382860}
-  - component: {fileID: 222405633733926030}
-  - component: {fileID: 114750172292847496}
-  - component: {fileID: 95652104820381578}
+  - component: {fileID: 224618071822234076}
+  - component: {fileID: 222198650830768774}
+  - component: {fileID: 114367610381455792}
+  - component: {fileID: 95656902649493248}
   m_Layer: 5
-  m_Name: Spining_Image_Gold
+  m_Name: Spining_Image_Rust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &95652104820381578
+--- !u!95 &95656902649493248
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1821803499529970}
+  m_GameObject: {fileID: 1846339687529656}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2a219470cb63847b689a7681b95caf09, type: 2}
@@ -46,12 +46,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114750172292847496
+--- !u!114 &114367610381455792
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1821803499529970}
+  m_GameObject: {fileID: 1846339687529656}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7ac4538ed5cf44b999e52a789b9ae298, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c347af79390cb49cbb70c27de4899d2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73,19 +73,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!222 &222405633733926030
+--- !u!222 &222198650830768774
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1821803499529970}
---- !u!224 &224501998790382860
+  m_GameObject: {fileID: 1846339687529656}
+--- !u!224 &224618071822234076
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1821803499529970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1846339687529656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
