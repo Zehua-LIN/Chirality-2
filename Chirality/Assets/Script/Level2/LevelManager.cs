@@ -119,6 +119,8 @@ public class LevelManager : MonoBehaviour {
 				timerText.text = "Time: " + Mathf.Round (timeLeft);
 				if (timeLeft < 0) {
 					retryPanel.SetActive(true);
+					pauseTime = !pauseTime;
+
 				}
 
 			} else if (mode.text == "Standard") {
@@ -133,6 +135,8 @@ public class LevelManager : MonoBehaviour {
 				timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
 				if (trialTimeLeft < 0) {
 					retryPanel.SetActive(true);
+					pauseTime = !pauseTime;
+
 				}
 			}
 		}

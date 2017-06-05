@@ -3181,7 +3181,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 2: Structure Classification'
+  m_Text: Structure Classification
 --- !u!222 &774552931
 CanvasRenderer:
   m_ObjectHideFlags: 0
