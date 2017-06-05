@@ -1101,7 +1101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <= 70 sec
+  m_Text: "\u2264 70 sec"
 --- !u!222 &475933787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <= 1 min 20 sec
+  m_Text: "\u2264 1 min 20 sec"
 --- !u!222 &570760569
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3922,7 +3922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '>= 4 mins'
+  m_Text: "\u2265 4 mins"
 --- !u!222 &1662081387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5011,7 +5011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '>= 65 sec'
+  m_Text: "\u2265 65 sec"
 --- !u!222 &2053046201
 CanvasRenderer:
   m_ObjectHideFlags: 0
