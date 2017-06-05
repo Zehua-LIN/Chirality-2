@@ -190,7 +190,7 @@ public class MenuManager : MonoBehaviour {
 
 		// lvl 4 sub medals
 		if(PlayerPrefs.HasKey("Level_4_Standard_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");	
+			float highest = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
 			int temp = getMedal(highest);
 			if(temp > level4High) {
 				level4High = temp;
@@ -218,7 +218,7 @@ public class MenuManager : MonoBehaviour {
 
 		// lvl2 sub medals
 		if(PlayerPrefs.HasKey("Level_2_Standard_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");	
+			float highest = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");
 			int temp = getMedalForLevel2Standard(highest);
 			if(temp > level2High) {
 				level2High = temp;
@@ -231,7 +231,7 @@ public class MenuManager : MonoBehaviour {
 			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Trial_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");	
+			float highest = PlayerPrefs.GetFloat("Level_2_Trial_High_Percentage");
 			int temp = getMedalForLevel2TimeTrial(highest);
 			if(temp > level2High) {
 				level2High = temp;
@@ -244,7 +244,7 @@ public class MenuManager : MonoBehaviour {
 			medal.transform.localPosition = new Vector2(100,0);	
 		}
 		if(PlayerPrefs.HasKey("Level_2_Extreme_High_Percentage")) {
-			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");	
+			float highest = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");
 			int temp = getMedalForLevel2Extreme(highest);
 			if(temp > level2High) {
 				level2High = temp;
