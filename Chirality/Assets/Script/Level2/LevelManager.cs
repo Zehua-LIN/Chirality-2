@@ -93,12 +93,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void configureBackgroundMusic() {
-		if(mode.text != "Standard") {
-			if(PlayerPrefsX.GetBool("Background_Music_Toggle")) {
-				backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
-				Destroy(backgroundMusicObject);
-				fastBackgroundMusicObject = Instantiate(backgroundMusic,Vector3.zero,Quaternion.identity);
-			}
+		if(PlayerPrefsX.GetBool("Background_Music_Toggle")) {
+			backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
+			Destroy(backgroundMusicObject);
+			fastBackgroundMusicObject = Instantiate(backgroundMusic,Vector3.zero,Quaternion.identity);
 		}
 	}
 
