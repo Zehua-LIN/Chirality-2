@@ -613,7 +613,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1136, y: 640}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -797,7 +797,8 @@ Prefab:
       propertyPath: m_FontData.m_FontStyle
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114927904339409460, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &397009299
@@ -1565,12 +1566,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 702310148}
-    - target: {fileID: 114494156974350394, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+    - target: {fileID: 114541850163918424, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1789,7 +1790,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1136, y: 640}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96

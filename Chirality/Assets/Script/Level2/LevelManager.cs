@@ -119,12 +119,14 @@ public class LevelManager : MonoBehaviour {
 				timerText.text = "Time: " + Mathf.Round (timeLeft);
 				if (timeLeft < 0) {
 					retryPanel.SetActive(true);
+					pauseTime = !pauseTime;
+
 				}
 
 			} else if (mode.text == "Standard") {
 				float t = Time.time - startTime;
 				string minutes = ((int)t / 60).ToString ();
-				string seconds = (t % 60).ToString ("f0");
+				string seconds = (t % 60).ToString ("00");
 				timerText.text = "Time: " + minutes + ":" + seconds;
 
 
@@ -133,6 +135,8 @@ public class LevelManager : MonoBehaviour {
 				timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
 				if (trialTimeLeft < 0) {
 					retryPanel.SetActive(true);
+					pauseTime = !pauseTime;
+
 				}
 			}
 		}

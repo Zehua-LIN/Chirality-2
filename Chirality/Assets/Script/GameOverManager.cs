@@ -24,6 +24,8 @@ public class GameOverManager : MonoBehaviour {
 	private int score = 0;
 	private float percentage = 0f;
 	private float highPercentage = 0f;
+	private string medalString = "";
+
 
 	void Start () {
 		if(!FB.IsInitialized) {
@@ -193,7 +195,8 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndCommentForStandardMode() { // level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
+
 		string comment = "";
 		if (min == 0) {
 			comment = "You took " + sec + " seconds.";
@@ -216,15 +219,16 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+
+			if (highMin == 0) {
 				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your previous best was " + highMin +" minutes " +highSec +  " seconds.";
 			}
 
@@ -235,22 +239,27 @@ public class GameOverManager : MonoBehaviour {
 
 		if (score <= 80) {
 			instantiateMedal(4);
+			medalString = "Diamond Medal";
 			goodEffortLabel.text = "Congratulations!";
 		}
 		else if (score <= 120) {
 			instantiateMedal(3);
+			medalString = "Gold Medal";
 			goodEffortLabel.text = "Well done!";
 		}
 		else if (score <= 180) {
 			instantiateMedal(2);
+			medalString = "Silver Medal";
 			goodEffortLabel.text = "Great work!";
 		}
 		else if (score <= 240) {
 			instantiateMedal(1);
+			medalString = "Bronze Medal";
 			goodEffortLabel.text = "Nice try!";
 		}
 		else if (score >240) {
 			instantiateMedal(0);
+			medalString = "Rusty Medal";
 			goodEffortLabel.text = "Good Effort!";
 		}
 	}
@@ -258,7 +267,7 @@ public class GameOverManager : MonoBehaviour {
 	void displayMedalAndCommentForLevel2ExtremeMode() {
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
 		string comment = "";
 		if (min == 0) {
 			comment = "You beat the clock with " + sec + " seconds remaining.";
@@ -282,15 +291,15 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+			if (highMin == 0) {
 				bestScoreLabel = "Your previous best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your previous best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your previous best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
 			highPercentageLabel.text = bestScoreLabel;
@@ -300,29 +309,34 @@ public class GameOverManager : MonoBehaviour {
 		if (score <= 70) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
+			medalString = "Rusty Medal";
 		}
 		else if (score <= 120) {
 			instantiateMedal(1);
 			goodEffortLabel.text = "Nice try!";
+			medalString = "Bronze Medal";
 		}
 		else if (score <= 180) {
 			instantiateMedal(2);
 			goodEffortLabel.text = "Great work!";
+			medalString = "Silver Medal";
 		}
 		else if (score < 240) {
 			instantiateMedal(3);
 			goodEffortLabel.text = "Well done!";
+			medalString = "Gold Medal";
 		}
 		else if (score >= 240) {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
+			medalString = "Diamond Medal";
 		}
 	}
 
 	void displayMedalAndCommentForTrialMode() { //level 2
 		scoreLabel.text = ""+ score;
 		int min = score/60;
-		int sec = score%60;
+		string sec = (score % 60).ToString ("00");
 		string comment = "";
 		if (min == 0) {
 			comment = "You beat the clock with " + sec + " seconds remaining.";
@@ -344,15 +358,15 @@ public class GameOverManager : MonoBehaviour {
 			string bestScoreLabel = "";
 
 			int highMin = (int)highPercentage / 60;
-			int highSec = (int)highPercentage % 60;
+			string highSec = (highPercentage % 60).ToString ("00");
 
-			if (min == 0) {
+			if (highMin == 0) {
 				bestScoreLabel = "Your best was " + highSec + " seconds.";
 			}
-			else if (min == 1) {
+			else if (highMin == 1) {
 				bestScoreLabel = "Your best was " + highMin + " minute "+ highSec +" seconds.";
 			}
-			else if (min > 1) {
+			else if (highMin > 1) {
 				bestScoreLabel = "Your best was " + highMin +" minutes " + highSec +  " seconds.";
 			}
 
@@ -364,22 +378,27 @@ public class GameOverManager : MonoBehaviour {
 		if (score <= 20) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
+			medalString = "Rusty Medal";
 		}
 		else if (score <= 35) {
 			instantiateMedal(1);
 			goodEffortLabel.text = "Nice try!";
+			medalString = "Bronze Medal";
 		}
 		else if (score <= 50) {
 			instantiateMedal(2);
 			goodEffortLabel.text = "Great work!";
+			medalString = "Silver Medal";
 		}
 		else if (score < 65) {
 			instantiateMedal(3);
 			goodEffortLabel.text = "Well done!";
+			medalString = "Gold Medal";
 		}
 		else if (score >= 65) {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
+			medalString = "Diamond Medal";
 		}
 	}
 
@@ -493,7 +512,10 @@ public class GameOverManager : MonoBehaviour {
 
 	public void fbShare() {
 		string description;
-		if (title == "Isomers Extreme"){
+
+		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
+			description = "Hey, I got the " + medalString + " in Chirality 2: " + title + ". Come and check it out!";
+		}else if(title == "Isomers Extreme"){
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ". Come and check it out!";
 		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
@@ -512,12 +534,11 @@ public class GameOverManager : MonoBehaviour {
 		string name = "Chirality 2";
 		string description;
 
-		if (title == "Isomers Extreme")
-		{
+		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
+			description = "Hey, I got the " + medalString + " in Chirality 2: " + title + ". Come and check it out!";
+		}else if (title == "Isomers Extreme"){
 			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ". Come and check it out!";
-		}
-		else
-		{
+		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
 		}
 		string link = "Now available on App Store & Google Play.";

@@ -947,7 +947,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1136, y: 640}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1252,7 +1252,8 @@ Prefab:
       propertyPath: m_FontData.m_FontStyle
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114780582714743116, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 561ea58f04ffb4d8a96dd7556f9d2666, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1447788449 stripped
@@ -1508,7 +1509,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1136, y: 640}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
