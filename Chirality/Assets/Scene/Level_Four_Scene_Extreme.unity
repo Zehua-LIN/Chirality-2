@@ -1968,6 +1968,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0438e2631aeee4246b01f77012cef72d, type: 3}
   - {fileID: 21300000, guid: 9700f26d1b756574d957fb54b515de2e, type: 3}
   - {fileID: 21300000, guid: 82a9ad21cb7e86e4c95f7c2cc80d4b58, type: 3}
+  backgroundMusic: {fileID: 1000739782297756, guid: b532774a4ae5a456ba79c0c72d0cf488,
+    type: 2}
 --- !u!1 &1156389449
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] GameObject infoPanelTrial;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text goodEffortLabel;
+	public GameObject backgroundMusic;
+	private GameObject backgroundMusicObject = null;
 
 	private string title = "";
 	private int score = 0;
@@ -41,12 +43,20 @@ public class GameOverManager : MonoBehaviour {
 		displayRecord();
 		displayMedalAndComment();
 		updateHighScore();				
+
+		configureBackgroundMusic();
 	}
 
 	void Update() {
 		if(Input.GetKey(KeyCode.Escape)) {
 			goToMenuScene();
 		}
+	}
+
+	void configureBackgroundMusic() {
+		if(PlayerPrefsX.GetBool("Background_Music_Toggle") && !GameObject.Find("BackgroundMusic(Clone)")) {
+			backgroundMusicObject = Instantiate(backgroundMusic,Vector3.zero,Quaternion.identity);
+		}		
 	}
 
 	void loadRecords() {

@@ -3204,6 +3204,8 @@ MonoBehaviour:
   infoPanelTrial: {fileID: 300991135}
   canvas: {fileID: 1657995122}
   goodEffortLabel: {fileID: 869566437}
+  backgroundMusic: {fileID: 1000739782297756, guid: 80ca6252013a44d1d964c0087184dbe6,
+    type: 2}
 --- !u!1001 &1226369707
 Prefab:
   m_ObjectHideFlags: 0

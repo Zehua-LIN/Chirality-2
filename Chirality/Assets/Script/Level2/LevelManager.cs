@@ -27,6 +27,9 @@ public class LevelManager : MonoBehaviour {
 	public GameObject tilesPanel;
 	public bool dimPanel = false;
 	public bool pauseTime = false;
+	public GameObject backgroundMusic;
+	private GameObject backgroundMusicObject = null;
+	private GameObject fastBackgroundMusicObject = null;
 
 
 
@@ -89,6 +92,16 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
+	void configureBackgroundMusic() {
+		if(mode.text != "Standard") {
+			if(PlayerPrefsX.GetBool("Background_Music_Toggle")) {
+				backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
+				Destroy(backgroundMusicObject);
+				fastBackgroundMusicObject = Instantiate(backgroundMusic,Vector3.zero,Quaternion.identity);
+			}
+		}
+	}
+
 
 	void Start() {
 		helpPanel.SetActive(false);
@@ -96,7 +109,7 @@ public class LevelManager : MonoBehaviour {
 
 		startTime = Time.time;
 
-		Debug.Log(mode.text);
+		configureBackgroundMusic();
 
 	}
 
@@ -155,13 +168,6 @@ public class LevelManager : MonoBehaviour {
 
 		var rnd = new System.Random();
 		var randomNumbers = Enumerable.Range(0,54).OrderBy(x => rnd.Next()).Take(54).ToList();
-
-		//Debug.Log(randomNumbers.Count);
-		for ( int i = 0; i<randomNumbers.Count; i++) {
-			Debug.Log(randomNumbers[i]);
-
-		}
-
 			
 		for (int id = 0; id < 12; id++) {
 			tiles [randomNumbers[id]].GetComponent<Tile> ().cardValue = id; 
