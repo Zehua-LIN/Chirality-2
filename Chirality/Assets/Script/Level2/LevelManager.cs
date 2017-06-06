@@ -9,10 +9,7 @@ using System.Linq;
 public class LevelManager : MonoBehaviour {
 
 
-	//[SerializeField]
 	private int _state;
-
-
 	public Sprite[] tileFace;
 	public Sprite[] tileFaceOrange;
 	public Sprite[] tileFacePurple;
@@ -36,6 +33,7 @@ public class LevelManager : MonoBehaviour {
 	private bool _init = false;
 	private int _matches = 27;
 
+	// variables for measuring time
 	public Text timerText;
 	public Text mode;
 	private float startTime;
@@ -70,6 +68,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 
+	// to display the help panel
 	public void toggleHelpPanel() {
 		pauseTime = !pauseTime;
 
@@ -92,6 +91,7 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
+	// configuring music
 	void configureBackgroundMusic() {
 		if(PlayerPrefsX.GetBool("Background_Music_Toggle")) {
 			backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
@@ -115,13 +115,15 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+		// initializng the tiles for first time
 		if (!_init)
 			initializeCards ();
 		if (Input.GetMouseButtonUp (0))
 			checkCards ();
 
 
-
+		// increasing or decreasing time based on mode
 		if (!pauseTime) {
 			// for extreme mode 
 			if (mode.text == "Extreme") {
@@ -160,10 +162,17 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
+	// disabling multitouch for level 2
+	void Awake(){
+		Input.multiTouchEnabled = false;
+	}
 
+
+	// randomizing the tiles
 	void initializeCards() {
 
 
+		// getting 54 random numbers to fill the tiles
 		var rnd = new System.Random();
 		var randomNumbers = Enumerable.Range(0,54).OrderBy(x => rnd.Next()).Take(54).ToList();
 			
@@ -193,71 +202,7 @@ public class LevelManager : MonoBehaviour {
 		}
 
 
-
-
-
-
-		////////////////////// Old Without Random from First Version /////////////
-	
-
-//
-//		for (int id = 0; id < 12; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id; 
-//		}
-//		for (int id = 12; id < 24; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id-12; 
-//			tiles [id].GetComponent<Tile> ().nameBool = true;
-//
-//		}
-//		for (int id = 24; id < 33; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id-24; 
-//		}
-//		for (int id = 33; id < 42; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id-33; 
-//			tiles [id].GetComponent<Tile> ().nameBool = true;
-//
-//		}
-//		for (int id = 42; id < 48; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id-42; 
-//		}
-//		for (int id = 48; id < 54; id++) {
-//			tiles [id].GetComponent<Tile> ().cardValue = id-48; 
-//			tiles [id].GetComponent<Tile> ().nameBool = true;
-//
-//		}
-
-
-
-
-		//		for (int id = 0; id < 1; id++) {
-		//			for (int i = 1; i < 14; i++) {
-		//
-		//				bool test = false;
-		//				int choice = 0;
-		//		//		while (!test) {
-		//		//			choice = Random.Range (0, cards.Length);
-		//		//			test = true;
-		//					//test = !(cards [choice].GetComponent<Card> ().intitialzed);
-		//		//		}
-		//				cards [i-1].GetComponent<Card> ().cardValue = i; 
-		//				cards [i-1].GetComponent<Card> ().intitialzed = true;
-		//			}
-		//		}
-		//		for (int id = 0; id < 27; id++) {
-		//			for (int i = 1; i < 14; i++) {
-		//
-		//				bool test = false;
-		//				int choice = 0;
-		//				//		while (!test) {
-		//				//			choice = Random.Range (0, cards.Length);
-		//				//			test = true;
-		//				//test = !(cards [choice].GetComponent<Card> ().intitialzed);
-		//				//		}
-		//				cards [i-1].GetComponent<Card> ().cardValue = i; 
-		//				cards [i-1].GetComponent<Card> ().intitialzed = true;
-		//			}
-		//		}
-
+		// setting up the tiles in the random indcies 
 		foreach (GameObject c in tiles)
 			c.GetComponent<Tile> ().setupGraphics ();
 
@@ -286,6 +231,8 @@ public class LevelManager : MonoBehaviour {
 	public Sprite getTileName(int i ) {
 		return tileName [i];
 	}
+
+
 	void checkCards() {
 		List<int> c = new List<int> ();
 
@@ -298,6 +245,7 @@ public class LevelManager : MonoBehaviour {
 			cardCompariosn (c);
 	}
 
+	// comparing after 2 tiles selected
 	void cardCompariosn (List<int> c ) {
 		Tile.DO_NOT = true; 
 
@@ -308,32 +256,21 @@ public class LevelManager : MonoBehaviour {
 			if (mode.text == "Time Trial") {
 				trialTimeLeft += 3;
 			}
-//			matchText.text = "Number of Matches: " + _matches;
-//			if (_matches == 0) {
-//
-//				_matches = 27;
-//				SceneManager.LoadScene ("MainScene");
-//
-//			}
-
-				
-
 		}
 
 		for (int i = 0; i < c.Count; i++) {
 			tiles [c [i]].GetComponent<Tile> ().state = x;
 			tiles [c [i]].GetComponent<Tile> ().falseCheck ();
-
-
 		}
 
 		if (_matches == 0) {
 			Tile.DO_NOT = false; 
 			endGame();
-
 		}
 	}
 
+
+	// method for going to game over scene
 	void endGame() {
 		string gameOverTitle = "Title";
 		float t = 0f;
@@ -359,6 +296,7 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
+	// setting up the help panel to display when it is a first time play
 	void setUpHelpPanel() {
 		switch (mode.text) {
 		case "Standard":

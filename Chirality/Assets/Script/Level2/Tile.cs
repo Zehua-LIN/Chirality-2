@@ -4,26 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// this class is a model for level 2 tiles
+
 public class Tile : MonoBehaviour {
 
 
 	public static bool DO_NOT = false;
 
-	//[SerializeField]
 	private int _state;
-	//[SerializeField]
 	private int _cardValue;
-	//[SerializeField]
 	private bool _intitialized = false;
-	//[SerializeField]
 	private bool _name = false;
-
-
-
-
 	private Sprite _cardBack;
 	private Sprite _cardFace;
-
 	private GameObject manager;
 
 	void Start() {
@@ -42,16 +35,18 @@ public class Tile : MonoBehaviour {
 		flipCard ();
 	}
 
+	// method for flipping the tiles and changing the status
 	public void flipCard() {
 
+		// hiding the tiles if there is a match
 		if (_state == 0)
 			_state = 1;
 		else if (_state == 1)
 			_state = 0;
 
+		// dimming the tiles when selected
 		if (state == 0 && !DO_NOT) {
 			Image image;
-			//GetComponent<Image> ().sprite = _cardBack;
 			image = GetComponent<Image> ();
 
 			Color c = image.color;
@@ -59,7 +54,7 @@ public class Tile : MonoBehaviour {
 			image.color = c;
 
 
-
+		// return to original state if no match
 		} else if (state == 1 && !DO_NOT) {
 			GetComponent<Image> ().sprite = _cardFace;
 
@@ -69,7 +64,6 @@ public class Tile : MonoBehaviour {
 			c.a = 1;
 			image.color = c;
 		}
-		//GetComponent<Image> ().color.a = 0;
 
 	}
 
@@ -100,12 +94,8 @@ public class Tile : MonoBehaviour {
 
 	IEnumerator pause() {
 		yield return new WaitForSeconds (0);
-		//if (_state == 0)
-		//	GetComponent<Image> ().sprite = _cardBack;
 		 if (_state == 1) {
-			//GetComponent<Image> ().sprite = _cardFace;
 			Image image = GetComponent<Image> ();
-
 			Color c = image.color;
 			c.a = 1;
 			image.color = c;
