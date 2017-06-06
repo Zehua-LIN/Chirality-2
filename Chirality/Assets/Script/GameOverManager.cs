@@ -17,6 +17,7 @@ public class GameOverManager : MonoBehaviour {
 	[SerializeField] GameObject infoPanelStandard;
 	[SerializeField] GameObject infoPanelExtreme;
 	[SerializeField] GameObject infoPanelTrial;
+    [SerializeField] GameObject infoPanelLvl4Extreme;
 	[SerializeField] Canvas canvas;
 	[SerializeField] Text goodEffortLabel;
 	public GameObject backgroundMusic;
@@ -470,7 +471,10 @@ public class GameOverManager : MonoBehaviour {
 			infoPanelExtreme.SetActive (!infoPanelExtreme.activeInHierarchy);
 		} else if (title == "Structure Classification: Time Trial") {
 			infoPanelTrial.SetActive (!infoPanelTrial.activeInHierarchy);
-		}
+        }
+        else if (title == "Isomers Extreme") {
+            infoPanelLvl4Extreme.SetActive(!infoPanelLvl4Extreme.activeInHierarchy);
+        }
 		else {
 			infoPanel.SetActive(!infoPanel.activeInHierarchy);
 		}
@@ -544,10 +548,9 @@ public class GameOverManager : MonoBehaviour {
 		string name = "Chirality 2";
 		string description;
 
-		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
+        if (title == "Structure Classification: Standard" || title == "Structure Classification: Extreme" || title == "Structure Classification: Time Trial" || title == "Isomers Extreme")
+        {
 			description = "Hey, I got the " + medalString + " in Chirality 2: " + title + ". Come and check it out!";
-		}else if (title == "Isomers Extreme"){
-			description = "Hey, I got a score of " + (int)percentage + " seconds in Chirality 2: " + title + ". Come and check it out!";
 		}else {
 			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
 		}
