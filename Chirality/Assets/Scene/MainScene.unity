@@ -715,13 +715,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 6. Naming Molecules
+  m_Text: "\t   6. Naming Molecules"
 --- !u!222 &209642794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -789,13 +789,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1. Functional Groups
+  m_Text: "\t   1. Functional Groups"
 --- !u!222 &209791418
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2275,13 +2275,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3. Intermolecular Forces
+  m_Text: "\t   3. Intermolecular Forces"
 --- !u!222 &797659334
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3876,13 +3876,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2. Structure Classification
+  m_Text: "\t   2. Structure Classification"
 --- !u!222 &1332110743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4335,13 +4335,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4. Isomers
+  m_Text: "\t   4. Isomers"
 --- !u!222 &1620920896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4844,13 +4844,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5. Chiral Carbons
+  m_Text: "\t   5. Chiral Carbons"
 --- !u!222 &1893301918
 CanvasRenderer:
   m_ObjectHideFlags: 0
