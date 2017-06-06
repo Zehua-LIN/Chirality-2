@@ -353,9 +353,6 @@ public class LevelManager : MonoBehaviour {
 		PlayerPrefs.SetString("Game_Title",gameOverTitle);
 		PlayerPrefs.SetInt("Score",score);
 		PlayerPrefs.SetFloat ("Percentage", t);
-		if (!PlayerPrefs.HasKey ("Level_2_Standard_High_Percentage")) {
-			PlayerPrefs.SetFloat ("Level_2_Standard_High_Percentage", 0f);
-		}
 
 		SceneManager.LoadScene("Game_Over_Scene");
 
