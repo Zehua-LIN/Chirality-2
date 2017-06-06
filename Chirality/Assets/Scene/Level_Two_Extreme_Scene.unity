@@ -641,10 +641,12 @@ MonoBehaviour:
   matchText: {fileID: 0}
   helpPanel: {fileID: 2048347819}
   exitPanel: {fileID: 1133281060}
-  retryPanel: {fileID: 0}
+  retryPanel: {fileID: 1478838201}
   tilesPanel: {fileID: 1756617226}
   dimPanel: 0
   pauseTime: 0
+  backgroundMusic: {fileID: 1000739782297756, guid: b532774a4ae5a456ba79c0c72d0cf488,
+    type: 2}
   timerText: {fileID: 1349394876}
   mode: {fileID: 1913149874}
 --- !u!4 &116886657
@@ -5700,6 +5702,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396676818}
+--- !u!1 &1478838201 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578599442082178, guid: 383a8fee61ae74293b3f8b7671e7cfc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1553162312}
 --- !u!1 &1526692240
 GameObject:
   m_ObjectHideFlags: 0

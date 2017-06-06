@@ -29,6 +29,9 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     [SerializeField] GameObject leftHandedHelpArrowRight;
     [SerializeField] Button displayAnswerButton;
     [SerializeField] Sprite[] buttonSprites;
+    public GameObject backgroundMusic;
+	private GameObject backgroundMusicObject = null;
+	private GameObject fastBackgroundMusicObject = null;
 
     private List<Level_4_Question> questions = new List<Level_4_Question>();
     private JsonData questionData;
@@ -122,7 +125,16 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
 
         loadQuestions();
         instantiateRandomQuestionToDisplay();
+        configureBackgroundMusic();
     }
+
+    void configureBackgroundMusic() {
+		if(PlayerPrefsX.GetBool("Background_Music_Toggle")) {
+			backgroundMusicObject = GameObject.Find("BackgroundMusic(Clone)");
+			Destroy(backgroundMusicObject);
+			fastBackgroundMusicObject = Instantiate(backgroundMusic,Vector3.zero,Quaternion.identity);
+		}
+	}
 
 
 

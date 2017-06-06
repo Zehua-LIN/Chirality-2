@@ -645,6 +645,8 @@ MonoBehaviour:
   tilesPanel: {fileID: 1756617226}
   dimPanel: 0
   pauseTime: 0
+  backgroundMusic: {fileID: 1000739782297756, guid: b532774a4ae5a456ba79c0c72d0cf488,
+    type: 2}
   timerText: {fileID: 1349394876}
   mode: {fileID: 1913149874}
 --- !u!4 &116886657
