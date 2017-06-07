@@ -53,8 +53,9 @@ public class Level5QuestionManager : MonoBehaviour
 	private static List<Toggle> mainQuestionSelectedToggles = new List<Toggle>();
 	private string extraQuestionAnswer;
 	private static bool eToggleSelected = false;
+    private float strtTime;
 
-	void Awake()
+    void Awake()
 	{
 		// singleton
 		if (Instance == null)
@@ -87,7 +88,7 @@ public class Level5QuestionManager : MonoBehaviour
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();	
 
-
+        strtTime = Time.time;
 	}
 
 	void Update() {
@@ -262,8 +263,7 @@ public class Level5QuestionManager : MonoBehaviour
 			}
 		} else {
 			displayQuestion ();
-
-		}
+        }
 
 	}
 
@@ -286,14 +286,54 @@ public class Level5QuestionManager : MonoBehaviour
 			questions.Remove (currentQuestionObject);
 			instantiateRandomQuestionToDisplay ();
 		} else {
-			roundScore();
+            float timeP = Mathf.Round(Time.time - strtTime);
+            roundScore();
 			PlayerPrefs.SetFloat("Percentage", qtnRoundScore);
 			if (!PlayerPrefs.HasKey("Level_5_High_Percentage"))
 			{
 				PlayerPrefs.SetFloat("Level_5_High_Percentage", 0f);
 			}
-			// go to game over scene 
-			PlayerPrefs.SetString ("Game_Title", gameTitle.text);
+
+            PlayerPrefs.SetFloat("TimeP", timeP);
+
+            if (!PlayerPrefs.HasKey("Level_5_Time"))
+            {
+                PlayerPrefs.SetFloat("Level_5_Time", timeP);
+            }
+
+            string tscores = "";
+            string sttime = "";
+            string tsttime = "";
+            string days = "";
+
+            string day = System.DateTime.Now.ToShortDateString();
+            char[] a = new char[1];
+            a[0] = '/';
+            string[] numbers = day.Split(a);
+            string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+            tscores = PlayerPrefs.GetString("Level_5_Percentages");
+            tscores += qtnRoundScore + ",";
+            PlayerPrefs.SetString("Level_5_Percentages", tscores);
+
+            sttime = timeP.ToString() + ",";
+            tsttime = PlayerPrefs.GetString("Level_5_Times");
+            tsttime += sttime;
+            PlayerPrefs.SetString("Level_5_Times", tsttime);
+
+            days = PlayerPrefs.GetString("Level_5_Days");
+            days += tday + ",";
+            PlayerPrefs.SetString("Level_5_Days", days);
+
+            int tpl = PlayerPrefs.GetInt("Level_5_Times_Pl");
+            tpl++;
+            PlayerPrefs.SetInt("Level_5_Times_Pl", tpl);
+
+            PlayerPrefs.SetInt("Level_5_Already_Played", 1);
+
+
+            // go to game over scene 
+            PlayerPrefs.SetString ("Game_Title", gameTitle.text);
 			SceneManager.LoadScene("Game_Over_Scene");
 		}
 	}

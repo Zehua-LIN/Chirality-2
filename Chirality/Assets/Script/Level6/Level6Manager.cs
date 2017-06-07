@@ -75,7 +75,9 @@ public class Level6Manager : MonoBehaviour {
 		}
 	}
 
-	void Awake() {
+    private float strtTime;
+
+    void Awake() {
 		// singleton
 		if (Instance == null) {
 			Instance = this;
@@ -99,9 +101,11 @@ public class Level6Manager : MonoBehaviour {
 		questionData = JsonMapper.ToObject(File.ReadAllText(path));
 
 		loadQuestions();
-		instantiateRandomQuestionToDisplay();		
-		//StartCoroutine(configureNextButtonColor());
-	}
+		instantiateRandomQuestionToDisplay();
+        //StartCoroutine(configureNextButtonColor());
+
+        strtTime = Time.time;
+    }
 
 	void Update() {
 		if(Input.GetKey(KeyCode.Escape)) {
@@ -179,18 +183,58 @@ public class Level6Manager : MonoBehaviour {
 				}
 				else
 				{
-					// go to game over scene 
-					PlayerPrefs.SetString("Game_Title", gameTitle.text);
+                    float timeP = Mathf.Round(Time.time - strtTime);
+                
+
+                    // go to game over scene 
+                    PlayerPrefs.SetString("Game_Title", gameTitle.text);
 					float percetange = score / 10f;
 					PlayerPrefs.SetInt("Score", score);
 					PlayerPrefs.SetFloat("Percentage", percetange);
 
+                string tscores = "";
+                string sttime = "";
+                string tsttime = "";
+                string days = "";
 
-					if (!PlayerPrefs.HasKey("Level_6_High_Percentage"))
+                string day = System.DateTime.Now.ToShortDateString();
+                char[] a = new char[1];
+                a[0] = '/';
+                string[] numbers = day.Split(a);
+                string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+                if (!PlayerPrefs.HasKey("Level_6_High_Percentage"))
 					{
 						PlayerPrefs.SetFloat("Level_6_High_Percentage", 0f);
 					}
-					SceneManager.LoadScene("Game_Over_Scene");
+
+                if (!PlayerPrefs.HasKey("Level_6_Time"))
+                {
+                    PlayerPrefs.SetFloat("Level_6_Time", timeP);
+                }
+
+                PlayerPrefs.SetFloat("TimeP", timeP);
+
+                tscores = PlayerPrefs.GetString("Level_6_Percentages");
+                tscores += percetange + ",";
+                PlayerPrefs.SetString("Level_6_Percentages", tscores);
+
+                sttime = timeP.ToString() + ",";
+                tsttime = PlayerPrefs.GetString("Level_6_Times");
+                tsttime += sttime;
+                PlayerPrefs.SetString("Level_6_Times", tsttime);
+
+                days = PlayerPrefs.GetString("Level_6_Days");
+                days += tday + ",";
+                PlayerPrefs.SetString("Level_6_Days", days);
+
+                int tpl = PlayerPrefs.GetInt("Level_6_Times_Pl");
+                tpl++;
+                PlayerPrefs.SetInt("Level_6_Times_Pl", tpl);
+
+                PlayerPrefs.SetInt("Level_6_Already_Played", 1);
+
+                SceneManager.LoadScene("Game_Over_Scene");
 				}
 		}
 	}
