@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour {
 	private Color textColorUnselected;
 
 	void Start() {
+		
 		settingPanel.SetActive(false);
 
         setTimesAndScoresForUse();
@@ -49,6 +50,15 @@ public class MenuManager : MonoBehaviour {
 
 	void loadUserSetting() {
 		// read user setting
+		if(!PlayerPrefs.HasKey("Background_Music_Toggle")) {
+			PlayerPrefsX.SetBool("Background_Music_Toggle",true);
+		}
+		if(!PlayerPrefs.HasKey("Sound_Effect_Toggle")) {
+			PlayerPrefsX.SetBool("Sound_Effect_Toggle",false);
+		}
+		if(!PlayerPrefs.HasKey("Left_Handle_Toggle")) {
+			PlayerPrefsX.SetBool("Left_Handle_Toggle",false);
+		}
 		backgroundMusicToggle.isOn = PlayerPrefsX.GetBool("Background_Music_Toggle",true);
 		soundEffectToggle.isOn = PlayerPrefsX.GetBool("Sound_Effect_Toggle",false);
 		leftHandModeToggle.isOn = PlayerPrefsX.GetBool("Left_Handle_Toggle",false);
