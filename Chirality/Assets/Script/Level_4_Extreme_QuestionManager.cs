@@ -45,6 +45,12 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
     private GameObject selected_answer = null;
     private bool leftHandMode;
 
+    private float strtTime = 0f;
+    private string tscores = "";
+    private string sttime = "";
+    private string tsttime = "";
+    private string days = "";
+
     public gameStatus CurrentStatus
     {
         get
@@ -126,6 +132,8 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         loadQuestions();
         instantiateRandomQuestionToDisplay();
         configureBackgroundMusic();
+
+        strtTime = Time.time;
     }
 
     void configureBackgroundMusic() {
@@ -172,6 +180,29 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
         {
             if (selected_answer.transform.parent.GetComponent<Image>().sprite == buttonSprites[3])
             {
+                string day = System.DateTime.Now.ToShortDateString();
+                char[] a = new char[1];
+                a[0] = '/';
+                string[] numbers = day.Split(a);
+                string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+                tscores = PlayerPrefs.GetString("Level_4_Percentages_Ext");
+                tscores += "Game Over,";
+                PlayerPrefs.SetString("Level_4_Percentages_Ext", tscores);
+
+                sttime = "Game Over,";
+                tsttime = PlayerPrefs.GetString("Level_4_Times_Ext");
+                tsttime += sttime;
+                PlayerPrefs.SetString("Level_4_Times_Ext", tsttime);
+
+                days = PlayerPrefs.GetString("Level_4_Days_Ext");
+                days += tday + ",";
+                PlayerPrefs.SetString("Level_4_Days_Ext", days);
+
+                int tpl = PlayerPrefs.GetInt("Level_4_Times_Pl_Ext");
+                tpl++;
+                PlayerPrefs.SetInt("Level_4_Times_Pl_Ext", tpl);
+
                 retryPanelOpen();
             }
             else if (numberOfQuestionsAnswred < 10)
@@ -193,6 +224,45 @@ public class Level_4_Extreme_QuestionManager : MonoBehaviour
             }
             else
             {
+                float time = Time.time - strtTime;
+
+                string day = System.DateTime.Now.ToShortDateString();
+                char[] a = new char[1];
+                a[0] = '/';
+                string[] numbers = day.Split(a);
+                string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+                if (!PlayerPrefs.HasKey("Level_4_Extreme_High_Percentage"))
+                {
+                    PlayerPrefs.SetFloat("Level_4_Extreme_High_Percentage", 0f);
+                }
+
+                if (!PlayerPrefs.HasKey("Level_4_Time_Ext"))
+                {
+                    PlayerPrefs.SetFloat("Level_4_Time_Ext", targetTime);
+                }
+
+                PlayerPrefs.SetFloat("TimeP", targetTime);
+
+                tscores = PlayerPrefs.GetString("Level_4_Percentages_Ext");
+                tscores += targetTime + ",";
+                PlayerPrefs.SetString("Level_4_Percentages_Ext", tscores);
+
+                sttime = targetTime.ToString() + ",";
+                tsttime = PlayerPrefs.GetString("Level_4_Times_Ext");
+                tsttime += sttime;
+                PlayerPrefs.SetString("Level_4_Times_Ext", tsttime);
+
+                days = PlayerPrefs.GetString("Level_4_Days_Ext");
+                days += tday + ",";
+                PlayerPrefs.SetString("Level_4_Days_Ext", days);
+
+                int tpl = PlayerPrefs.GetInt("Level_4_Times_Pl_Ext");
+                tpl++;
+                PlayerPrefs.SetInt("Level_4_Times_Pl_Ext", tpl);
+
+                PlayerPrefs.SetInt("Level_4_Already_Played_Ext", 1);
+
                 // go to game over scene 
                 PlayerPrefs.SetString("Game_Title", gameTitle.text);
                 PlayerPrefs.SetInt("Score", (int) targetTime);

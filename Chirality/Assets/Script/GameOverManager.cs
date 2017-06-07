@@ -29,8 +29,10 @@ public class GameOverManager : MonoBehaviour {
 	private float highPercentage = 0f;
 	private string medalString = "";
 
+    private float time = 0f;
+    private float timeP = 0f;
 
-	void Start () {
+    void Start () {
 		if(!FB.IsInitialized) {
 			FB.Init(FBInitCompletion);
 		}else {
@@ -43,8 +45,8 @@ public class GameOverManager : MonoBehaviour {
 		loadRecords();
 		displayRecord();
 		displayMedalAndComment();
-		updateHighScore();				
-
+		updateHighScore();
+        updateTime();
 		configureBackgroundMusic();
 	}
 
@@ -68,31 +70,41 @@ public class GameOverManager : MonoBehaviour {
 		{
 		case "Functional Groups":
 			highPercentage = PlayerPrefs.GetFloat("Level_1_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_1_Time");
+                break;
 		case "Intermolecular Forces":
 			highPercentage = PlayerPrefs.GetFloat("Level_3_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_3_Time");
+                break;
 		case "Chiral Carbons":
 			highPercentage = PlayerPrefs.GetFloat ("Level_5_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_5_Time");
+                break;
 		case "Isomers":
 			highPercentage = PlayerPrefs.GetFloat("Level_4_Standard_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_4_Time_Stdd");
+                break;
 		case "Isomers Extreme":
 			highPercentage = PlayerPrefs.GetFloat("Level_4_Extreme_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_4_Time_Ext");
+                break;
 		case "Structure Classification: Standard":
 			highPercentage = PlayerPrefs.GetFloat("Level_2_Standard_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_2_Time_Stdd");
+                break;
 		case "Structure Classification: Extreme":
 			highPercentage = PlayerPrefs.GetFloat("Level_2_Extreme_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_2_Time_Ext");
+                break;
 		case "Structure Classification: Time Trial":
 			highPercentage = PlayerPrefs.GetFloat ("Level_2_Trial_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_2_Time_Time_Trial");
+                break;
 		case "Naming Molecules":
 			highPercentage = PlayerPrefs.GetFloat ("Level_6_High_Percentage");
-			break;
+                time = PlayerPrefs.GetFloat("Level_6_Time");
+                Debug.Log("time " + time);
+                break;
 		default:
 			highPercentage = 0f;		
 			break;
@@ -464,7 +476,74 @@ public class GameOverManager : MonoBehaviour {
 
 	}
 
-	public void toggleInfoPanel() {
+    void updateTime()
+    {
+        timeP = PlayerPrefs.GetFloat("TimeP");
+        Debug.Log("timeeeP " + PlayerPrefs.GetFloat("TimeP"));
+
+        if (title == "Functional Groups" || title == "Structure Classification: Standard" || title == "Intermolecular Forces" || title == "Isomers" || title == "Chiral Carbons" || title == "Naming Molecules")
+        {
+            if (timeP < time)
+
+            {
+                switch (title)
+                {
+                    case "Functional Groups":
+                        PlayerPrefs.SetFloat("Level_1_Time", timeP);
+                        break;
+
+
+                    case "Structure Classification: Standard":
+                        PlayerPrefs.SetFloat("Level_2_Time_Stdd", timeP);
+                        break;
+                    case "Intermolecular Forces":
+                        PlayerPrefs.SetFloat("Level_3_Time", timeP);
+                        break;
+                    case "Isomers":
+                        PlayerPrefs.SetFloat("Level_4_Time_Stdd", timeP);
+                        break;
+
+                    case "Chiral Carbons":
+                        PlayerPrefs.SetFloat("Level_5_Time", timeP);
+                        break;
+                    case "Naming Molecules":
+                        PlayerPrefs.SetFloat("Level_6_Time", timeP);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+        else
+        {
+            if (timeP > time)
+            {
+                switch (title)
+                {
+
+                    case "Structure Classification: Extreme":
+                        PlayerPrefs.SetFloat("Level_2_Time_Ext", timeP);
+                        break;
+
+                    case "Structure Classification: Time Trial":
+                        PlayerPrefs.SetFloat("Level_2_Time_Time_Trial", timeP);
+                        break;
+
+                    case "Isomers Extreme":
+                        PlayerPrefs.SetFloat("Level_4_Time_Ext", timeP);
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+            }
+        }
+    }
+
+    public void toggleInfoPanel() {
 		if (title == "Structure Classification: Standard") {
 			infoPanelStandard.SetActive (!infoPanelStandard.activeInHierarchy);
 		} else if (title == "Structure Classification: Extreme") {

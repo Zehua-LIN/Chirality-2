@@ -33,8 +33,10 @@ public class MenuManager : MonoBehaviour {
 
 	void Start() {
 		settingPanel.SetActive(false);
-		
-		loadUserSetting();
+
+        setTimesAndScoresForUse();
+        setLastFiftyGames();
+        loadUserSetting();
 		loadMedals();
 		convertTextColor();
 	}
@@ -101,7 +103,7 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void stopScrolling() {
-		scrollAnimation.Stop();
+		//scrollAnimation.Stop();
 	}
 
 	void configureBackgroundMusic() {
@@ -178,9 +180,51 @@ public class MenuManager : MonoBehaviour {
 				Destroy(levelFourExtremeButton.transform.GetChild(1).gameObject);
 			}
 		}
-		
-		
-	}
+
+        for (int i = 1; i < 7; i++)
+        {
+            if (i != 2 && i != 4)
+            {
+                PlayerPrefs.SetString("Level_" + i + "_Times", "");
+                PlayerPrefs.SetString("Level_" + i + "_Percentages", "");
+                PlayerPrefs.SetString("Level_" + i + "_Days", "");
+                PlayerPrefs.SetInt("Level_" + i + "_Already_Played", 0);
+                PlayerPrefs.DeleteKey("Level_" + i + "_Time");
+                PlayerPrefs.SetInt("Level_" + i + "_Times_Pl", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetString("Level_" + i + "_Times_Stdd", "");
+                PlayerPrefs.SetString("Level_" + i + "_Percentages_Stdd", "");
+                PlayerPrefs.SetString("Level_" + i + "_Days_Stdd", "");
+                PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Stdd", 0);
+                PlayerPrefs.DeleteKey("Level_" + i + "_Time_Stdd");
+                PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Stdd", 0);
+
+
+                PlayerPrefs.SetString("Level_" + i + "_Times_Ext", "");
+                PlayerPrefs.SetString("Level_" + i + "_Percentages_Ext", "");
+                PlayerPrefs.SetString("Level_" + i + "_Days_Ext", "");
+                PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Ext", 0);
+                PlayerPrefs.DeleteKey("Level_" + i + "_Time_Ext");
+                PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Ext", 0);
+
+                if (i == 2)
+                {
+
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Time_Trial", "");
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Time_Trial", "");
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Time_Trial", "");
+                    PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Time_Trial", 0);
+                    PlayerPrefs.DeleteKey("Level_" + i + "_Time_Time_Trial");
+                    PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Time_Trial", 0);
+                }
+
+            }
+            PlayerPrefs.SetFloat("Time_P", 0f);
+        }
+
+    }
 
 	void loadMedals() {
 		int level4High = -1;
@@ -381,5 +425,327 @@ public class MenuManager : MonoBehaviour {
 		textColorSelected = new Color();
 		ColorUtility.TryParseHtmlString("#072B3BFF",out textColorSelected);
 	}
+
+    public void goToTimesAndScores()
+    {
+        SceneManager.LoadScene("Time_And_Score");
+    }
+
+    void setTimesAndScoresForUse()
+    {
+        string times = "";
+        string scores = "";
+
+        for (int i = 1; i < 7; i++)
+        {
+            if (i != 2 && i != 4)
+            {
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Percentages"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Days"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Already_Played"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Already_Played", 0);
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Pl"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Times_Pl", 0);
+                }
+            }
+            else
+            {
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Stdd"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Stdd", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Percentages_Stdd"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Stdd", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Days_Stdd"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Stdd", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Already_Played_Stdd"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Stdd", 0);
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Pl_Stdd"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Stdd", 0);
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Ext"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Ext", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Percentages_Ext"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Ext", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Days_Ext"))
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Ext", "");
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Already_Played_Ext"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Ext", 0);
+                }
+
+                if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Pl_Ext"))
+                {
+                    PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Ext", 0);
+                }
+
+                if (i == 2)
+                {
+                    if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Time_Trial"))
+                    {
+                        PlayerPrefs.SetString("Level_" + i + "_Times_Time_Trial", "");
+                    }
+
+                    if (!PlayerPrefs.HasKey("Level_" + i + "_Percentages_Time_Trial"))
+                    {
+                        PlayerPrefs.SetString("Level_" + i + "_Percentages_Time_Trial", "");
+                    }
+
+                    if (!PlayerPrefs.HasKey("Level_" + i + "_Days_Time_Trial"))
+                    {
+                        PlayerPrefs.SetString("Level_" + i + "_Days_Time_Trial", "");
+                    }
+
+                    if (!PlayerPrefs.HasKey("Level_" + i + "_Already_Played_Time_Trial"))
+                    {
+                        PlayerPrefs.SetInt("Level_" + i + "_Already_Played_Time_Trial", 0);
+                    }
+
+                    if (!PlayerPrefs.HasKey("Level_" + i + "_Times_Pl_Time_Trial"))
+                    {
+                        PlayerPrefs.SetInt("Level_" + i + "_Times_Pl_Time_Trial", 0);
+                    }
+                }
+
+                if (!PlayerPrefs.HasKey("Time_P"))
+                {
+                    PlayerPrefs.SetFloat("Time_P", 0f);
+                }
+
+            }
+        }
+    }
+
+    void setLastFiftyGames()
+    {
+        for (int i = 1; i < 7; i++)
+        {
+            string scores = "";
+            string times = "";
+            string days = "";
+
+            if (i != 2 && i != 4)
+            {
+                if (PlayerPrefs.GetInt("Level_" + i + "_Times_Pl") > 50)
+                {
+
+                    scores = PlayerPrefs.GetString("Level_" + i + "_Percentages");
+                    times = PlayerPrefs.GetString("Level_" + i + "_Times");
+                    days = PlayerPrefs.GetString("Level_" + i + "_Days");
+
+                    if (PlayerPrefs.GetInt("Level_" + i + "_Times_Pl") > 50)
+                    {
+                        updateTimesScoresAndDays(i, scores, times, days, "n");
+                    }
+
+                }
+            }
+            else
+            {
+                scores = PlayerPrefs.GetString("Level_" + i + "_Percentages_Stdd");
+                times = PlayerPrefs.GetString("Level_" + i + "_Times_Stdd");
+                days = PlayerPrefs.GetString("Level_" + i + "_Days_Stdd");
+
+                if (PlayerPrefs.GetInt("Level_" + i + "_Times_Pl_Stdd") > 50)
+                {
+                    updateTimesScoresAndDays(i, scores, times, days, "stdd");
+                }
+
+                scores = PlayerPrefs.GetString("Level_" + i + "_Percentages_Ext");
+                times = PlayerPrefs.GetString("Level_" + i + "_Times_Ext");
+                days = PlayerPrefs.GetString("Level_" + i + "_Days_Ext");
+
+                if (PlayerPrefs.GetInt("Level_" + i + "_Times_Pl_Ext") > 50)
+                {
+                    updateTimesScoresAndDays(i, scores, times, days, "ext");
+                }
+
+                if (i == 2)
+                {
+                    scores = PlayerPrefs.GetString("Level_" + i + "_Percentages_Time_Trial");
+                    times = PlayerPrefs.GetString("Level_" + i + "_Times_Time_Trial");
+                    days = PlayerPrefs.GetString("Level_" + i + "_Days_Time_Trial");
+
+                    if (PlayerPrefs.GetInt("Level_" + i + "_Times_Pl_Time_Trial") > 50)
+                    {
+                        updateTimesScoresAndDays(i, scores, times, days, "trial");
+                    }
+                }
+
+            }
+        }
+    }
+
+    void updateTimesScoresAndDays(int i, string scores, string times, string days, string s)
+    {
+        char[] c = new char[1];
+        c[0] = ',';
+        string[] arrayScores = scores.Split(c);
+        string[] arrayTimes = times.Split(c);
+        string[] arrayDays = days.Split(c);
+
+        if (arrayTimes.Length > 51)
+        {
+            Debug.Log("updating times st");
+            string[] arraynw = new string[51];
+            string sttms = "";
+
+            for (int ii = 0; ii < 51; ii++)
+            {
+                arraynw[50 - ii] = arrayTimes[arrayTimes.Length - 1 - ii];
+            }
+            arrayTimes = new string[51];
+
+            for (int iii = 0; iii < 51 - 1; iii++)
+            {
+                arrayTimes[iii] = arraynw[iii];
+                sttms += arraynw[iii] + ",";
+            }
+
+
+            if (i != 2 && i != 4)
+            {
+                PlayerPrefs.SetString("Level_" + i + "_Times", sttms);
+            }
+            else
+            {
+                if (s == "stdd")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Stdd", sttms);
+                }
+                else if (s == "ext")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Ext", sttms);
+                }
+                else if (s == "trial")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Times_Time_Trial", sttms);
+                }
+            }
+
+        }
+
+        if (arrayScores.Length > 51)
+        {
+            Debug.Log("updating scores st");
+            string[] arraynw = new string[51];
+            string sttms = "";
+
+            for (int ii = 0; ii < 51; ii++)
+            {
+                arraynw[50 - ii] = arrayScores[arrayScores.Length - 1 - ii];
+            }
+            arrayScores = new string[51];
+
+            for (int iii = 0; iii < 51 - 1; iii++)
+            {
+                arrayScores[iii] = arraynw[iii];
+                sttms += arraynw[iii] + ",";
+            }
+
+            if (i != 2 && i != 4)
+            {
+                PlayerPrefs.SetString("Level_" + i + "_Percentages", sttms);
+            }
+            else
+            {
+                if (s == "stdd")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Stdd", sttms);
+                }
+                else if (s == "ext")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Ext", sttms);
+                }
+
+                else if (s == "trial")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Percentages_Time_Trial", sttms);
+                }
+            }
+
+        }
+
+
+        if (arrayDays.Length > 51)
+        {
+            Debug.Log("updating days st");
+            string[] arraynw = new string[51];
+            string stdays = "";
+
+            for (int ii = 0; ii < 51; ii++)
+            {
+                arraynw[50 - ii] = arrayDays[arrayDays.Length - 1 - ii];
+            }
+            arrayDays = new string[51];
+
+            for (int iii = 0; iii < 50; iii++)
+            {
+                arrayDays[iii] = arraynw[iii];
+                stdays += arraynw[iii] + ",";
+            }
+
+
+            if (i != 2 && i != 4)
+            {
+                PlayerPrefs.SetString("Level_" + i + "_Days", stdays);
+            }
+            else
+            {
+                if (s == "stdd")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Stdd", stdays);
+                }
+                else if (s == "ext")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Ext", stdays);
+                }
+
+                else if (s == "trial")
+                {
+                    PlayerPrefs.SetString("Level_" + i + "_Days_Time_Trial", stdays);
+                }
+            }
+        }
+    }
+
 }
 

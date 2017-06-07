@@ -43,11 +43,16 @@ public class LevelManager : MonoBehaviour {
 	private float timeLeft = 300.0f;
 	private float trialTimeLeft = 10.0f;
 
+    private bool r = false;
+
+    string tscores = "";
+    string sttime = "";
+    string tsttime = "";
+    string days = "";
 
 
-
-	// switch to the main scene
-	public void homeButtonPressed() {
+    // switch to the main scene
+    public void homeButtonPressed() {
 		exitPanel.SetActive(true);
 	}
 
@@ -131,7 +136,36 @@ public class LevelManager : MonoBehaviour {
 				timeLeft -= Time.deltaTime;
 				timerText.text = "Time: " + Mathf.Round (timeLeft);
 				if (timeLeft < 0) {
-					retryPanel.SetActive(true);
+
+                    if (!r)
+                    {
+                        string day = System.DateTime.Now.ToShortDateString();
+                        char[] a = new char[1];
+                        a[0] = '/';
+                        string[] numbers = day.Split(a);
+                        string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+                        tscores = PlayerPrefs.GetString("Level_2_Percentages_Ext");
+                        tscores += "Game Over,";
+                        PlayerPrefs.SetString("Level_2_Percentages_Ext", tscores);
+
+
+                        tsttime = PlayerPrefs.GetString("Level_2_Times_Ext");
+                        tsttime += "Game Over,";
+                        PlayerPrefs.SetString("Level_2_Times_Ext", tsttime);
+
+                        days = PlayerPrefs.GetString("Level_2_Days_Ext");
+                        days += tday + ",";
+                        PlayerPrefs.SetString("Level_2_Days_Ext", days);
+
+                        int tpl = PlayerPrefs.GetInt("Level_2_Times_Pl_Ext");
+                        tpl++;
+                        PlayerPrefs.SetInt("Level_2_Times_Pl_Ext", tpl);
+
+                        r = true;
+                    }
+
+                    retryPanel.SetActive(true);
 					pauseTime = !pauseTime;
 
 				}
@@ -147,7 +181,36 @@ public class LevelManager : MonoBehaviour {
 				trialTimeLeft -= Time.deltaTime;
 				timerText.text = "Time: " + Mathf.Round (trialTimeLeft);
 				if (trialTimeLeft < 0) {
-					retryPanel.SetActive(true);
+
+                    if (!r)
+                    {
+
+                        string day = System.DateTime.Now.ToShortDateString();
+                        char[] a = new char[1];
+                        a[0] = '/';
+                        string[] numbers = day.Split(a);
+                        string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+                        tscores = PlayerPrefs.GetString("Level_2_Percentages_Time_Trial");
+                        tscores += "Game Over,";
+                        PlayerPrefs.SetString("Level_2_Percentages_Time_Trial", tscores);
+
+                        tsttime = PlayerPrefs.GetString("Level_2_Times_Time_Trial");
+                        tsttime += "Game Over,";
+                        PlayerPrefs.SetString("Level_2_Times_Time_Trial", tsttime);
+
+                        days = PlayerPrefs.GetString("Level_2_Days_Time_Trial");
+                        days += tday + ",";
+                        PlayerPrefs.SetString("Level_2_Days_Time_Trial", days);
+
+                        int tpl = PlayerPrefs.GetInt("Level_2_Times_Pl_Time_Trial");
+                        tpl++;
+                        PlayerPrefs.SetInt("Level_2_Times_Pl_Time_Trial", tpl);
+
+                        r = true;
+                    }
+
+                    retryPanel.SetActive(true);
 					pauseTime = !pauseTime;
 
 				}
@@ -272,20 +335,107 @@ public class LevelManager : MonoBehaviour {
 
 	// method for going to game over scene
 	void endGame() {
-		string gameOverTitle = "Title";
+
+        string day = System.DateTime.Now.ToShortDateString();
+        char[] a = new char[1];
+        a[0] = '/';
+        string[] numbers = day.Split(a);
+        string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+        string gameOverTitle = "Title";
 		float t = 0f;
 		if (mode.text == "Standard") {
 			gameOverTitle = "Structure Classification: Standard";
 			t = Time.time - startTime;
-		}
+
+            if (!PlayerPrefs.HasKey("Level_2_Time_Stdd"))
+            {
+                PlayerPrefs.SetFloat("Level_2_Time", t);
+            }
+
+            PlayerPrefs.SetFloat("TimeP", t);
+
+            tscores = PlayerPrefs.GetString("Level_2_Percentages_Stdd");
+            tscores += t + ",";
+            PlayerPrefs.SetString("Level_2_Percentages_Stdd", tscores);
+
+            sttime = t.ToString() + ",";
+            tsttime = PlayerPrefs.GetString("Level_2_Times_Stdd");
+            tsttime += sttime;
+            PlayerPrefs.SetString("Level_2_Times_Stdd", tsttime);
+
+            days = PlayerPrefs.GetString("Level_2_Days_Stdd");
+            days += tday + ",";
+            PlayerPrefs.SetString("Level_2_Days_Stdd", days);
+
+            int tpl = PlayerPrefs.GetInt("Level_2_Times_Pl_Stdd");
+            tpl++;
+            PlayerPrefs.SetInt("Level_2_Times_Pl_Stdd", tpl);
+
+            PlayerPrefs.SetInt("Level_2_Already_Played_Stdd", 1);
+        }
 		else if (mode.text == "Extreme") {
 			gameOverTitle = "Structure Classification: Extreme";
 			t = timeLeft;
-		}
+
+            if (!PlayerPrefs.HasKey("Level_2_Time_Ext"))
+            {
+                PlayerPrefs.SetFloat("Level_2_Time_Ext", timeLeft);
+            }
+
+            PlayerPrefs.SetFloat("TimeP", timeLeft);
+
+            tscores = PlayerPrefs.GetString("Level_2_Percentages_Ext");
+            tscores += timeLeft + ",";
+            PlayerPrefs.SetString("Level_2_Percentages_Ext", tscores);
+
+            sttime = (timeLeft).ToString() + ",";
+            tsttime = PlayerPrefs.GetString("Level_2_Times_Ext");
+            tsttime += sttime;
+            PlayerPrefs.SetString("Level_2_Times_Ext", tsttime);
+
+            days = PlayerPrefs.GetString("Level_2_Days_Ext");
+            days += tday + ",";
+            PlayerPrefs.SetString("Level_2_Days_Ext", days);
+
+            int tpl = PlayerPrefs.GetInt("Level_2_Times_Pl_Ext");
+            tpl++;
+            PlayerPrefs.SetInt("Level_2_Times_Pl_Ext", tpl);
+
+            PlayerPrefs.SetInt("Level_2_Already_Played_Ext", 1);
+
+        }
 		else if (mode.text == "Time Trial") {
 			gameOverTitle = "Structure Classification: Time Trial";
 			t = trialTimeLeft;
-		}
+
+            if (!PlayerPrefs.HasKey("Level_2_Time_Time_Trial"))
+            {
+                PlayerPrefs.SetFloat("Level_2_Time_Time_Trial", trialTimeLeft);
+            }
+
+            PlayerPrefs.SetFloat("TimeP", trialTimeLeft);
+
+            tscores = PlayerPrefs.GetString("Level_2_Percentages_Time_Trial");
+            tscores += trialTimeLeft + ",";
+            PlayerPrefs.SetString("Level_2_Percentages_Time_Trial", tscores);
+
+            sttime = (trialTimeLeft).ToString() + ",";
+            tsttime = PlayerPrefs.GetString("Level_2_Times_Time_Trial");
+            tsttime += sttime;
+            PlayerPrefs.SetString("Level_2_Times_Time_Trial", tsttime);
+
+            days = PlayerPrefs.GetString("Level_2_Days_Time_Trial");
+            days += tday + ",";
+            PlayerPrefs.SetString("Level_2_Days_Time_Trial", days);
+
+            int tpl = PlayerPrefs.GetInt("Level_2_Times_Pl_Time_Trial");
+            tpl++;
+            PlayerPrefs.SetInt("Level_2_Times_Pl_Time_Trial", tpl);
+
+            PlayerPrefs.SetInt("Level_2_Already_Played_Time_Trial", 1);
+
+        }
 		int score = (int)t;
 		PlayerPrefs.SetString("Game_Title",gameOverTitle);
 		PlayerPrefs.SetInt("Score",score);

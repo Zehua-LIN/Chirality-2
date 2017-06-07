@@ -58,7 +58,9 @@ public class QuestionManager : MonoBehaviour {
 		}
 	}
 
-	void Awake() {
+    private float strtTime;
+
+    void Awake() {
 		// singleton
 		if (Instance == null) {
 			Instance = this;
@@ -84,7 +86,9 @@ public class QuestionManager : MonoBehaviour {
 		loadQuestions();
 		instantiateRandomQuestionToDisplay();		
 		StartCoroutine(configureNextButtonColor());
-	}
+
+        strtTime = Time.time;
+    }
 
 	void Update() {
 		if(Input.GetKey(KeyCode.Escape)) {
@@ -211,23 +215,92 @@ public class QuestionManager : MonoBehaviour {
 			funFactPanel.SetActive(false);
 			instantiateRandomQuestionToDisplay();
 		}else {
-			// go to game over scene 
-			PlayerPrefs.SetString("Game_Title",gameTitle.text);
+            // go to game over scene 
+            float timeP = Mathf.Round(Time.time - strtTime);
+
+            PlayerPrefs.SetString("Game_Title",gameTitle.text);
 			float percetange = Mathf.Round((score/totalNumberOfCells)*100) / 100f;
 			PlayerPrefs.SetInt("Score",score);
 			PlayerPrefs.SetFloat("Percentage",percetange);
 
-			switch (gameLevel)
+            string day = System.DateTime.Now.ToShortDateString();
+            char[] a = new char[1];
+            a[0] = '/';
+            string[] numbers = day.Split(a);
+            string tday = numbers[1] + "/" + numbers[0] + "/" + numbers[2];
+
+            string tscores = "";
+            string sttime = "";
+            string tsttime = "";
+            string days = "";
+
+            switch (gameLevel)
 			{
 				case 1:
 					if(!PlayerPrefs.HasKey("Level_1_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_1_High_Percentage",0f);
-					}
+
+                        if (!PlayerPrefs.HasKey("Level_1_Time"))
+                        {
+                            PlayerPrefs.SetFloat("Level_1_Time", timeP);
+                        }
+
+                        PlayerPrefs.SetFloat("TimeP", timeP);
+                        tscores = PlayerPrefs.GetString("Level_1_Percentages");
+                        Debug.Log(tscores);
+                        tscores += percetange + ",";
+                        PlayerPrefs.SetString("Level_1_Percentages", tscores);
+                        Debug.Log("aaaa");
+                        Debug.Log(PlayerPrefs.GetString("Level_1_Percentages"));
+
+                        sttime = timeP.ToString() + ",";
+                        tsttime = PlayerPrefs.GetString("Level_1_Times");
+                        tsttime += sttime;
+                        PlayerPrefs.SetString("Level_1_Times", tsttime);
+
+                        days = PlayerPrefs.GetString("Level_1_Days");
+                        days += tday + ",";
+                        PlayerPrefs.SetString("Level_1_Days", days);
+
+                        int tpl = PlayerPrefs.GetInt("Level_1_Times_Pl");
+                        tpl++;
+                        PlayerPrefs.SetInt("Level_1_Times_Pl", tpl);
+
+                        PlayerPrefs.SetInt("Level_1_Already_Played", 1);
+                    }
 					break;
 				case 3:
 					if(!PlayerPrefs.HasKey("Level_3_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_3_High_Percentage",0f);
-					}
+
+                        if (!PlayerPrefs.HasKey("Level_3_Time"))
+                        {
+                            PlayerPrefs.SetFloat("Level_3_Time", timeP);
+                        }
+
+                        PlayerPrefs.SetFloat("TimeP", timeP);
+
+                        tscores = PlayerPrefs.GetString("Level_3_Percentages");
+                        tscores += percetange + ",";
+                        PlayerPrefs.SetString("Level_3_Percentages", tscores);
+
+                        sttime = timeP.ToString() + ",";
+                        tsttime = PlayerPrefs.GetString("Level_3_Times");
+                        tsttime += sttime;
+                        PlayerPrefs.SetString("Level_3_Times", tsttime);
+
+                        days = PlayerPrefs.GetString("Level_3_Days");
+                        days += tday + ",";
+                        PlayerPrefs.SetString("Level_3_Days", days);
+
+                        int tplt = PlayerPrefs.GetInt("Level_3_Times_Pl");
+                        tplt++;
+                        PlayerPrefs.SetInt("Level_3_Times_Pl", tplt);
+
+                        PlayerPrefs.SetInt("Level_3_Already_Played", 1);
+
+
+                    }
 					break;
 				default:
 					break;
