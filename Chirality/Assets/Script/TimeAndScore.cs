@@ -34,7 +34,7 @@ public class TimeAndScore : MonoBehaviour {
     void Start()
     {
         //PlayerPrefs.DeleteAll();
-        Debug.Log(PlayerPrefs.GetFloat("Level_6_Time"));
+        Debug.Log("6: " + PlayerPrefs.GetInt("Level_6_Times_Pl"));
         goToFirstPage();
     }
 
@@ -635,10 +635,10 @@ public class TimeAndScore : MonoBehaviour {
            
         }
 
-        float prefrheight = Mathf.Round((arrayTimes.Length - 1) * 70);
+        float prefrheight = Mathf.Round((arrayTimes.Length - 1) * 66);
         if (prefrheight < 528)
         {
-            prefrheight = 500;
+            prefrheight = 528;
         }
 
         LayoutElement layoutelmnt = canvasr.GetComponent<LayoutElement>();
