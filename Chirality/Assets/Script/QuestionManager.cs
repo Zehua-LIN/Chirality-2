@@ -239,6 +239,7 @@ public class QuestionManager : MonoBehaviour {
 				case 1:
 					if(!PlayerPrefs.HasKey("Level_1_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_1_High_Percentage",0f);
+                        }
 
                         if (!PlayerPrefs.HasKey("Level_1_Time"))
                         {
@@ -267,11 +268,12 @@ public class QuestionManager : MonoBehaviour {
                         PlayerPrefs.SetInt("Level_1_Times_Pl", tpl);
 
                         PlayerPrefs.SetInt("Level_1_Already_Played", 1);
-                    }
+
 					break;
 				case 3:
 					if(!PlayerPrefs.HasKey("Level_3_High_Percentage")) {
 						PlayerPrefs.SetFloat("Level_3_High_Percentage",0f);
+                        }
 
                         if (!PlayerPrefs.HasKey("Level_3_Time"))
                         {
@@ -298,9 +300,6 @@ public class QuestionManager : MonoBehaviour {
                         PlayerPrefs.SetInt("Level_3_Times_Pl", tplt);
 
                         PlayerPrefs.SetInt("Level_3_Already_Played", 1);
-
-
-                    }
 					break;
 				default:
 					break;
