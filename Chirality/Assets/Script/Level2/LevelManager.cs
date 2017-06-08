@@ -114,6 +114,8 @@ public class LevelManager : MonoBehaviour {
 
 		configureBackgroundMusic();
 
+        r = false;
+
 	}
 
 
