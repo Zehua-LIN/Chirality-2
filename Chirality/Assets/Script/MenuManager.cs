@@ -113,7 +113,7 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void stopScrolling() {
-		//scrollAnimation.Stop();
+		scrollAnimation.Stop();
 	}
 
 	void configureBackgroundMusic() {
