@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour {
 	private Color textColorUnselected;
 
 	void Start() {
-		
+
 		settingPanel.SetActive(false);
 
         setTimesAndScoresForUse();

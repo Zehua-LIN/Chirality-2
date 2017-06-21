@@ -113,9 +113,9 @@ public class GameOverManager : MonoBehaviour {
 
 	void displayRecord() {
 		gameTitle.text = title;
-		scoreLabel.text = (percentage * 100).ToString() + " %";
+		scoreLabel.text = (percentage * 100).ToString() + "%";
 
-		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + " %!";
+		highPercentageLabel.text = "Your previous best was " + (highPercentage * 100).ToString() + "%!";
 
 		if(title =="Structure Classification: Standard" || title =="Structure Classification: Extreme" || title =="Structure Classification: Time Trial") {
 			displayRecordForLevel2();
@@ -147,19 +147,19 @@ public class GameOverManager : MonoBehaviour {
 		if(percentage < 0.5f) {
 			instantiateMedal(0);
 			goodEffortLabel.text = "Good Effort!";
-			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + " %.";
+			percentageLabel.text = "But your chemistry is a little rusty. You got " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.5f && percentage <= 0.69f) {
 			instantiateMedal(1);
 			goodEffortLabel.text = "Nice try!";
-			percentageLabel.text = "You joined tin and copper with " + (percentage * 100).ToString() + " %.";
+			percentageLabel.text = "You joined tin and copper with " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.7f && percentage <= 0.89f) {
 			instantiateMedal(2);
 			goodEffortLabel.text = "Great work!";
-			percentageLabel.text = "With that sterling effort you got " + (percentage * 100).ToString() + " %.";
+			percentageLabel.text = "With that sterling effort you got " + (percentage * 100).ToString() + "%.";
 		}else if(percentage >= 0.9f && percentage <= 0.99f) {
 			instantiateMedal(3);
 			goodEffortLabel.text = "Well done!";
-			percentageLabel.text = "Your chemistry prowess is gold standard. You got " + (percentage * 100).ToString() + " %.";
+			percentageLabel.text = "Your chemistry prowess is gold standard. You got " + (percentage * 100).ToString() + "%.";
 		}else {
 			instantiateMedal(4);
 			goodEffortLabel.text = "Congratulations!";
@@ -617,7 +617,7 @@ public class GameOverManager : MonoBehaviour {
 		FB.ShareLink(contentTitle:"Chirality 2",
 			contentURL:new System.Uri("https://spencerandjones2016.blogspot.com.au/"),
 			contentDescription: description,
-			photoURL: new System.Uri("https://4.bp.blogspot.com/-KeAemQB8JYE/WBL3QLQ7YTI/AAAAAAAAAAU/-T4q_jWkLZ8Re5RkX5RQkkBC6SZEE6xTQCK4B/s113/artwork-source%2Bcopy.jpg"),
+			photoURL: new System.Uri("https://4.bp.blogspot.com/-fm11xRuOIXU/WUeEgPNx4XI/AAAAAAAAAG4/OJphWPx_FLUHE4yXPa1RKucO2NQCEzUNgCLcBGAs/s200/Chirality2-Icon-midblue.png"),
 			callback: fbCallBack);
 	}
 
@@ -629,12 +629,11 @@ public class GameOverManager : MonoBehaviour {
 
         if (title == "Structure Classification: Standard" || title == "Structure Classification: Extreme" || title == "Structure Classification: Time Trial" || title == "Isomers Extreme")
         {
-			description = "Hey, I got the " + medalString + " in Chirality 2: " + title + ". Come and check it out!";
+			description = "I got the " + medalString + " in Chirality 2: " + title + ". Check it out on App Store or Google Play!";
 		}else {
-			description = "Hey, I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Come and check it out!";
+			description = "I got " + (percentage * 100).ToString() + "%" + " in Chirality 2: " + title + ". Check it out on App Store or Google Play!";
 		}
-		string link = "Now available on App Store & Google Play.";
-		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description + "\n" + link));
+		Application.OpenURL(address + "?text=" + WWW.EscapeURL(name + "\n" + description));
 	}
 
 	private void fbCallBack(IShareResult result) {
